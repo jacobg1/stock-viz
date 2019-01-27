@@ -1,19 +1,31 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { addPieChart } from '../actions'
 
 const AddPieChart = ({ dispatch }) => {
-  let numberOne
+  let firstNumber
   let total
 
   return (
     <div>
-      <form>
-        <input placeholder="first number" />
-        <input placeholder="total" />
+      <form
+        onSubmit={e => {
+          e.preventDefault()
+          dispatch(addPieChart(firstNumber.value, total.value))
+          firstNumber.value = ''
+          total.value = ''
+        }}
+      >
+        <input
+          ref={node => (firstNumber = node)}
+          placeholder="first number"
+          type="number"
+        />
+        <input ref={node => (total = node)} placeholder="total" type="number" />
         <button type="submit">add</button>
       </form>
     </div>
   )
 }
 
-export default AddPieChart
+export default connect()(AddPieChart)
