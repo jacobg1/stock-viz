@@ -1,20 +1,26 @@
 import React from 'react'
 import * as d3 from 'd3'
 import PieSlice from '../components/PieSlice'
+import PieLabel from '../components/PieLabel'
 
 const PieChart = ({ data }) => {
   const numberArray = data.split(',').map(Number)
   const height = 200
   const width = 200
 
-  let slice = d3.pie()(numberArray)
+  const slice = d3.pie()(numberArray)
+  const total = numberArray.reduce((total, amount) => total + amount)
 
   return (
-    <svg height={height} width={width}>
-      <g transform={`translate(${width / 2}, ${height / 2})`}>
-        <PieSlice slice={slice} />
-      </g>
-    </svg>
+    <>
+      <h1>{total}</h1>
+      <svg height={height} width={width}>
+        <g transform={`translate(${width / 2}, ${height / 2})`}>
+          <PieSlice slice={slice} />
+          {/* <PieLabel label={numberArray} /> */}
+        </g>
+      </svg>
+    </>
   )
 }
 export default PieChart
