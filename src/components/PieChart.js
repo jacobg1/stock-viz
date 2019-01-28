@@ -1,7 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
 import PieSlice from '../components/PieSlice'
-import PieLabel from '../components/PieLabel'
 
 const PieChart = ({ data }) => {
   const numberArray = data.split(',').map(Number)
@@ -17,7 +16,6 @@ const PieChart = ({ data }) => {
       <svg height={height} width={width}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <PieSlice slice={slice} />
-          {/* <PieLabel label={numberArray} /> */}
         </g>
       </svg>
     </>
