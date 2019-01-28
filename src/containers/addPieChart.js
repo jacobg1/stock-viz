@@ -3,25 +3,22 @@ import { connect } from 'react-redux'
 import { addPieChart } from '../actions'
 
 const AddPieChart = ({ dispatch }) => {
-  let firstNumber
-  let total
+  let data
 
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          dispatch(addPieChart(firstNumber.value, total.value))
-          firstNumber.value = ''
-          total.value = ''
+          dispatch(addPieChart(data.value))
+          data.value = ''
         }}
       >
         <input
-          ref={node => (firstNumber = node)}
-          placeholder="first number"
-          type="number"
+          ref={node => (data = node)}
+          placeholder="input data separate numbers by ,"
+          type="text"
         />
-        <input ref={node => (total = node)} placeholder="total" type="number" />
         <button type="submit">add</button>
       </form>
     </div>
