@@ -1,7 +1,6 @@
 let nextPieChartId = 0
-export const addPieChart = (number, total) => ({
+export const addPieChart = data => ({
   type: 'ADD_PIE_CHART',
   id: nextPieChartId++,
-  number,
-  total
+  data
 })
