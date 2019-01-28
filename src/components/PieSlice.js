@@ -6,8 +6,11 @@ const PieSlice = ({ slice }) => {
     .arc()
     .innerRadius(0)
     .outerRadius(100)
+
+  let interpolateColor = d3.interpolateRgb('#48e3e0', '#4157d9')
   return slice.map((item, index) => {
-    return <path key={index} d={arc(item)} fill="#ffffff" />
+    let segmentColor = interpolateColor(index / (slice.length - 1))
+    return <path key={index} d={arc(item)} fill={segmentColor} />
   })
 }
 
