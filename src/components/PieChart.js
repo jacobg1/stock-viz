@@ -1,24 +1,37 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 import PieSlice from '../components/PieSlice'
 
-const PieChart = ({ data }) => {
-  const numberArray = data.split(',').map(Number)
-  const height = 300
-  const width = 300
+/*
+  data: array of data points (string)
+  title: title of pie chart (user inputted)
+  this component reformats data into an array of numbers,
+  calculates total, creates d3.pie() from data,
+  renders svg and passes down slice to PieSlice component
+  created as a pure component so that it only renders new state
+*/
+export class PieChart extends PureComponent {
+  render() {
+    const { data, title } = this.props,
+      numberArray = data.split(',').map(Number),
+      height = 300,
+      width = 300,
+      slice = d3.pie()(numberArray),
+      total = numberArray.reduce((total, amount) => total + amount)
 
-  const slice = d3.pie()(numberArray)
-  const total = numberArray.reduce((total, amount) => total + amount)
-
-  return (
-    <div>
-      <h2>{total}</h2>
-      <svg height={height} width={width}>
-        <g transform={`translate(${width / 2}, ${height / 2})`}>
-          <PieSlice slice={slice} />
-        </g>
-      </svg>
-    </div>
-  )
+    return (
+      <div>
+        <h2>
+          {title ? `${title} -` : ''} {total}
+        </h2>
+        <svg height={height} width={width}>
+          <g transform={`translate(${width / 2}, ${height / 2})`}>
+            <PieSlice slice={slice} />
+          </g>
+        </svg>
+      </div>
+    )
+  }
 }
+
 export default PieChart
