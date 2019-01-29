@@ -21,17 +21,33 @@
 .App-link {
   color: #61dafb;
 }
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
+
 .label {
-	text-anchor: middle;
-	fill: white;
-	font-size: 16px;
+  text-anchor: middle;
+  fill: white;
+  font-size: 16px;
+}
+
+#pieCharts {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.tooltip {
+   visibility: hidden;
+}
+
+.arc:hover .tooltip {
+  visibility: visible;
 }
