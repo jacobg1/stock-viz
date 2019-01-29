@@ -1,6 +1,6 @@
 import React from 'react'
 import * as d3 from 'd3'
-import PieLabel from './PieLabel'
+import InnerLabel from './InnerLabel'
 
 /*
   center: [x,y] array of x, y coordinates 
@@ -52,10 +52,16 @@ const PieSlice = ({ slice }) => {
     return (
       <g className="arc" key={index}>
         <path d={arc(item)} fill={segmentColor} />
-        <text transform={`translate(${center})`} dy=".35em" className="label">
+        {/* <text transform={`translate(${center})`} dy=".35em" className="label">
           {item.value}
-        </text>
-        <PieLabel />
+        </text> */}
+			<InnerLabel 
+			  arc={arc} 
+			  segmentColor={segmentColor}
+              center={center}
+			>
+				{item.value}
+			</InnerLabel>
         <text
           dy=".35em"
           fill={segmentColor}
