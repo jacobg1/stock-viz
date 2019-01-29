@@ -11,14 +11,14 @@ const PieChart = ({ data }) => {
   const total = numberArray.reduce((total, amount) => total + amount)
 
   return (
-    <>
-      <h1>{total}</h1>
+    <div>
+      <h2>{total}</h2>
       <svg height={height} width={width}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <PieSlice slice={slice} />
         </g>
       </svg>
-    </>
+    </div>
   )
 }
 export default PieChart
