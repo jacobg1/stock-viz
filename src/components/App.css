@@ -51,3 +51,6 @@
 .arc:hover .tooltip {
   visibility: visible;
 }
+.floating-label {
+	font-size: 12px;
+}
