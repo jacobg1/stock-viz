@@ -4,8 +4,8 @@ import PieSlice from '../components/PieSlice'
 
 const PieChart = ({ data }) => {
   const numberArray = data.split(',').map(Number)
-  const height = 200
-  const width = 200
+  const height = 300
+  const width = 300
 
   const slice = d3.pie()(numberArray)
   const total = numberArray.reduce((total, amount) => total + amount)
