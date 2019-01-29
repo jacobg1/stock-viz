@@ -3,8 +3,8 @@ import * as d3 from 'd3'
 import PieLabel from './PieLabel'
 
 /*
+  center: [x,y] array of x, y coordinates 
   function to calculate x and y position of labels
-  center: [x,y] array of x, y coordinates
   interpolates x and y coords into string
   which can then be set as a css transform
 */
@@ -19,9 +19,9 @@ function positionLabels(center) {
 }
 
 /*
-  function to determine whether label is before or after center of circle
   item: object which represents and individual slice
-  returns end if before center and start if after
+  function to determine whether label is before or after center of circle
+  if label is before returns end, if label is after returns start
   which can then be used as a css text-anchor
 */
 function startOrEnd(item) {
@@ -33,8 +33,8 @@ function startOrEnd(item) {
 }
 
 /*
-  represents an slice of the pie chart
-  slice: object recieved as props
+  slice: object recieved as props	
+  represents a slice of the pie chart
   loops through props and creates an svg path element for each slice
 */
 const PieSlice = ({ slice }) => {
@@ -58,7 +58,7 @@ const PieSlice = ({ slice }) => {
         <PieLabel />
         <text
           dy=".35em"
-          fill="#ffffff"
+          fill={segmentColor}
           className="floating-label"
           transform={positionLabels(center)}
           textAnchor={startOrEnd(item)}
