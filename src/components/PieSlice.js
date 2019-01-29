@@ -52,16 +52,7 @@ const PieSlice = ({ slice }) => {
     return (
       <g className="arc" key={index}>
         <path d={arc(item)} fill={segmentColor} />
-        {/* <text transform={`translate(${center})`} dy=".35em" className="label">
-          {item.value}
-        </text> */}
-			<InnerLabel 
-			  arc={arc} 
-			  segmentColor={segmentColor}
-              center={center}
-			>
-				{item.value}
-			</InnerLabel>
+        <InnerLabel center={center}>{item.value}</InnerLabel>
         <text
           dy=".35em"
           fill={segmentColor}
