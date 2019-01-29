@@ -5,7 +5,8 @@ const pieCharts = (state = [], action) => {
         ...state,
         {
           id: action.id,
-          data: action.data
+          data: action.data,
+          title: action.title
         }
       ]
     default:
