@@ -37,7 +37,7 @@ function startOrEnd(item) {
   represents a slice of the pie chart
   loops through props and creates an svg path element for each slice
 */
-const PieSlice = ({ slice }) => {
+const PieSlice = ({ slice, total, isPercent }) => {
   const arc = d3
     .arc()
     .innerRadius(0)
@@ -52,7 +52,9 @@ const PieSlice = ({ slice }) => {
     return (
       <g className="arc" key={index}>
         <path d={arc(item)} fill={segmentColor} />
-        <InnerLabel center={center}>{item.value}</InnerLabel>
+        <InnerLabel isPercent={isPercent} center={center} total={total}>
+          {item.value}
+        </InnerLabel>
         <text
           dy=".35em"
           fill={segmentColor}

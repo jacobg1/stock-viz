@@ -1,8 +1,16 @@
 import { connect } from 'react-redux'
 import PieChartList from '../components/PieChartList'
+import { togglePercent } from '../actions'
 
 const mapStateToProps = state => ({
   pieCharts: state.pieCharts
 })
 
-export default connect(mapStateToProps)(PieChartList)
+const mapDispatchToProps = dispatch => ({
+  togglePercent: id => dispatch(togglePercent(id))
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PieChartList)

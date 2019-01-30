@@ -12,7 +12,7 @@ import PieSlice from '../components/PieSlice'
 */
 export class PieChart extends PureComponent {
   render() {
-    const { data, title } = this.props,
+    const { data, title, onClick, isPercent } = this.props,
       numberArray = data.split(',').map(Number),
       height = 300,
       width = 300,
@@ -21,12 +21,12 @@ export class PieChart extends PureComponent {
 
     return (
       <div>
-        <h2>
+        <h2 onClick={onClick}>
           {title ? `${title} -` : ''} {total}
         </h2>
         <svg height={height} width={width}>
           <g transform={`translate(${width / 2}, ${height / 2})`}>
-            <PieSlice slice={slice} />
+            <PieSlice isPercent={isPercent} slice={slice} total={total} />
           </g>
         </svg>
       </div>
