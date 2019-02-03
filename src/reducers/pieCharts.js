@@ -8,7 +8,8 @@ const pieCharts = (state = [], action) => {
           data: action.data,
           title: action.title,
           labels: action.labels,
-          isPercent: false
+          isPercent: false,
+          type: 'pieChart'
         }
       ]
     case 'TOGGLE_PERCENT':
