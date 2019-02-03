@@ -1,16 +1,19 @@
 import React from 'react'
 
 /*
-  children: the label to display (props)
-  center: center of the chart calculated using d3 (props)
+  children: Number the label to display (props)
+  center: [x,y] center of the chart calculated using d3 (props)
+  total: Number sum of label values (props)
+  isPercent: boolean whether label has been changed to percent, default is false
 */
-function calculatePercent(children, total) {
-  return `${((children / total) * 100).toFixed(2)}%`
-}
 const InnerLabel = ({ children, center, total, isPercent }) => {
+  // calulate the percent value of each label
+  const calculatePercent = () => {
+    return `${((children / total) * 100).toFixed(2)}%`
+  }
   return (
     <text transform={`translate(${center})`} dy=".35em" className="label">
-      {isPercent ? calculatePercent(children, total) : children}
+      {isPercent ? calculatePercent() : children}
     </text>
   )
 }
