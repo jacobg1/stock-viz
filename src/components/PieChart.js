@@ -9,12 +9,13 @@ import PieSlice from '../components/PieSlice'
   calculates total, creates d3.pie() from data,
   renders svg and passes down slice to PieSlice component
 */
-const PieChart = ({ data, title, onClick, isPercent }) => {
+const PieChart = ({ data, labels, title, onClick, isPercent }) => {
   const numberArray = data.split(',').map(Number),
     height = 300,
     width = 300,
     slice = d3.pie()(numberArray),
-    total = numberArray.reduce((total, amount) => total + amount)
+    total = numberArray.reduce((total, amount) => total + amount),
+    labelArray = labels.split(',')
 
   return (
     <div>
@@ -23,7 +24,12 @@ const PieChart = ({ data, title, onClick, isPercent }) => {
       </h2>
       <svg height={height} width={width}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
-          <PieSlice isPercent={isPercent} slice={slice} total={total} />
+          <PieSlice
+            isPercent={isPercent}
+            slice={slice}
+            labelArray={labelArray}
+            total={total}
+          />
         </g>
       </svg>
     </div>
