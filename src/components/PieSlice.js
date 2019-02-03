@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 import InnerLabel from './InnerLabel'
 
@@ -74,3 +75,10 @@ const PieSlice = ({ slice, total, labelArray, isPercent }) => {
 }
 
 export default PieSlice
+
+PieSlice.propTypes = {
+  total: PropTypes.number.isRequired,
+  isPercent: PropTypes.bool.isRequired,
+  labelArray: PropTypes.arrayOf(PropTypes.string),
+  slice: PropTypes.arrayOf(PropTypes.object).isRequired
+}
