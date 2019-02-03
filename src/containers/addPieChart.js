@@ -23,7 +23,7 @@ const AddPieChart = ({ dispatch }) => {
         />
         <input
           ref={node => (title = node)}
-          placeholder="input data separate numbers by ,"
+          placeholder="title"
           type="text"
         />
         <button type="submit">add</button>
