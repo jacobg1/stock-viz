@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 import PieSlice from '../components/PieSlice'
-
+import PercentToggle from '../components/PercentToggle'
 /*
   data: array of data points (string)
   title: title of pie chart (user inputted)
@@ -10,19 +10,20 @@ import PieSlice from '../components/PieSlice'
   calculates total, creates d3.pie() from data,
   renders svg and passes down slice to PieSlice component
 */
-const PieChart = ({ data, labels, title, onClick, isPercent }) => {
+const PieChart = ({ data, labels, title, onChange, isPercent }) => {
   const numberArray = data.split(',').map(Number),
     height = 300,
-    width = 300,
+    width = 350,
     slice = d3.pie()(numberArray),
     total = numberArray.reduce((total, amount) => total + amount),
     labelArray = labels.split(',')
 
   return (
     <div>
-      <h2 onClick={onClick}>
-        {title ? `${title} -` : ''} {total}
+      <h2>
+        {title ? `${title}: ` : ''} {total}
       </h2>
+      <PercentToggle onChange={onChange} isPercent={isPercent} />
       <svg height={height} width={width}>
         <g transform={`translate(${width / 2}, ${height / 2})`}>
           <PieSlice
@@ -43,6 +44,6 @@ PieChart.propTypes = {
   labels: PropTypes.string,
   title: PropTypes.string,
   data: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
   isPercent: PropTypes.bool.isRequired
 }
