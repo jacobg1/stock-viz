@@ -12,3 +12,13 @@ export const togglePercent = id => ({
   type: 'TOGGLE_PERCENT',
   id
 })
+
+export const setChartFilter = filter => ({
+  type: 'SET_CHART_FILTER',
+  filter
+})
+
+export const ChartFilters = {
+  SHOW_PIE_CHARTS: 'SHOW_PIE_CHARTS',
+  SHOW_LINE_GRAPHS: 'SHOW_LINE_GRAPHS'
+}
