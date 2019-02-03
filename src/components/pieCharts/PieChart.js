@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import * as d3 from 'd3'
-import PieSlice from '../components/PieSlice'
-import PercentToggle from '../components/PercentToggle'
+import PieSlice from './PieSlice'
+import PercentToggle from './PercentToggle'
 /*
   data: array of data points (string)
   title: title of pie chart (user inputted)

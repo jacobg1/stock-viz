@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import PieChartList from '../components/PieChartList'
+import PieChartList from '../components/pieCharts/PieChartList'
 import { togglePercent } from '../actions'
 
 const mapStateToProps = state => ({

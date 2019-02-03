@@ -25,6 +25,6 @@ const PercentToggle = ({ onChange, isPercent }) => {
 export default PercentToggle
 
 PercentToggle.propTypes = {
-	onChange: PropTypes.func.isRequired,
-	isPercent: PropTypes.bool.isRequired
+  onChange: PropTypes.func.isRequired,
+  isPercent: PropTypes.bool.isRequired
 }
