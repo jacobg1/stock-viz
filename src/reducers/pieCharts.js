@@ -7,6 +7,7 @@ const pieCharts = (state = [], action) => {
           id: action.id,
           data: action.data,
           title: action.title,
+          labels: action.labels,
           isPercent: false
         }
       ]
