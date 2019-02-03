@@ -16,7 +16,7 @@ class PieChartList extends PureComponent {
           <PieChart
             key={pieChart.id}
             {...pieChart}
-            onClick={() => togglePercent(pieChart.id)}
+            onChange={() => togglePercent(pieChart.id)}
           />
         ))}
       </div>
