@@ -27,12 +27,14 @@ class PieChartList extends PureComponent {
 export default PieChartList
 
 PieChartList.propTypes = {
-	pieCharts: PropTypes.arrayOf(PropTypes.shape({
-	  id: PropTypes.number.isRequired,
-	  data: PropTypes.string.isRequired,
-	  title: PropTypes.string,
-	  labels: PropTypes.string,
-	  isPercent: PropTypes.bool.isRequired
-	}).isRequired).isRequired,
-	togglePercent: PropTypes.func.isRequired
+  pieCharts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      data: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      labels: PropTypes.string,
+      isPercent: PropTypes.bool.isRequired
+    }).isRequired
+  ).isRequired,
+  togglePercent: PropTypes.func.isRequired
 }
