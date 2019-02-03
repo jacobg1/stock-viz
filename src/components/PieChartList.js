@@ -8,7 +8,6 @@ import PieChart from './PieChart'
 */
 class PieChartList extends PureComponent {
   render() {
-    console.log('test')
     const { pieCharts, togglePercent } = this.props
     return (
       <div id="pieCharts">
