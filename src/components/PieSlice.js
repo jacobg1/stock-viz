@@ -56,15 +56,18 @@ const PieSlice = ({ slice, total, labelArray, isPercent }) => {
         <InnerLabel isPercent={isPercent} center={center} total={total}>
           {item.value}
         </InnerLabel>
-        <text
-          dy=".35em"
-          fill={segmentColor}
-          className="floating-label"
-          transform={positionLabels(center)}
-          textAnchor={startOrEnd(item)}
-        >
-          {label}
-        </text>
+
+        {label && (
+          <text
+            dy=".35em"
+            fill={segmentColor}
+            className="floating-label"
+            transform={positionLabels(center)}
+            textAnchor={startOrEnd(item)}
+          >
+            {label}
+          </text>
+        )}
       </g>
     )
   })
