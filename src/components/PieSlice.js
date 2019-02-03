@@ -37,7 +37,7 @@ function startOrEnd(item) {
   represents a slice of the pie chart
   loops through props and creates an svg path element for each slice
 */
-const PieSlice = ({ slice, total, isPercent }) => {
+const PieSlice = ({ slice, total, labelArray, isPercent }) => {
   const arc = d3
     .arc()
     .innerRadius(0)
@@ -47,7 +47,8 @@ const PieSlice = ({ slice, total, isPercent }) => {
 
   return slice.map((item, index) => {
     const segmentColor = interpolateColor(index / (slice.length - 1)),
-      center = arc.centroid(item)
+      center = arc.centroid(item),
+      label = labelArray[index]
 
     return (
       <g className="arc" key={index}>
@@ -62,7 +63,7 @@ const PieSlice = ({ slice, total, isPercent }) => {
           transform={positionLabels(center)}
           textAnchor={startOrEnd(item)}
         >
-          {item.value}
+          {label}
         </text>
       </g>
     )
