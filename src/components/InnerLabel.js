@@ -1,5 +1,5 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 /*
   children: Number the label to display (props)
   center: [x,y] center of the chart calculated using d3 (props)
@@ -19,3 +19,10 @@ const InnerLabel = ({ children, center, total, isPercent }) => {
 }
 
 export default InnerLabel
+
+InnerLabel.propTypes = {
+  center: PropTypes.arrayOf(PropTypes.number).isRequired,
+  total: PropTypes.number.isRequired,
+  isPercent: PropTypes.bool.isRequired,
+  children: PropTypes.number.isRequired
+}
