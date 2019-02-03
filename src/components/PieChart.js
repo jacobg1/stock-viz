@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 import PieSlice from '../components/PieSlice'
 
@@ -37,3 +38,11 @@ const PieChart = ({ data, labels, title, onClick, isPercent }) => {
 }
 
 export default PieChart
+
+PieChart.propTypes = {
+  labels: PropTypes.string,
+  title: PropTypes.string,
+  data: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  isPercent: PropTypes.bool.isRequired
+}
