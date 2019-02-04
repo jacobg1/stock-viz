@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { addPieChart } from '../actions'
+import { addPieChart } from '../../actions'
 
 const AddPieChart = ({ dispatch }) => {
   let data
