@@ -5,6 +5,7 @@ import AddPieChart from '../containers/AddPieChart'
 import VisiblePieChartList from '../containers/VisiblePieChartList'
 import FilterCharts from '../containers/FilterCharts'
 import { ChartFilters } from '../actions'
+import PropTypes from 'prop-types'
 
 class Charts extends Component {
   render() {
@@ -43,3 +44,7 @@ const mapStateToProps = state => ({
 const ChartsContainer = connect(mapStateToProps)(Charts)
 
 export default ChartsContainer
+
+Charts.propTypes = {
+  chartsToShow: PropTypes.string.isRequired
+}

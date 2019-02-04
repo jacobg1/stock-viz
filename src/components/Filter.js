@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Filter = ({ children, onChange, active }) => {
   return (
@@ -10,3 +11,9 @@ const Filter = ({ children, onChange, active }) => {
 }
 
 export default Filter
+
+Filter.propTypes = {
+  children: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  active: PropTypes.bool.isRequired
+}
