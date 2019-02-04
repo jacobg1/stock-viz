@@ -6,6 +6,8 @@ import VisiblePieChartList from '../containers/pieCharts/VisiblePieChartList'
 import FilterCharts from '../containers/FilterCharts'
 import { ChartFilters } from '../actions'
 import PropTypes from 'prop-types'
+import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
+import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
 
 class Charts extends Component {
   render() {
@@ -28,7 +30,8 @@ class Charts extends Component {
           )}
           {chartsToShow === 'SHOW_LINE_GRAPHS' && (
             <>
-              <p>line graphs!!!</p>
+              <AddLineGraph />
+              <VisibleLineGraphList />
             </>
           )}
         </header>
