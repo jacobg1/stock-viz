@@ -1,11 +1,16 @@
 import React, { PureComponent } from 'react'
-import lineGraph from '../lineGraphs/LineGraph'
+import LineGraph from '../lineGraphs/LineGraph'
 
 class LineGraphList extends PureComponent {
   render() {
     const { lineGraphs } = this.props
-    console.log(lineGraphs)
-    return <div>test</div>
+    return (
+      <div>
+        {lineGraphs.map(lineGraph => (
+          <LineGraph key={lineGraph.id} {...lineGraph} />
+        ))}
+      </div>
+    )
   }
 }
 

@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 
-const LineGraph = ({ lineGraph }) => {
-  return (
-    <>
-      <p>test</p>
-    </>
-  )
+class LineGraph extends PureComponent {
+  render() {
+    console.log('test')
+
+    const { title } = this.props
+
+    return (
+      <>
+        <p>{title}</p>
+      </>
+    )
+  }
 }
 
 export default LineGraph
