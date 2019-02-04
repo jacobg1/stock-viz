@@ -4,7 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { composeWithDevTools } from 'redux-devtools-extension'
 import './index.css'
-import Charts from './components/Charts'
+import ChartsContainer from './components/Charts'
 import * as serviceWorker from './serviceWorker'
 import rootReducer from './reducers'
 
@@ -12,7 +12,7 @@ const store = createStore(rootReducer, composeWithDevTools())
 
 render(
   <Provider store={store}>
-    <Charts />
+    <ChartsContainer />
   </Provider>,
   document.getElementById('root')
 )
