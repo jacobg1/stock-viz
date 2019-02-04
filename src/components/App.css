@@ -45,12 +45,24 @@
 }
 
 .tooltip {
-   visibility: hidden;
+  visibility: hidden;
 }
 
 .arc:hover .tooltip {
   visibility: visible;
 }
+
 .floating-label {
-	font-size: 12px;
+  font-size: 12px;
+}
+
+.path {
+  stroke-width: 1;
+  stroke: red;
+  fill: none;
+
+}
+
+.axis {
+  stroke: red;
 }
