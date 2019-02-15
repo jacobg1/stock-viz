@@ -2,36 +2,20 @@ import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
 class LineGraph extends PureComponent {
-  // temp function to create some fake data points
-  fakeData() {
-    const data2 = []
-    for (let x = 0; x <= 20; x++) {
-      const random = Math.random()
-      const temp = data2.length > 0 ? data2[data2.length - 1].y : 30
-      const y =
-        random >= 0.45
-          ? temp + Math.floor(random * 40)
-          : temp - Math.floor(random * 40)
-      data2.push({ x, y })
-    }
-    return data2
-  }
-
   render() {
-    const { title } = this.props
-    const data = this.fakeData()
-    console.log(data)
+    // de-structure props
+    const { title, data } = this.props
 
     // set width, height and margin value
-    const width = 350,
-      height = 200,
-      margin = 2
+    const width = 400,
+      height = 250,
+      margin = 20
 
     const h = height - 2 * margin,
-      w = width - 2 * margin
+      w = 400 - 2 * margin
 
-    //number formatter
-    //   const xFormat = d3.format('.2')
+    // number formatter
+    const formatYLabels = y => Math.floor(y)
 
     // scale x axis to fit data
     const x = d3
@@ -39,7 +23,7 @@ class LineGraph extends PureComponent {
       .domain(d3.extent(data, d => d.x))
       .range([margin, w])
 
-    // scale 7 axis to fit data
+    // scale y axis to fit data
     const y = d3
       .scaleLinear()
       .domain([0, d3.max(data, d => d.y)])
@@ -52,16 +36,48 @@ class LineGraph extends PureComponent {
       .x(d => x(d.x))
       .y(d => y(d.y))
       .curve(d3.curveCatmullRom.alpha(0.5))
-    console.log(line(data))
+
+    // create x axis labels and tick marks
+    const xLabels = x.ticks(8).map((d, i) =>
+      x(d) > margin && x(d) < w ? (
+        <g key={i} transform={`translate(${x(d)}, ${h + 20})`}>
+          <text>{d}</text>
+          <line x1="0" x2="0" y1="0" y2="5" transform="translate(0, -20)" />
+        </g>
+      ) : null
+    )
+
+    // create y axis labels and tick marks
+    const yLabels = y.ticks(5).map((d, i) =>
+      y(d) > 10 && y(d) < h ? (
+        <g key={i} transform={`translate(${margin}, ${y(d)})`}>
+          <text x="-12" y="5">
+            {formatYLabels(d)}
+          </text>
+          <line x1="0" x2="3" y1="0" y2="0" transform="translate(-3, 2)" />
+          <line
+            className="graph-lines"
+            x1="0"
+            x2={w - margin + 4}
+            y1="0"
+            y2="0"
+            transform="translate(-3,2)"
+          />
+        </g>
+      ) : null
+    )
+
     return (
-      <>
+      <div>
         <p>{title}</p>
         <svg height={height} width={width}>
           <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
           <line className="axis" x1={margin} x2={margin} y1={margin} y2={h} />
           <path className="path" d={line(data)} />
+          <g className="axis-labels">{xLabels}</g>
+          <g className="axis-labels">{yLabels}</g>
         </svg>
-      </>
+      </div>
     )
   }
 }

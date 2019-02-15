@@ -5,7 +5,7 @@ class LineGraphList extends PureComponent {
   render() {
     const { lineGraphs } = this.props
     return (
-      <div>
+      <div id="lineGraphs">
         {lineGraphs.map(lineGraph => (
           <LineGraph key={lineGraph.id} {...lineGraph} />
         ))}
