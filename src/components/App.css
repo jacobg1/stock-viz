@@ -37,6 +37,7 @@
   font-size: 12px;
 }
 
+#lineGraphs,
 #pieCharts {
   display: flex;
   justify-content: space-around;
@@ -57,12 +58,25 @@
 }
 
 .path {
-  stroke-width: 1;
-  stroke: red;
+  stroke-width: 1.5px;
+  stroke: #d6d6d8;
   fill: none;
 
 }
 
 .axis {
-  stroke: red;
+  stroke: #d6d6d8;
+}
+
+.axis-labels text {
+  fill: #a8a8ff;
+  font-size: 9px;
+  text-anchor: middle;
+}
+
+.axis-labels line {
+  stroke: #d6d6d8;
+}
+.graph-lines {
+	opacity: .2;
 }
