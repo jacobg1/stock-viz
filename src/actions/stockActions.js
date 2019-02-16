@@ -2,10 +2,10 @@
 	function which fetches the stock data from the api
 */
 
-export function getPrices() {
+export function getPrices(symbol) {
   const key = process.env.REACT_APP_API_KEY,
     type = 'TIME_SERIES_MONTHLY',
-    symbol = 'MSFT',
+    // symbol = 'MSFT',
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
