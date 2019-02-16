@@ -21,6 +21,16 @@ class AddLineGraph extends Component {
     return randomDataArray
   }
 
+  formatUserData(inputData) {
+    const splitInput = inputData.split(';')
+    const result = []
+    splitInput.forEach(element => {
+      const splitElement = element.split(',')
+      result.push({ x: splitElement[0], y: splitElement[1] })
+    })
+    return result
+  }
+
   render() {
     const { dispatch } = this.props
     let data, title
@@ -30,7 +40,10 @@ class AddLineGraph extends Component {
         <form
           onSubmit={e => {
             e.preventDefault()
-            dispatch(addLineGraph(data.value, title.value))
+            const checkForTitle = title.value ? title.value : 'my line'
+            dispatch(
+              addLineGraph(this.formatUserData(data.value), checkForTitle)
+            )
             data.value = ''
             title.value = ''
           }}
