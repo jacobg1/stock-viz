@@ -9,6 +9,9 @@ import PropTypes from 'prop-types'
 import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
 import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
 
+/*
+	component for showing charts and filters for switching between charts
+*/
 class Charts extends Component {
   render() {
     const { chartsToShow } = this.props

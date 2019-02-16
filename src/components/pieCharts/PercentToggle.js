@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/*
+  buttons for toggling between number and percent
+*/
 const PercentToggle = ({ onChange, isPercent }) => {
   return (
     <div>

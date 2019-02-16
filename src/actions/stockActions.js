@@ -1,3 +1,10 @@
+/*
+	creating action types for:
+	  - starting the request
+		- when the request is successful
+		- if the request fails
+*/
+
 export const GET_PRICES_BEGIN = 'GET_PRICES_BEGIN'
 export const GET_PRICES_SUCCESS = 'GET_PRICES_SUCCESS'
 export const GET_PRICES_FAILURE = 'GET_PRICES_FAILURE'

@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+// buttons for filtering between charts
 const Filter = ({ children, onChange, active }) => {
   return (
     <div>
