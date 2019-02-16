@@ -4,6 +4,15 @@
 export function getPrices() {
   return dispatch => {
     dispatch(getPricesBegin())
+		return fetch('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo')
+		.then(response => response.json())
+		.then(json => {
+			dispatch(getPricesSuccess(json['Monthly Time Series']))
+			return json['Monthly Time Series']
+		})
+		.catch(error => 
+			dispatch(getPricesFailure(error))
+		)
   }
 }
 
