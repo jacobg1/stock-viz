@@ -1,3 +1,12 @@
+/* 
+	function which fetches the stock data from the api
+*/
+export function getPrices() {
+  return dispatch => {
+    dispatch(getPricesBegin())
+  }
+}
+
 /*
 	creating action types for:
 	  - starting the request
