@@ -4,25 +4,28 @@
 export function getPrices() {
   return dispatch => {
     dispatch(getPricesBegin())
-		return fetch('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo')
-		.then(handleFetchErrors)
-		.then(response => response.json())
-		.then(json => {
-			dispatch(getPricesSuccess(json['Monthly Time Series']))
-			return json['Monthly Time Series']
-		})
-		.catch(error => 
-			dispatch(getPricesFailure(error))
-		)
+    return fetch(
+      'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo'
+    )
+      .then(handleFetchErrors)
+      .then(response => response.json())
+      .then(json => {
+        console.log(json)
+        dispatch(
+          getPricesSuccess(json['Monthly Time Series'], json['Meta Data'])
+        )
+        return json['Monthly Time Series']
+      })
+      .catch(error => dispatch(getPricesFailure(error)))
   }
 }
 
 // function to handle http errors
-function handleFetchErrors (response) {
-	if(!response.ok) {
-		throw Error(response.statusText)
-	} 
-	return response
+function handleFetchErrors(response) {
+  if (!response.ok) {
+    throw Error(response.statusText)
+  }
+  return response
 }
 
 /*
@@ -40,9 +43,9 @@ export const getPricesBegin = () => ({
   type: GET_PRICES_BEGIN
 })
 
-export const getPricesSuccess = prices => ({
+export const getPricesSuccess = (prices, meta) => ({
   type: GET_PRICES_SUCCESS,
-  payload: { prices }
+  payload: { prices, meta }
 })
 
 export const getPricesFailure = error => ({

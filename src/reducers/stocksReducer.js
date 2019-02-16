@@ -19,17 +19,20 @@ function stocksReducer(state = initialState, action) {
         error: null
       }
     case GET_PRICES_SUCCESS:
+      console.log(action.payload.prices)
       return {
         ...state,
         loading: false,
-        prices: action.payload.prices
+        prices: action.payload.prices,
+        meta: action.payload.meta
       }
     case GET_PRICES_FAILURE:
       return {
         ...state,
         loading: false,
         error: action.payload.error,
-        prices: []
+        prices: [],
+        meta: []
       }
     default:
       return state
