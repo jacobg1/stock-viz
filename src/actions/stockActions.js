@@ -5,6 +5,7 @@ export function getPrices() {
   return dispatch => {
     dispatch(getPricesBegin())
 		return fetch('https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo')
+		.then(handleFetchErrors)
 		.then(response => response.json())
 		.then(json => {
 			dispatch(getPricesSuccess(json['Monthly Time Series']))
@@ -14,6 +15,14 @@ export function getPrices() {
 			dispatch(getPricesFailure(error))
 		)
   }
+}
+
+// function to handle http errors
+function handleFetchErrors (response) {
+	if(!response.ok) {
+		throw Error(response.statusText)
+	} 
+	return response
 }
 
 /*
