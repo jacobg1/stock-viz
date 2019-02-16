@@ -1,12 +1,15 @@
 /* 
 	function which fetches the stock data from the api
 */
+
 export function getPrices() {
+  const key = process.env.REACT_APP_API_KEY,
+    type = 'TIME_SERIES_MONTHLY',
+    symbol = 'MSFT',
+    url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
-    return fetch(
-      'https://www.alphavantage.co/query?function=TIME_SERIES_MONTHLY&symbol=MSFT&apikey=demo'
-    )
+    return fetch(url)
       .then(handleFetchErrors)
       .then(response => response.json())
       .then(json => {
@@ -14,7 +17,7 @@ export function getPrices() {
         dispatch(
           getPricesSuccess(json['Monthly Time Series'], json['Meta Data'])
         )
-        return json['Monthly Time Series']
+        return json
       })
       .catch(error => dispatch(getPricesFailure(error)))
   }
@@ -22,7 +25,7 @@ export function getPrices() {
 
 // function to handle http errors
 function handleFetchErrors(response) {
-  if (!response.ok) {
+  if (!response) {
     throw Error(response.statusText)
   }
   return response
