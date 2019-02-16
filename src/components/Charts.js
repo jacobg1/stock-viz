@@ -21,7 +21,7 @@ class Charts extends Component {
         <FilterCharts filter={ChartFilters.SHOW_LINE_GRAPHS}>
           Line Graphs
         </FilterCharts>
-		<FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
+        <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
           Stock Prices
         </FilterCharts>
         <header className="App-header">
@@ -37,7 +37,7 @@ class Charts extends Component {
               <VisibleLineGraphList />
             </>
           )}
-		  {chartsToShow === 'SHOW_STOCK_PRICES' && (
+          {chartsToShow === 'SHOW_STOCK_PRICES' && (
             <>
               <p>stock prices</p>
             </>
