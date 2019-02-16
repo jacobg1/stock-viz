@@ -8,7 +8,7 @@ import { ChartFilters } from '../actions'
 import PropTypes from 'prop-types'
 import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
 import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
-
+import Stocks from '../components/Stocks'
 /*
 	component for showing charts and filters for switching between charts
 */
@@ -42,7 +42,7 @@ class Charts extends Component {
           )}
           {chartsToShow === 'SHOW_STOCK_PRICES' && (
             <>
-              <p>stock prices</p>
+              <Stocks />
             </>
           )}
         </header>
