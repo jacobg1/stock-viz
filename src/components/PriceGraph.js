@@ -42,21 +42,39 @@ class PriceGraph extends Component {
           <svg height={height} width={width}>
             <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
             <line className="axis" x1={margin} x2={margin} y1={margin} y2={h} />
+            {/* <PriceDataLine
+							h={h}
+							w={w}
+							margin={margin}
+							priceLine={this.formatPriceData('1. open')}
+							stroke="#7e7ea9"
+						/> */}
             <PriceDataLine
-              height={height}
-              width={width}
-              margin={margin}
-              priceLine={this.formatPriceData('3. low')}
-            />
-            <PriceDataLine
-              height={height}
-              width={width}
+              h={h}
+              w={w}
               margin={margin}
               priceLine={this.formatPriceData('2. high')}
+              stroke="#ef6e8d"
             />
+            <PriceDataLine
+              h={h}
+              w={w}
+              margin={margin}
+              priceLine={this.formatPriceData('3. low')}
+              stroke="#a8a8ff"
+            />
+            {/* <PriceDataLine
+							h={h}
+							w={w}
+							margin={margin}
+							priceLine={this.formatPriceData('4. close')}
+							stroke="#a8a8ff"
+						/> */}
             <StockLabels
               height={height}
               width={width}
+              h={h}
+              w={w}
               margin={margin}
               priceLine={this.formatPriceData('2. high')}
             />
