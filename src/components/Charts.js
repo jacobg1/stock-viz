@@ -20,16 +20,16 @@ class Charts extends Component {
     console.log(chartsToShow)
     return (
       <div className="App">
-        <FilterCharts filter={ChartFilters.SHOW_PIE_CHARTS}>
-          Pie Charts
-        </FilterCharts>
-        <FilterCharts filter={ChartFilters.SHOW_LINE_GRAPHS}>
-          Line Graphs
-        </FilterCharts>
-        <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
-          Stock Prices
-        </FilterCharts>
-        <header className="App-header">
+        <div className="charts">
+          <FilterCharts filter={ChartFilters.SHOW_PIE_CHARTS}>
+            Pie Charts
+          </FilterCharts>
+          <FilterCharts filter={ChartFilters.SHOW_LINE_GRAPHS}>
+            Line Graphs
+          </FilterCharts>
+          <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
+            Stock Prices
+          </FilterCharts>
           {chartsToShow === 'SHOW_PIE_CHARTS' && (
             <>
               <AddPieChart />
@@ -48,7 +48,7 @@ class Charts extends Component {
               <StocksContainer />
             </>
           )}
-        </header>
+        </div>
       </div>
     )
   }
