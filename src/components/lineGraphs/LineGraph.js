@@ -73,7 +73,7 @@ class LineGraph extends PureComponent {
         <svg height={height} width={width}>
           <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
           <line className="axis" x1={margin} x2={margin} y1={margin} y2={h} />
-          <path className="path" d={line(data)} />
+          <path className="line-path" d={line(data)} />
           <g className="axis-labels">{xLabels}</g>
           <g className="axis-labels">{yLabels}</g>
         </svg>
