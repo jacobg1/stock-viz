@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PriceDataLine from './PriceDataLine'
+import StockLabels from './StockLabels'
 
 class PriceGraph extends Component {
   componentDidUpdate() {
@@ -16,12 +17,12 @@ class PriceGraph extends Component {
     Object.keys(prices).forEach((price, index) => {
       // console.log(new Date(price).getMonth())
       let timeStamp = new Date(price)
-      if (timeStamp.getFullYear() > 2015) {
-        priceDataArray.push({
-          x: timeStamp.getTime() * 1000,
-          y: Number(prices[price][type])
-        })
-      }
+      //if (timeStamp.getFullYear() > 2015) {
+      priceDataArray.push({
+        x: timeStamp,
+        y: Number(prices[price][type])
+      })
+      // }
     })
     priceDataArray.reverse()
     return priceDataArray
@@ -47,7 +48,18 @@ class PriceGraph extends Component {
               margin={margin}
               priceLine={this.formatPriceData('3. low')}
             />
-            {/* <PriceDataLine priceLine={this.formatPriceData('3. low')} /> */}
+            <PriceDataLine
+              height={height}
+              width={width}
+              margin={margin}
+              priceLine={this.formatPriceData('2. high')}
+            />
+            <StockLabels
+              height={height}
+              width={width}
+              margin={margin}
+              priceLine={this.formatPriceData('2. high')}
+            />
           </svg>
         )}
       </>
