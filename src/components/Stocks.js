@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
+import PriceGraph from './PriceGraph'
 
 class Stocks extends Component {
   // componentDidMount() {
   //   this.props.dispatch(getPrices())
   // }
   render() {
-    const { dispatch, loading, prices, error, meta } = this.props
+    const { loading, prices, error, meta } = this.props
 
     if (error) {
       return <div>Error : {error.message}</div>
@@ -22,6 +23,7 @@ class Stocks extends Component {
             <p>Last updated: {meta['3. Last Refreshed']}</p>
           </div>
         )}
+        {prices && <PriceGraph prices={prices} />}
       </>
     )
   }
