@@ -18,8 +18,8 @@ class Stocks extends Component {
       <>
         {meta && (
           <div className="meta">
-            <h2>{meta['2. Symbol']}</h2>
-            <p>{meta['1. Information']}</p>
+            <h2>Stock: {meta['2. Symbol']}</h2>
+            {/* <p>{meta['1. Information']}</p> */}
             <p>Last updated: {meta['3. Last Refreshed']}</p>
             <div className="legend">
               <div className="high" />
