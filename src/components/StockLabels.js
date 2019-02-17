@@ -3,12 +3,8 @@ import * as d3 from 'd3'
 
 class StockLabels extends Component {
   render() {
-    const { priceLine, height, width, margin } = this.props
-    // set width, height and margin value
-    // set width, height and margin value
+    const { priceLine, margin, h, w } = this.props
 
-    const h = height - 2 * margin,
-      w = width - 2 * margin
     // scale x axis to fit data
     const x = d3
       .scaleLinear()
