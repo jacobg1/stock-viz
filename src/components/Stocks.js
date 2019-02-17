@@ -21,8 +21,15 @@ class Stocks extends Component {
             <h2>{meta['2. Symbol']}</h2>
             <p>{meta['1. Information']}</p>
             <p>Last updated: {meta['3. Last Refreshed']}</p>
+            <div className="legend">
+              <div className="high" />
+              <span> - High</span>
+              <div className="low" />
+              <span> - Low</span>
+            </div>
           </div>
         )}
+        <div />
         {prices && <PriceGraph prices={prices} />}
       </>
     )

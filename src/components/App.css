@@ -59,7 +59,7 @@
 
 .path {
   stroke-width: 1.5px;
-  stroke: #d6d6d8;
+  /* stroke: #d6d6d8; */
   fill: none;
 
 }
@@ -77,6 +77,33 @@
 .axis-labels line {
   stroke: #d6d6d8;
 }
+
 .graph-lines {
-	opacity: .2;
+  opacity: .2;
+}
+
+.legend .high {
+  height: 15px;
+  width: 15px;
+  margin: 0 auto;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.legend .low {
+  height: 15px;
+  width: 15px;
+  margin: 0 auto;
+  display: inline-block;
+  border-radius: 50%;
+  vertical-align: baseline;
+}
+
+.high {
+  background-color: #ef6e8d;
+}
+
+.low {
+  background-color: #a8a8ff;
 }
