@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import './App.css'
+import './App.scss'
 import AddPieChart from '../containers/pieCharts/AddPieChart'
 import VisiblePieChartList from '../containers/pieCharts/VisiblePieChartList'
 import FilterCharts from '../containers/FilterCharts'
