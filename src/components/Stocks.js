@@ -23,9 +23,9 @@ class Stocks extends Component {
             <p>Last updated: {meta['3. Last Refreshed']}</p>
             <div className="legend">
               <div className="high" />
-              <span> - High</span>
+              <span> - high</span>
               <div className="low" />
-              <span> - Low</span>
+              <span> - low</span>
             </div>
           </div>
         )}
