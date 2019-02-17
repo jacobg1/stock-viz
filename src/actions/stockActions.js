@@ -25,7 +25,8 @@ export function getPrices(symbol) {
 
 // function to handle http errors
 function handleFetchErrors(response) {
-  if (!response) {
+  console.log(response)
+  if (!response.ok) {
     throw Error(response.statusText)
   }
   return response
