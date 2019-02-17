@@ -2,33 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
+.charts {
   background-color: #282c34;
   min-height: 100vh;
-  /* display: flex; */
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .label {
@@ -57,11 +35,15 @@
   font-size: 12px;
 }
 
+.line-path {
+  stroke-width: 1.5px;
+  stroke: #d6d6d8;
+  fill: none;
+}
+
 .path {
   stroke-width: 1.5px;
-  /* stroke: #d6d6d8; */
   fill: none;
-
 }
 
 .axis {
@@ -83,10 +65,12 @@
 }
 
 .legend {
-	text-align: left;
+  text-align: left;
   max-width: 775px;
   margin: 0 auto;
-  .high, .low {
+
+  .high,
+  .low {
     height: 15px;
     width: 15px;
     margin: 0 auto;
@@ -94,19 +78,33 @@
     border-radius: 50%;
     vertical-align: middle;
   }
-	span {
-		font-size: 13px;
-		vertical-align: middle;
-	}
+
+  span {
+    font-size: 13px;
+    vertical-align: middle;
+  }
 }
 
 .high {
   background-color: #ef6e8d;
-	+ span {
-		padding-right: 20px;
-	}
+
+  + span {
+    padding-right: 20px;
+  }
 }
 
 .low {
   background-color: #a8a8ff;
+}
+
+.meta {
+  h2 {
+    font-size: 24px;
+    margin: 35px 0 10px;
+  }
+
+  p {
+    font-size: 18px;
+    margin: 5px;
+  }
 }
