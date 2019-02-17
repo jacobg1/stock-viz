@@ -3,9 +3,8 @@
 */
 
 export function getPrices(symbol) {
-  const key = process.env.REACT_APP_API_KEY,
+  const key = process.env.REACT_APP_API_KEY || 'demo',
     type = 'TIME_SERIES_MONTHLY',
-    // symbol = 'MSFT',
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
