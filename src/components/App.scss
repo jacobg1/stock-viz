@@ -82,26 +82,29 @@
   opacity: .2;
 }
 
-.legend .high {
-  height: 15px;
-  width: 15px;
+.legend {
+	text-align: left;
+  max-width: 775px;
   margin: 0 auto;
-  display: inline-block;
-  border-radius: 50%;
-  vertical-align: baseline;
-}
-
-.legend .low {
-  height: 15px;
-  width: 15px;
-  margin: 0 auto;
-  display: inline-block;
-  border-radius: 50%;
-  vertical-align: baseline;
+  .high, .low {
+    height: 15px;
+    width: 15px;
+    margin: 0 auto;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: middle;
+  }
+	span {
+		font-size: 13px;
+		vertical-align: middle;
+	}
 }
 
 .high {
   background-color: #ef6e8d;
+	+ span {
+		padding-right: 20px;
+	}
 }
 
 .low {
