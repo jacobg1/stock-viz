@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Stocks from '../../components/Stocks'
+import Stocks from '../../components/stockGraph/Stocks'
 
 const mapStateToProps = state => ({
   prices: state.stocks.prices,
