@@ -5,29 +5,27 @@ class PriceDataLine extends PureComponent {
   constructor() {
     super()
     this.state = {
-      transform: '',
-      value: ''
+      date: '',
+      value: null
     }
   }
   hover(e) {
     // <text transform={`translate(${x(price.x)}, ${y(price.y)})`}>{price.y}</text>
-    this.setState(
-      {
-        transform: `translate(${e.target.getAttribute(
-          'cx'
-        )},${e.target.getAttribute('cy')})`,
-        value: e.target.getAttribute('data-value')
-      },
-      () => {
-        console.log(this.state.value)
-      }
-    )
+    this.setState({
+      value: e.target.getAttribute('data-value'),
+      date: e.target.getAttribute('data-date')
+    })
   }
   clearHover() {
     this.setState({
       transform: '',
       value: ''
     })
+  }
+  formatDate(d) {
+    let date = new Date(d)
+    console.log(date.getFullYear())
+    return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()
   }
   render() {
     const { priceLine, margin, h, w, stroke, hover } = this.props
@@ -52,7 +50,7 @@ class PriceDataLine extends PureComponent {
       .y(d => y(d.y))
       .curve(d3.curveCatmullRom.alpha(0.5))
 
-    let hoverDots = priceLine.map((price, i) =>
+    const hoverDots = priceLine.map((price, i) =>
       // console.log(price.y)
 
       hover ? (
@@ -65,15 +63,26 @@ class PriceDataLine extends PureComponent {
           cy={y(price.y)}
           r={2}
           data-value={price.y}
+          data-date={price.x}
         />
       ) : null
     )
+
     return (
       <>
         {hoverDots}
-        <g>
-          <text transform={`translate(375, 30)`}>{this.state.value}</text>
-        </g>
+        {this.state.value && (
+          <g transform={`translate(660, -5)`}>
+            <text x="0" y="0" className="hover-text">
+              <tspan x="0" dy="1.2em">
+                Amount: {this.state.value}
+              </tspan>
+              <tspan x="0" dy="1.5em">
+                Date: {this.formatDate(this.state.date)}
+              </tspan>
+            </text>
+          </g>
+        )}
         <path className="path" stroke={stroke} d={line(priceLine)} />
       </>
     )
