@@ -1,9 +1,7 @@
-
-
 .App {
   text-align: center;
   background-color: #282c34;
-	display: block;
+  display: block;
 }
 
 .charts {
@@ -111,4 +109,9 @@
     font-size: 18px;
     margin: 5px;
   }
+}
+
+.hover-text {
+  fill: #fff;
+  font-size: 13px;
 }
