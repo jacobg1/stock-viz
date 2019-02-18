@@ -55,6 +55,7 @@ class PriceGraph extends Component {
               margin={margin}
               priceLine={this.formatPriceData('2. high')}
               stroke="#ef6e8d"
+              hover={true}
             />
             <PriceDataLine
               h={h}
@@ -62,6 +63,7 @@ class PriceGraph extends Component {
               margin={margin}
               priceLine={this.formatPriceData('3. low')}
               stroke="#a8a8ff"
+              hover={false}
             />
             {/* <PriceDataLine
 							h={h}
