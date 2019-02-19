@@ -3,24 +3,6 @@ import PriceDataLine from './PriceDataLine'
 import StockLabels from './StockLabels'
 
 class PriceGraph extends Component {
-  constructor() {
-    super()
-    this.state = {
-      type: {
-        high: true,
-        low: false,
-        open: false,
-        close: false
-      }
-    }
-  }
-  componentDidUpdate() {
-    // this.formatPriceData('1. open')
-  }
-  componentDidMount() {
-    const { prices } = this.props
-    console.log(prices)
-  }
   formatPriceData(type) {
     const { prices } = this.props
 
@@ -38,23 +20,7 @@ class PriceGraph extends Component {
     priceDataArray.reverse()
     return priceDataArray
   }
-  handleCheckChange(e) {
-    const name = e.target.name
-    const checked = e.target.checked
-    this.setState(
-      prevState => {
-        return {
-          type: {
-            ...prevState.type,
-            [name]: !prevState.type[name]
-          }
-        }
-      },
-      () => {
-        console.log(this.state, checked)
-      }
-    )
-  }
+
   render() {
     // set width, height and margin value
     const width = 800,
@@ -63,42 +29,15 @@ class PriceGraph extends Component {
 
     const h = height - 2 * margin,
       w = width - 2 * margin
-
+    const { stockLines } = this.props
+    console.log(stockLines)
     return (
       <>
-        <label>high</label>
-        <input
-          onChange={e => this.handleCheckChange(e)}
-          checked={this.state.type.high}
-          name="high"
-          type="checkbox"
-        />
-        <label>low</label>
-        <input
-          onChange={e => this.handleCheckChange(e)}
-          checked={this.state.type.low}
-          name="low"
-          type="checkbox"
-        />
-        <label>open</label>
-        <input
-          onChange={e => this.handleCheckChange(e)}
-          checked={this.state.type.open}
-          name="open"
-          type="checkbox"
-        />
-        <label>close</label>
-        <input
-          onChange={e => this.handleCheckChange(e)}
-          checked={this.state.type.close}
-          name="close"
-          type="checkbox"
-        />
         {this.props.prices.length !== 0 && (
           <svg height={height} width={width}>
             <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
             <line className="axis" x1={margin} x2={margin} y1={margin} y2={h} />
-            {this.state.type.open && (
+            {stockLines.type.open && (
               <PriceDataLine
                 h={h}
                 w={w}
@@ -108,7 +47,7 @@ class PriceGraph extends Component {
                 hover={false}
               />
             )}
-            {this.state.type.high && (
+            {stockLines.type.high && (
               <PriceDataLine
                 h={h}
                 w={w}
@@ -118,7 +57,7 @@ class PriceGraph extends Component {
                 hover={true}
               />
             )}
-            {this.state.type.low && (
+            {stockLines.type.low && (
               <PriceDataLine
                 h={h}
                 w={w}
@@ -128,7 +67,7 @@ class PriceGraph extends Component {
                 hover={false}
               />
             )}
-            {this.state.type.close && (
+            {stockLines.type.close && (
               <PriceDataLine
                 h={h}
                 w={w}

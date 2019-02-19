@@ -3,7 +3,7 @@ import PriceLineFilter from '../../components/stockGraph/PriceLineFilter'
 import { setStockLines } from '../../actions/stockActions'
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.stockLines
+  checked: state.stockLines.type[ownProps.filter]
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

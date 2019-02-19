@@ -58,8 +58,8 @@ export const getPricesFailure = error => ({
 
 // setting which pice line to show on stock chart
 export const setStockLines = filter => ({
-  type: 'SET_STOCK_LINES',
-  payload: filter
+  type: 'SET_PRICE_LINE',
+  filter
 })
 
 // action types for filtering between stock price lines

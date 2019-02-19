@@ -1,14 +1,24 @@
 import { StockLines } from '../actions/stockActions'
-const initialState = ['SHOW_HIGH']
+const initialState = {
+  type: {
+    high: true,
+    low: false,
+    open: false,
+    close: false
+  }
+}
 const stockLines = (state = initialState, action) => {
   console.log(action)
   switch (action.type) {
-    case 'SET_STOCK_LINES':
-      return [
+    case 'SET_PRICE_LINE':
+      console.log(state)
+      return {
         ...state,
-
-        action.payload // here you are overwriting the 'currentAddress' property since action.payload = { 'currentAddress': true/false }
-      ]
+        type: {
+          ...state.type,
+          [action.filter]: !state.type[action.filter]
+        }
+      }
     default:
       return state
   }

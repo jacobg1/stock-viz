@@ -10,7 +10,7 @@ class Stocks extends Component {
   // }
   render() {
     const { loading, prices, error, meta, stockLines } = this.props
-    console.log(stockLines)
+    console.log(prices)
     if (error) {
       return <div>Error : {error.message}</div>
     }
@@ -36,9 +36,16 @@ class Stocks extends Component {
             </div>
           </div>
         )}
-        {/* <LineFilter filter={StockLines.SHOW_HIGH}>high</LineFilter>
-        <LineFilter filter={StockLines.SHOW_LOW}>low</LineFilter> */}
-        {prices && <PriceGraph prices={prices} />}
+
+        {prices.length !== 0 && (
+          <>
+            <LineFilter filter={'high'}>high</LineFilter>
+            <LineFilter filter={'low'}>low</LineFilter>
+            <LineFilter filter={'open'}>open</LineFilter>
+            <LineFilter filter={'close'}>close</LineFilter>
+            <PriceGraph stockLines={stockLines} prices={prices} />
+          </>
+        )}
       </>
     )
   }
