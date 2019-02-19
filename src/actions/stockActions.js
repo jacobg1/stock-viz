@@ -55,3 +55,17 @@ export const getPricesFailure = error => ({
   type: GET_PRICES_FAILURE,
   payload: { error }
 })
+
+// setting which pice line to show on stock chart
+export const setStockLines = filter => ({
+  type: 'SET_STOCK_LINES',
+  payload: filter
+})
+
+// action types for filtering between stock price lines
+export const StockLines = {
+  SHOW_OPEN: 'SHOW_OPEN',
+  SHOW_HIGH: 'SHOW_HIGH',
+  SHOW_LOW: 'SHOW_LOW',
+  SHOW_CLOSE: 'SHOW_CLOSE'
+}
