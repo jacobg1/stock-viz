@@ -72,13 +72,15 @@
   margin: 0 auto;
 
   .high,
-  .low {
-    height: 15px;
-    width: 15px;
+  .low,
+	.open,
+	.close {
+    height: 10px;
+    width: 10px;
     margin: 0 auto;
     display: inline-block;
     border-radius: 50%;
-    vertical-align: middle;
+    // vertical-align: middle;
   }
 
   span {
@@ -86,17 +88,25 @@
     vertical-align: middle;
   }
 }
-
+.open {
+	background-color: #95eaf1
+}
 .high {
   background-color: #ef6e8d;
-
-  + span {
-    padding-right: 20px;
-  }
 }
-
+.close {
+	background-color: #ff3c3c
+}
 .low {
   background-color: #a8a8ff;
+}
+
+.high,
+.low,
+.open {
+  + span {
+    padding-right: 13px;
+  }
 }
 
 .meta {
