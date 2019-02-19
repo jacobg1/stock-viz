@@ -64,8 +64,8 @@ export const setStockLines = filter => ({
 
 // action types for filtering between stock price lines
 export const StockLines = {
-  SHOW_OPEN: 'SHOW_OPEN',
-  SHOW_HIGH: 'SHOW_HIGH',
-  SHOW_LOW: 'SHOW_LOW',
-  SHOW_CLOSE: 'SHOW_CLOSE'
+  OPEN: 'open',
+  HIGH: 'high',
+  LOW: 'low',
+  CLOSE: 'close'
 }
