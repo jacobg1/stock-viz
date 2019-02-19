@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import PriceGraph from './PriceGraph'
+import LineFilter from '../../containers/stocks/LineFilter'
+import { StockLines } from '../../actions/stockActions'
+import { connect } from 'react-redux'
 
 class Stocks extends Component {
   // componentDidMount() {
   //   this.props.dispatch(getPrices())
   // }
   render() {
-    const { loading, prices, error, meta } = this.props
-
+    const { loading, prices, error, meta, stockLines } = this.props
+    console.log(stockLines)
     if (error) {
       return <div>Error : {error.message}</div>
     }
@@ -26,10 +29,15 @@ class Stocks extends Component {
               <span> - high</span>
               <div className="low" />
               <span> - low</span>
+              <div className="open" />
+              <span> - open</span>
+              <div className="close" />
+              <span> - close</span>
             </div>
           </div>
         )}
-        <div />
+        {/* <LineFilter filter={StockLines.SHOW_HIGH}>high</LineFilter>
+        <LineFilter filter={StockLines.SHOW_LOW}>low</LineFilter> */}
         {prices && <PriceGraph prices={prices} />}
       </>
     )
