@@ -4,7 +4,7 @@
 
 export function getPrices(symbol) {
   const key = process.env.REACT_APP_API_KEY || 'demo',
-    type = 'TIME_SERIES_MONTHLY',
+		type = 'TIME_SERIES_MONTHLY',
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
@@ -13,6 +13,9 @@ export function getPrices(symbol) {
       .then(response => response.json())
       .then(json => {
         console.log(json)
+				if (!json[Object.keys(json)[1]]) {
+					dispatch(getPricesFailure(json[Object.keys(json)[0]]))
+				}
         dispatch(
 					getPricesSuccess(json[Object.keys(json)[1]], json[Object.keys(json)[0]])
         )

@@ -12,7 +12,7 @@ class Stocks extends Component {
     const { loading, prices, error, meta, stockLines } = this.props
     console.log(prices)
     if (error) {
-      return <div>Error : {error.message}</div>
+      return <div className="error">Error : {error}</div>
     }
     if (loading) {
       return <h1>Loading...</h1>
@@ -31,13 +31,11 @@ class Stocks extends Component {
           <>
             <div className="line-filters">
 							<Legend stocklines={stockLines} />
-
               <LineFilter filter={StockLines.HIGH}>high</LineFilter>
               <LineFilter filter={StockLines.LOW}>low</LineFilter>
               <LineFilter filter={StockLines.OPEN}>open</LineFilter>
               <LineFilter filter={StockLines.CLOSE}>close</LineFilter>
             </div>
-
             <PriceGraph stockLines={stockLines} prices={prices} />
           </>
         )}
