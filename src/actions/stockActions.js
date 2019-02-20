@@ -14,7 +14,7 @@ export function getPrices(symbol) {
       .then(json => {
         console.log(json)
         dispatch(
-          getPricesSuccess(json['Monthly Time Series'], json['Meta Data'])
+					getPricesSuccess(json[Object.keys(json)[1]], json[Object.keys(json)[0]])
         )
         return json
       })
