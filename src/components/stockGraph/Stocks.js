@@ -24,13 +24,14 @@ class Stocks extends Component {
             <h2>Stock: {meta['2. Symbol']}</h2>
             {/* <p>{meta['1. Information']}</p> */}
             <p>Last updated: {meta['3. Last Refreshed']}</p>
-            <Legend stocklines={stockLines} />
           </div>
         )}
 
         {prices.length !== 0 && (
           <>
             <div className="line-filters">
+							<Legend stocklines={stockLines} />
+
               <LineFilter filter={StockLines.HIGH}>high</LineFilter>
               <LineFilter filter={StockLines.LOW}>low</LineFilter>
               <LineFilter filter={StockLines.OPEN}>open</LineFilter>

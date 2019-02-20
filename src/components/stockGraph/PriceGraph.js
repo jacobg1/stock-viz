@@ -32,7 +32,7 @@ class PriceGraph extends Component {
     const { stockLines } = this.props
     console.log(stockLines)
     return (
-      <>
+      <div className="svg-holder">
         {this.props.prices.length !== 0 && (
           <svg height={height} width={width}>
             <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
@@ -87,7 +87,7 @@ class PriceGraph extends Component {
             />
           </svg>
         )}
-      </>
+      </div>
     )
   }
 }
