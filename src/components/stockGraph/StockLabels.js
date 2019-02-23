@@ -14,7 +14,7 @@ class StockLabels extends Component {
     // scale y axis to fit data
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(priceLine, d => d.y)])
+      .domain(d3.extent(priceLine, d => d.y))
       .range([h, margin])
 
     // create y axis labels and tick marks
