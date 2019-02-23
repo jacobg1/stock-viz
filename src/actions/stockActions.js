@@ -2,9 +2,8 @@
 	function which fetches the stock data from the api
 */
 
-export function getPrices(symbol) {
+export function getPrices(symbol, type) {
   const key = process.env.REACT_APP_API_KEY || 'demo',
-		type = 'TIME_SERIES_MONTHLY',
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
@@ -12,12 +11,15 @@ export function getPrices(symbol) {
       .then(handleFetchErrors)
       .then(response => response.json())
       .then(json => {
-        console.log(json)
-				if (!json[Object.keys(json)[1]]) {
-					dispatch(getPricesFailure(json[Object.keys(json)[0]]))
-				}
+        // console.log(json)
+        if (!json[Object.keys(json)[1]]) {
+          dispatch(getPricesFailure(json[Object.keys(json)[0]]))
+        }
         dispatch(
-					getPricesSuccess(json[Object.keys(json)[1]], json[Object.keys(json)[0]])
+          getPricesSuccess(
+            json[Object.keys(json)[1]],
+            json[Object.keys(json)[0]]
+          )
         )
         return json
       })
@@ -27,7 +29,7 @@ export function getPrices(symbol) {
 
 // function to handle http errors
 function handleFetchErrors(response) {
-  console.log(response)
+  // console.log(response)
   if (!response.ok) {
     throw Error(response.statusText)
   }
