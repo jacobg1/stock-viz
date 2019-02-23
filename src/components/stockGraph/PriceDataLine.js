@@ -39,7 +39,7 @@ class PriceDataLine extends PureComponent {
     // scale y axis to fit data
     const y = d3
       .scaleLinear()
-      .domain([0, d3.max(priceLine, d => d.y)])
+      .domain(d3.extent(priceLine, d => d.y))
       .range([h, margin])
 
     // use d3 to create function that will calculate the line
@@ -48,7 +48,7 @@ class PriceDataLine extends PureComponent {
       .line()
       .x(d => x(d.x))
       .y(d => y(d.y))
-      .curve(d3.curveCatmullRom.alpha(0.5))
+    // .curve(d3.curveCatmullRom.alpha(0.2))
 
     const hoverDots = priceLine.map((price, i) =>
       // console.log(price.y)
