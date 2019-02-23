@@ -4,7 +4,7 @@ import React from 'react'
 // buttons for filtering between charts
 const Legend = ({ stocklines }) => {
   const { type } = stocklines
-  console.log(type)
+  // console.log(type)
   return (
     <div className="legend">
       {type.high && (

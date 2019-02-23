@@ -8,10 +8,10 @@ const initialState = {
   }
 }
 const stockLines = (state = initialState, action) => {
-  console.log(action)
+  // console.log(action)
   switch (action.type) {
     case 'SET_PRICE_LINE':
-      console.log(state)
+      // console.log(state)
       return {
         ...state,
         type: {

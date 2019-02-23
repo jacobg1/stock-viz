@@ -3,7 +3,7 @@ import React from 'react'
 
 // buttons for filtering between charts
 const PriceLineFilter = ({ children, onChange, checked }) => {
-  console.log(checked)
+  // console.log(checked)
   return (
     <>
       <label>{children}</label>

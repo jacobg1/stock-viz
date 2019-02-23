@@ -17,7 +17,7 @@ import StocksContainer from '../containers/stocks/StocksContainer'
 class Charts extends Component {
   render() {
     const { chartsToShow } = this.props
-    console.log(chartsToShow)
+    // console.log(chartsToShow)
     return (
       <div className="App">
         <div className="charts">

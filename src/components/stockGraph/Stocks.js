@@ -10,7 +10,7 @@ class Stocks extends Component {
   // }
   render() {
     const { loading, prices, error, meta, stockLines } = this.props
-    console.log(prices)
+    // console.log(prices)
     if (error) {
       return <div className="error">Error : {error}</div>
     }
@@ -30,7 +30,7 @@ class Stocks extends Component {
         {prices.length !== 0 && (
           <>
             <div className="line-filters">
-							<Legend stocklines={stockLines} />
+              <Legend stocklines={stockLines} />
               <LineFilter filter={StockLines.HIGH}>high</LineFilter>
               <LineFilter filter={StockLines.LOW}>low</LineFilter>
               <LineFilter filter={StockLines.OPEN}>open</LineFilter>
