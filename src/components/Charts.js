@@ -10,6 +10,8 @@ import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
 import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
 import FetchStocks from '../containers/stocks/FetchStocks'
 import StocksContainer from '../containers/stocks/StocksContainer'
+import FetchCrypto from '../containers/cryptoCurrency/FetchCrypto'
+import CryptoContainer from '../containers/cryptoCurrency/CryptoContainer'
 
 /*
 	component for showing charts and filters for switching between charts
@@ -30,6 +32,9 @@ class Charts extends Component {
           <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
             Stock Prices
           </FilterCharts>
+          <FilterCharts filter={ChartFilters.SHOW_CRYPTO_PRICES}>
+            CryptoCurrency
+          </FilterCharts>
           {chartsToShow === 'SHOW_PIE_CHARTS' && (
             <>
               <AddPieChart />
@@ -46,6 +51,12 @@ class Charts extends Component {
             <>
               <FetchStocks />
               <StocksContainer />
+            </>
+          )}
+          {chartsToShow === 'SHOW_CRYPTO_PRICES' && (
+            <>
+              <FetchCrypto />
+              <CryptoContainer />
             </>
           )}
         </div>
