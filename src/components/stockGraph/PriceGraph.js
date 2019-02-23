@@ -5,7 +5,7 @@ import StockLabels from './StockLabels'
 class PriceGraph extends Component {
   formatPriceData(type) {
     const { prices } = this.props
-
+    console.log(prices)
     const priceDataArray = []
     Object.keys(prices).forEach((price, index) => {
       // console.log(new Date(price).getMonth())
