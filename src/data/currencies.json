@@ -1,0 +1,18 @@
+[
+	{
+		"currencyCode": "USD",
+		"currencyName": "United States Dollar"
+	},
+	{
+		"currencyCode": "EUR",
+		"currencyName": "Euro"
+	},
+	{
+		"currencyCode": "GBP",
+		"currencyName": "British Pound Sterling"
+	},
+	{
+		"currencyCode": "JPY",
+		"currencyName": "Japanese Yen"
+	}
+]	

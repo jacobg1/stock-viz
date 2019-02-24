@@ -1,0 +1,46 @@
+[
+	{
+		"code": "BTC",
+		"name": "Bitcoin"
+	},
+	{
+		"code": "BCH",
+		"name": "Bitcoin-Cash"
+	},
+	{
+		"code": "ETH",
+		"name": "Ethereum"
+	},
+	{
+		"code": "LTC",
+		"name": "Litecoin"
+	},
+	{
+		"code": "2GIVE",
+		"name": "GiveCoin"
+	},
+	{
+		"code": "ACT",
+		"name": "Achain"
+	},
+	{
+		"code": "ADA",
+		"name": "Cardano"
+	},
+	{
+		"code": "ADT",
+		"name": "adToken"
+	},
+	{
+		"code": "AGI",
+		"name": "SingularityNET"
+	},
+	{
+		"code": "AID",
+		"name": "AidCoin"
+	},
+	{
+		"code": "NEO",
+		"name": "NEO"
+	}
+]
