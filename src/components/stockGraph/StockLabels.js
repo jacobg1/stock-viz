@@ -21,7 +21,7 @@ class StockLabels extends Component {
     const yLabels = y.ticks(8).map((d, i) =>
       y(d) > 10 && y(d) < h ? (
         <g key={i} transform={`translate(${margin}, ${y(d)})`}>
-          <text x="-12" y="5">
+          <text x="-18" y="5">
             {d}
           </text>
           <line x1="0" x2="3" y1="0" y2="0" transform="translate(-3, 2)" />
