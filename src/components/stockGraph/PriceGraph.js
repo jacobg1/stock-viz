@@ -23,8 +23,8 @@ class PriceGraph extends Component {
 
   render() {
     // set width, height and margin value
-    const width = 800,
-      height = 400,
+    const width = 1000,
+      height = 600,
       margin = 35
 
     const h = height - 2 * margin,
