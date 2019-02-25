@@ -1,8 +1,36 @@
 import React, { Component } from 'react'
 import PriceDataLine from './PriceDataLine'
 import StockLabels from './StockLabels'
+import Tooltip from './Tooltip'
 
 class PriceGraph extends Component {
+  constructor() {
+    super()
+    this.state = {
+      date: '',
+      value: null,
+      positionX: '',
+      positionY: ''
+    }
+    this.setHover = this.setHover.bind(this)
+    this.clearHover = this.clearHover.bind(this)
+  }
+  setHover(e) {
+    this.setState({
+      value: e.target.getAttribute('data-value'),
+      date: e.target.getAttribute('data-date'),
+      positionX: e.pageX - 100,
+      positionY: e.pageY - 80
+    })
+  }
+  clearHover() {
+    this.setState({
+      transform: '',
+      value: '',
+      positionX: '',
+      positionY: ''
+    })
+  }
   formatPriceData(type) {
     const { prices } = this.props
     const priceDataArray = []
@@ -33,6 +61,14 @@ class PriceGraph extends Component {
     console.log(crypto)
     return (
       <div className="svg-holder">
+        {this.state.value && (
+          <Tooltip
+            value={this.state.value}
+            date={this.state.date}
+            positionX={this.state.positionX}
+            positionY={this.state.positionY}
+          />
+        )}
         {this.props.prices.length !== 0 && (
           <svg height={height} width={width}>
             <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
@@ -55,6 +91,8 @@ class PriceGraph extends Component {
                 priceLine={this.formatPriceData(crypto ? 2 : 1)}
                 stroke="#ef6e8d"
                 hover={true}
+                setHover={this.setHover}
+                clearHover={this.clearHover}
               />
             )}
             {stockLines.type.low && (
