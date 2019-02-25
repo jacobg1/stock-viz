@@ -19,3 +19,10 @@ const Tooltip = ({ value, date, positionX, positionY }) => {
 }
 
 export default Tooltip
+
+Tooltip.propTypes = {
+	value: PropTypes.string.isRequired,
+	date: PropTypes.string.isRequired,
+	positionX: PropTypes.number.isRequired,
+	positionY: PropTypes.number.isRequired
+}
