@@ -44,7 +44,7 @@
 }
 
 .path {
-  stroke-width: 1.5px;
+  stroke-width: 3px;
   fill: none;
 }
 
@@ -71,7 +71,8 @@
   // max-width: 775px;
   // margin: 0 auto;
   padding-left: 10px;
-	height: 29px;
+  height: 29px;
+
   .close,
   .high,
   .low,
@@ -126,9 +127,21 @@
   }
 }
 
-.hover-text {
-  fill: #fff;
-  font-size: 13px;
+.hover-holder {
+  position: absolute;
+  padding: 13px;
+  background-color: #ef6e8d;
+
+  span {
+    font-size: 13px;
+    display: block;
+    text-align: left;
+    color: #fff;
+
+    &:first-of-type {
+      padding-bottom: 4px;
+    }
+  }
 }
 
 .line-filters {
@@ -146,18 +159,31 @@
   label {
     font-size: 13px;
     padding-left: 20px;
-		&:first-of-type {
-			padding-left: 10px;
-		}
+
+    &:first-of-type {
+      padding-left: 10px;
+    }
   }
 }
 
 .svg-holder {
-  max-width: 900px;
-  margin: 0 auto;
+  // max-width: 900px;
+  // margin: 0 auto;
+  // position: relative;
+
+  circle {
+    cursor: pointer;
+    z-index: 9;
+    opacity: .6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
+
 .error {
-	max-width: 900px;
+  max-width: 900px;
   padding-top: 21%;
   margin: 0 auto;
 }
