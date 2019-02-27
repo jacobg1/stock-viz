@@ -11,41 +11,48 @@ class PriceDataLine extends PureComponent {
       stroke,
       hover,
       setHover,
-      clearHover
+      clearHover,
+      allPriceData,
+      lineType
     } = this.props
-
+    console.log(allPriceData)
     // scale x axis to fit data
     const x = d3
-      .scaleLinear()
-      .domain(d3.extent(priceLine, d => d.x))
+      .scaleTime()
+      .domain(d3.extent(allPriceData, d => d.date))
       .range([margin, w])
 
     // scale y axis to fit data
     const y = d3
       .scaleLinear()
-      .domain(d3.extent(priceLine, d => d.y))
+      .domain([
+        0,
+        d3.max(allPriceData, d => Math.max(d.low, d.open, d.high, d.close))
+      ])
       .range([h, margin])
 
     // use d3 to create function that will calculate the line
     // that connects the data points
     const line = d3
       .line()
-      .x(d => x(d.x))
-      .y(d => y(d.y))
-    // .curve(d3.curveCatmullRom.alpha(0.2))
+      .x(d => x(d.date))
+      .y(d => y(d[lineType]))
 
-    const hoverDots = priceLine.map((price, i) =>
+    // .curve(d3.curveCatmullRom.alpha(0.1))
+
+    const hoverDots = allPriceData.map((price, i) =>
       hover ? (
         <circle
           onMouseMove={e => setHover(e)}
           key={i}
           onMouseLeave={() => clearHover()}
           fill={stroke}
-          cx={x(price.x)}
-          cy={y(price.y)}
+          cx={x(price.date)}
+          cy={y(price[lineType])}
           r={6}
-          data-value={price.y}
-          data-date={price.x}
+          data-value={price[lineType]}
+          data-date={price.date}
+          data-color={stroke}
         />
       ) : null
     )
@@ -53,7 +60,7 @@ class PriceDataLine extends PureComponent {
     return (
       <>
         {hoverDots}
-        <path className="path" stroke={stroke} d={line(priceLine)} />
+        <path className="path" stroke={stroke} d={line(allPriceData)} />
       </>
     )
   }
