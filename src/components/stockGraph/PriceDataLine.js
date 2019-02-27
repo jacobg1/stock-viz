@@ -4,7 +4,6 @@ import * as d3 from 'd3'
 class PriceDataLine extends PureComponent {
   render() {
     const {
-      priceLine,
       margin,
       h,
       w,
@@ -50,8 +49,8 @@ class PriceDataLine extends PureComponent {
           cx={x(price.date)}
           cy={y(price[lineType])}
           r={6}
-          data-value={price[lineType]}
           data-date={price.date}
+          data-value={price[lineType]}
           data-color={stroke}
         />
       ) : null
