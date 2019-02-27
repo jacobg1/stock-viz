@@ -9,9 +9,12 @@ const formatDate = d => {
 const formatValue = n => {
   return parseInt(n)
 }
-const Tooltip = ({ value, date, positionX, positionY }) => {
+const Tooltip = ({ value, date, positionX, positionY, color }) => {
   return (
-    <div className="hover-holder" style={{ top: positionY, left: positionX }}>
+    <div
+      className="hover-holder"
+      style={{ top: positionY, left: positionX, backgroundColor: color }}
+    >
       <span className="hover-text">Amount: {formatValue(value)}</span>
       <span className="hover-text">Date: {formatDate(date)}</span>
     </div>
@@ -21,8 +24,8 @@ const Tooltip = ({ value, date, positionX, positionY }) => {
 export default Tooltip
 
 Tooltip.propTypes = {
-	value: PropTypes.string.isRequired,
-	date: PropTypes.string.isRequired,
-	positionX: PropTypes.number.isRequired,
-	positionY: PropTypes.number.isRequired
+  value: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  positionX: PropTypes.number.isRequired,
+  positionY: PropTypes.number.isRequired
 }
