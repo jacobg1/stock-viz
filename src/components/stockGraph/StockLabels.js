@@ -3,18 +3,21 @@ import * as d3 from 'd3'
 
 class StockLabels extends Component {
   render() {
-    const { priceLine, margin, h, w } = this.props
-
+    const { priceLine, margin, h, w, allPriceData } = this.props
+    console.log(allPriceData)
     // scale x axis to fit data
     const x = d3
       .scaleLinear()
-      .domain(d3.extent(priceLine, d => d.x))
+      .domain(d3.extent(allPriceData, d => d.date))
       .range([margin, w])
 
     // scale y axis to fit data
     const y = d3
       .scaleLinear()
-      .domain(d3.extent(priceLine, d => d.y))
+      .domain([
+        0,
+        d3.max(allPriceData, d => Math.max(d.open, d.high, d.low, d.close))
+      ])
       .range([h, margin])
 
     // create y axis labels and tick marks
