@@ -34,23 +34,23 @@ class PriceGraph extends Component {
       color: ''
     })
   }
-  formatPriceData(type) {
-    const { prices } = this.props
-    const priceDataArray = []
-    Object.keys(prices).forEach((price, index) => {
-      // console.log(new Date(price).getMonth())
-      const selector = Object.keys(prices[price])[type]
-      let timeStamp = new Date(price)
-      //if (timeStamp.getFullYear() > 2015) {
-      priceDataArray.push({
-        x: timeStamp,
-        y: Number(prices[price][selector])
-      })
-      // }
-    })
-    priceDataArray.reverse()
-    return priceDataArray
-  }
+  // formatPriceData(type) {
+  //   const { prices } = this.props
+  //   const priceDataArray = []
+  //   Object.keys(prices).forEach((price, index) => {
+  //     // console.log(new Date(price).getMonth())
+  //     const selector = Object.keys(prices[price])[type]
+  //     let timeStamp = new Date(price)
+  //     //if (timeStamp.getFullYear() > 2015) {
+  //     priceDataArray.push({
+  //       x: timeStamp,
+  //       y: Number(prices[price][selector])
+  //     })
+  //     // }
+  //   })
+  //   priceDataArray.reverse()
+  //   return priceDataArray
+  // }
   formatAllData() {
     const { prices, crypto } = this.props
     const allPriceData = []
@@ -69,7 +69,6 @@ class PriceGraph extends Component {
         close: Number(prices[price][close])
       })
     })
-    console.log(allPriceData)
     return allPriceData
   }
   componentDidMount() {
@@ -84,7 +83,7 @@ class PriceGraph extends Component {
 
     const h = height - 2 * margin,
       w = width - 2 * margin
-    const { stockLines, crypto } = this.props
+    const { stockLines } = this.props
     console.log(stockLines.type.open)
     return (
       <div className="svg-holder">
@@ -107,7 +106,6 @@ class PriceGraph extends Component {
                 h={h}
                 w={w}
                 margin={margin}
-                priceLine={this.formatPriceData(0)}
                 stroke="#95eaf1"
                 hover={true}
                 setHover={this.setHover}
@@ -121,7 +119,6 @@ class PriceGraph extends Component {
                 h={h}
                 w={w}
                 margin={margin}
-                priceLine={this.formatPriceData(crypto ? 2 : 1)}
                 stroke="#ef6e8d"
                 hover={true}
                 setHover={this.setHover}
@@ -135,7 +132,6 @@ class PriceGraph extends Component {
                 h={h}
                 w={w}
                 margin={margin}
-                priceLine={this.formatPriceData(crypto ? 4 : 2)}
                 stroke="#a8a8ff"
                 hover={true}
                 lineType={'low'}
@@ -149,7 +145,6 @@ class PriceGraph extends Component {
                 h={h}
                 w={w}
                 margin={margin}
-                priceLine={this.formatPriceData(crypto ? 6 : 3)}
                 stroke="#ff3c3c"
                 hover={true}
                 setHover={this.setHover}
@@ -165,7 +160,6 @@ class PriceGraph extends Component {
               w={w}
               allPriceData={this.formatAllData()}
               margin={margin}
-              priceLine={this.formatPriceData(crypto ? 2 : 1)}
             />
           </svg>
         )}
