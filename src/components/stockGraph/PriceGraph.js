@@ -53,7 +53,7 @@ class PriceGraph extends Component {
   // }
   formatAllData() {
     const { prices, crypto } = this.props
-		console.log(crypto)
+    console.log(crypto)
     const allPriceData = []
     Object.keys(prices).forEach((price, index) => {
       let timeStamp = new Date(price)
@@ -112,7 +112,7 @@ class PriceGraph extends Component {
                 clearHover={this.clearHover}
                 lineType={'open'}
                 allPriceData={this.formatAllData()}
-								crypto={crypto}
+                crypto={crypto}
               />
             )}
             {stockLines.type.high && (
@@ -126,7 +126,7 @@ class PriceGraph extends Component {
                 clearHover={this.clearHover}
                 lineType={'high'}
                 allPriceData={this.formatAllData()}
-								crypto={crypto}
+                crypto={crypto}
               />
             )}
             {stockLines.type.low && (
