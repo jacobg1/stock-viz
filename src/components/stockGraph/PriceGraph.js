@@ -53,6 +53,7 @@ class PriceGraph extends Component {
   // }
   formatAllData() {
     const { prices, crypto } = this.props
+		console.log(crypto)
     const allPriceData = []
     Object.keys(prices).forEach((price, index) => {
       let timeStamp = new Date(price)
@@ -83,8 +84,7 @@ class PriceGraph extends Component {
 
     const h = height - 2 * margin,
       w = width - 2 * margin
-    const { stockLines } = this.props
-    console.log(stockLines.type.open)
+    const { stockLines, crypto } = this.props
     return (
       <div className="svg-holder">
         {this.state.value && (
@@ -112,6 +112,7 @@ class PriceGraph extends Component {
                 clearHover={this.clearHover}
                 lineType={'open'}
                 allPriceData={this.formatAllData()}
+								crypto={crypto}
               />
             )}
             {stockLines.type.high && (
@@ -125,6 +126,7 @@ class PriceGraph extends Component {
                 clearHover={this.clearHover}
                 lineType={'high'}
                 allPriceData={this.formatAllData()}
+								crypto={crypto}
               />
             )}
             {stockLines.type.low && (

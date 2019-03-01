@@ -36,7 +36,7 @@ class Stocks extends Component {
               <LineFilter filter={StockLines.OPEN}>open</LineFilter>
               <LineFilter filter={StockLines.CLOSE}>close</LineFilter>
             </div>
-            <PriceGraph stockLines={stockLines} prices={prices} />
+						<PriceGraph stockLines={stockLines} prices={prices} crypto={false} />
           </>
         )}
       </>

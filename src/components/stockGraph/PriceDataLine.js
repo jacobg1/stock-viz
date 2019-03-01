@@ -12,9 +12,10 @@ class PriceDataLine extends PureComponent {
       setHover,
       clearHover,
       allPriceData,
-      lineType
+      lineType,
+			crypto
     } = this.props
-    console.log(allPriceData)
+  
     // scale x axis to fit data
     const x = d3
       .scaleTime()
@@ -38,9 +39,15 @@ class PriceDataLine extends PureComponent {
       .y(d => y(d[lineType]))
 
     // .curve(d3.curveCatmullRom.alpha(0.1))
-
+		const cryptoCheck = (i) => {
+			if(!crypto) {
+				return i % 2 === 0
+			} else {
+				return true
+			}
+		}
     const hoverDots = allPriceData.map((price, i) =>
-      hover ? (
+			hover && cryptoCheck(i) ? (
         <circle
           onMouseMove={e => setHover(e)}
           key={i}
