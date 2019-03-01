@@ -1,17 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPrices } from '../../actions/stockActions'
+import { getPrices, setStockSymbol } from '../../actions/stockActions'
 
-const FetchStocks = ({ dispatch }) => {
-  let symbol
+const FetchStocks = ({ dispatch, stockSymbol }) => {
   let type = 'TIME_SERIES_MONTHLY'
+
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          dispatch(getPrices(symbol.value, type))
-          symbol.value = ''
+          dispatch(getPrices(stockSymbol, type))
+          // symbol.value = ''
         }}
       >
         <select
@@ -22,11 +22,18 @@ const FetchStocks = ({ dispatch }) => {
           <option value="TIME_SERIES_MONTHLY">Monthly</option>
           <option value="TIME_SERIES_DAILY">Daily</option>
         </select>
-        <input ref={node => (symbol = node)} placeholder="search" type="text" />
+        <input
+          value={stockSymbol}
+          onChange={e => dispatch(setStockSymbol(e.target.value))}
+          type="text"
+        />
         <button type="submit">fetch prices</button>
       </form>
     </div>
   )
 }
+const mapStateToProps = state => ({
+  stockSymbol: state.stockSymbol
+})
 
-export default connect()(FetchStocks)
+export default connect(mapStateToProps)(FetchStocks)
