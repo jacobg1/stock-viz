@@ -74,3 +74,9 @@ export const StockLines = {
   LOW: 'low',
   CLOSE: 'close'
 }
+
+// action type for setting that stock symbol that will be used in search
+export const setStockSymbol = symbol => ({
+  type: 'SET_STOCK_SYMBOL',
+  symbol
+})
