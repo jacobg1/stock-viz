@@ -1,45 +1,68 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPrices, setStockSymbol } from '../../actions/stockActions'
+import { setStockSymbol } from '../../actions/stockActions'
 import listOfStockSymbols from '../../data/stockSymbols.json'
-import Select from 'react-select';
-const SymbolList = ({ dispatch, stockSymbol }) => {
-	// console.log(stockSymbol)
-	
-	const handleChange = (e) => {
-		console.log(e)
-	}
-	const customStyles = {
-		option: (provided, state) => ({
-			...provided,
-			borderBottom: '1px dotted pink',
-			color: state.isSelected ? 'red' : 'blue',
-			padding: 20,
-		}),
-		control: () => ({
-			// none of react-select's styles are passed to <Control />
-			width: 200,
-		}),
-		singleValue: (provided, state) => {
-			const opacity = state.isDisabled ? 0.5 : 1;
-			const transition = 'opacity 300ms';
+import Select from 'react-select'
 
-			return { ...provided, opacity, transition };
-		}
-	}
-	return (
-		<div>
-			<Select
-				defaultValue={stockSymbol}
-				onChange={opt => dispatch(setStockSymbol(opt.value))} 
-				options={listOfStockSymbols}
-				styles={customStyles}
-			/>
-		</div>
-	)
+const SymbolList = ({ dispatch, stockSymbol }) => {
+  const customStyles = {
+    control: (base, state) => ({
+      ...base,
+      background: '#282c34',
+      borderRadius: state.isFocused ? '3px 3px 0 0' : 3,
+      boxSizing: 'border-box',
+      borderColor: state.isFocused ? '#95eaf1' : 'white',
+      boxShadow: state.isFocused ? null : null,
+      '&:hover': {
+        borderColor: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
+      }
+    }),
+    menu: base => ({
+      ...base,
+      borderRadius: 0,
+      hyphens: 'auto',
+      marginTop: 0,
+      textAlign: 'center',
+      wordWrap: 'break-word'
+    }),
+    menuList: base => ({
+      ...base,
+      padding: 0,
+      background: '#282c34'
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      borderBottom: '1px dotted #95eaf1',
+      color: state.isSelected ? '#023950' : 'rgb(239, 110, 141)',
+      background: state.isSelected ? '#95eaf1' : '#282c34',
+      padding: 15,
+      '&:hover': {
+        color: 'white',
+        background: '#ef6e8d'
+      },
+      '&:focus': {
+        color: '#ff3c3c',
+        background: '#a8a8ff'
+      },
+      cursor: 'pointer'
+    })
+  }
+
+  return (
+    <div className="select-holder">
+      <Select
+        classNamePrefix="select-input"
+        defaultValue={stockSymbol}
+        onChange={opt => dispatch(setStockSymbol(opt.value))}
+        options={listOfStockSymbols}
+        isSearchable
+        styles={customStyles}
+      />
+    </div>
+  )
 }
 const mapStateToProps = state => ({
-	stockSymbol: state.stockSymbol
+  stockSymbol: state.stockSymbol
 })
 
 export default connect(mapStateToProps)(SymbolList)
