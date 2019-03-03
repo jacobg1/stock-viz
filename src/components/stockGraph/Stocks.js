@@ -3,6 +3,7 @@ import PriceGraph from './PriceGraph'
 import LineFilter from '../../containers/stocks/LineFilter'
 import { StockLines } from '../../actions/stockActions'
 import Legend from './Legend'
+import SymbolList from '../../components/stockGraph/SymbolList'
 
 class Stocks extends Component {
   // componentDidMount() {
@@ -26,7 +27,7 @@ class Stocks extends Component {
             <p>Last updated: {meta['3. Last Refreshed']}</p>
           </div>
         )}
-
+        <SymbolList />
         {prices.length !== 0 && (
           <>
             <div className="line-filters">
