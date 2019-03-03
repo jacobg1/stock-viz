@@ -7,7 +7,7 @@
 .charts {
   background-color: #282c34;
   min-height: 100vh;
-  font-size: calc(10px + 2vmin);
+  font-size: 15px;
   color: white;
 }
 
@@ -131,8 +131,8 @@
   position: absolute;
   padding: 13px;
   background-color: #ef6e8d;
-	border-radius: 8px;
-	border: 1px solid white; 
+  border-radius: 8px;
+  border: 1px solid white;
 
   span {
     font-size: 13px;
@@ -192,4 +192,19 @@
   max-width: 900px;
   padding-top: 21%;
   margin: 0 auto;
+}
+
+.select-holder {
+  width: 300px;
+  margin: 30px auto;
+
+  input {
+    color: #ef6e8d !important;
+  }
+}
+
+.select-input__single-value {
+  color: #ef6e8d !important;
+  // font-weight: bold;
+  background-color: #282c34;
 }
