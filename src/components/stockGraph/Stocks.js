@@ -15,20 +15,21 @@ class Stocks extends Component {
     if (error) {
       return <div className="error">Error : {error}</div>
     }
-    if (loading) {
-      return <h1>Loading...</h1>
-    }
+    // if (loading) {
+    //   return <h1>Loading...</h1>
+    // }
     return (
       <>
-        {meta && (
+        <SymbolList />
+        {meta && !loading && (
           <div className="meta">
-            <h2>Stock: {meta['2. Symbol']}</h2>
+            {/* <h2>Stock: {meta['2. Symbol']}</h2> */}
             {/* <p>{meta['1. Information']}</p> */}
             <p>Last updated: {meta['3. Last Refreshed']}</p>
           </div>
         )}
-        <SymbolList />
-        {prices.length !== 0 && (
+        {loading && <h1>Loading....</h1>}
+        {prices.length !== 0 && !loading && (
           <>
             <div className="line-filters">
               <Legend stocklines={stockLines} />
