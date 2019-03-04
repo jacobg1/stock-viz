@@ -84,16 +84,17 @@ class PriceGraph extends Component {
 
     const h = height - 2 * margin,
       w = width - 2 * margin
-    const { stockLines, crypto } = this.props
+    const { stockLines, crypto } = this.props,
+      { date, value, positionX, positionY, color } = this.state
     return (
       <div className="svg-holder">
         {this.state.value && (
           <Tooltip
-            value={this.state.value}
-            date={this.state.date}
-            positionX={this.state.positionX}
-            positionY={this.state.positionY}
-            color={this.state.color}
+            value={value}
+            date={date}
+            positionX={positionX}
+            positionY={positionY}
+            color={color}
           />
         )}
         {this.props.prices.length !== 0 && (
@@ -108,9 +109,9 @@ class PriceGraph extends Component {
                 margin={margin}
                 stroke="#95eaf1"
                 hover={true}
+                lineType={'open'}
                 setHover={this.setHover}
                 clearHover={this.clearHover}
-                lineType={'open'}
                 allPriceData={this.formatAllData()}
                 crypto={crypto}
               />
@@ -122,9 +123,9 @@ class PriceGraph extends Component {
                 margin={margin}
                 stroke="#ef6e8d"
                 hover={true}
+                lineType={'high'}
                 setHover={this.setHover}
                 clearHover={this.clearHover}
-                lineType={'high'}
                 allPriceData={this.formatAllData()}
                 crypto={crypto}
               />
@@ -140,6 +141,7 @@ class PriceGraph extends Component {
                 setHover={this.setHover}
                 clearHover={this.clearHover}
                 allPriceData={this.formatAllData()}
+                crypto={crypto}
               />
             )}
             {stockLines.type.close && (
@@ -149,10 +151,11 @@ class PriceGraph extends Component {
                 margin={margin}
                 stroke="#ff3c3c"
                 hover={true}
+                lineType={'close'}
                 setHover={this.setHover}
                 clearHover={this.clearHover}
                 allPriceData={this.formatAllData()}
-                lineType={'close'}
+                crypto={crypto}
               />
             )}
             <StockLabels
