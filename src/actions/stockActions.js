@@ -76,7 +76,8 @@ export const StockLines = {
 }
 
 // action type for setting that stock symbol that will be used in search
-export const setStockSymbol = symbol => ({
+export const setStockSymbol = (symbol, label) => ({
   type: 'SET_STOCK_SYMBOL',
-  symbol
+  symbol,
+  label
 })
