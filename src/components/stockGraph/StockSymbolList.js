@@ -1,14 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { setStockSymbol } from '../../actions/stockActions'
-import listOfStockSymbols from '../../data/stockSymbols.json'
 import Select from 'react-select'
 import { customStyles } from '../../data/customStyles'
 
-const NYSESymbolList = ({ stockSymbol, onChange, options }) => {
+const StockSymbolList = ({ stockSymbol, onChange, options }) => {
   return (
     <div className="select-holder">
       <Select
+        cacheOptions
         classNamePrefix="select-input"
         defaultValue={stockSymbol}
         onChange={opt => onChange(opt)}
@@ -37,4 +37,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(NYSESymbolList)
+)(StockSymbolList)
