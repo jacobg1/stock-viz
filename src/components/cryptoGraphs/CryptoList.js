@@ -11,12 +11,11 @@ const CryptoList = ({ cryotoCoin, onChange }) => {
     <div className="select-holder">
       <Select
         classNamePrefix="select-input"
-				defaultValue={cryotoCoin.value}
+				defaultValue={cryotoCoin}
         onChange={(opt) => onChange(opt)}
 				options={coinTypes}
         isSearchable
         styles={customStyles}
-        placeholder="Type to start searching..."
       />
       {/* {
 				Object.keys(stockSymbol).length !== 0 && (

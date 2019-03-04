@@ -11,12 +11,11 @@ const SymbolList = ({ stockSymbol, onChange }) => {
     <div className="select-holder">
       <Select
         classNamePrefix="select-input"
-				defaultValue={{ label: stockSymbol.label, value: stockSymbol.value }}
+				defaultValue={stockSymbol}
         onChange={(opt) => onChange(opt)}
         options={listOfStockSymbols}
         isSearchable
         styles={customStyles}
-        // placeholder="Type to start searching..."
       />
       {/* {
 				Object.keys(stockSymbol).length !== 0 && (
