@@ -6,7 +6,7 @@ import Legend from '../stockGraph/Legend'
 // import PriceGraph from './PriceGraph'
 // import LineFilter from '../../containers/stocks/LineFilter'
 import { CryptoLines } from '../../actions/cryptoActions'
-
+import CryptoList from './CryptoList'
 class Crypto extends Component {
   render() {
     const { loading, cryptoPrices, error, meta, cryptoLines } = this.props
@@ -14,19 +14,24 @@ class Crypto extends Component {
     if (error) {
       return <div className="error">Error : {error}</div>
     }
-    if (loading) {
-      return <h1>Loading...</h1>
-    }
+    // if (loading) {
+    //   return <h1>Loading...</h1>
+    // }
     return (
       <>
+				<CryptoList />
         {meta && (
           <div className="meta">
-            <h2>Coin: {meta['2. Digital Currency Code']}</h2>
-            <p>Market: {meta['5. Market Name']}</p>
+            {/* <h2>Coin: {meta['2. Digital Currency Code']}</h2>
+            <p>Market: {meta['5. Market Name']}</p> */}
             <p>Last updated: {meta['6. Last Refreshed']}</p>
           </div>
         )}
-
+				{
+					loading && (
+						<h1>Loading....</h1>
+					)
+				}
         {cryptoPrices.length !== 0 && (
           <>
             <div className="line-filters">
