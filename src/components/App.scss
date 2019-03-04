@@ -220,6 +220,31 @@
   background-color: #282c34;
 }
 
+.select-input__control {
+  // svg {
+  //   fill: blue;
+  // }
+  .select-input__dropdown-indicator {
+    color: white;
+  }
+}
+
+.select-input {
+  &__control {
+		cursor: pointer !important;
+	} 
+	&__control--is-focused {
+		.select-input__dropdown-indicator {
+    color: rgb(239, 110, 141);
+  }
+	}
+	&__control--menu-is-open {
+    .select-input__dropdown-indicator {
+      transform: rotate(180deg);
+    }
+  }
+}
+
 .loading-spinner {
   margin-top: 100px;
 }
