@@ -7,6 +7,7 @@ import stockLines from './stockLines'
 import crypto from './cryptoReducer'
 import cryptoLines from './cryptoLines'
 import stockSymbol from './stockSymbol'
+import cryptoCoin from './cryptoCoin'
 
 export default combineReducers({
   pieCharts,
@@ -16,5 +17,6 @@ export default combineReducers({
   stockLines,
   crypto,
   cryptoLines,
-  stockSymbol
+  stockSymbol,
+	cryptoCoin
 })
