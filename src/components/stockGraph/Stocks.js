@@ -20,7 +20,7 @@ class Stocks extends Component {
     // }
     return (
       <>
-        <SymbolList />
+				<SymbolList />
         {meta && !loading && (
           <div className="meta">
             {/* <h2>Stock: {meta['2. Symbol']}</h2> */}
@@ -28,7 +28,11 @@ class Stocks extends Component {
             <p>Last updated: {meta['3. Last Refreshed']}</p>
           </div>
         )}
-        {loading && <h1>Loading....</h1>}
+				{
+					loading && (
+						<h1>Loading....</h1>
+					)
+				}
         {prices.length !== 0 && !loading && (
           <>
             <div className="line-filters">
