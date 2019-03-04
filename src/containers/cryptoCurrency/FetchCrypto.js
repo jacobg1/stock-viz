@@ -29,7 +29,9 @@ const FetchCrypto = ({ dispatch, cryptoCoin }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-					dispatch(getCrypto(cryptoCoin.value, type, currency))
+					if (cryptoCoin.value) {
+						dispatch(getCrypto(cryptoCoin.value, type, currency))
+					}
         }}
       >
         {/* <select
