@@ -1,46 +1,46 @@
 [
 	{
-		"code": "BTC",
-		"name": "Bitcoin"
+		"label": "Bitcoin - BTC",
+		"value": "BTC"
 	},
 	{
-		"code": "BCH",
-		"name": "Bitcoin-Cash"
+		"label": "Bitcoin-Cash - BCH",
+		"value": "BCH"
 	},
 	{
-		"code": "ETH",
-		"name": "Ethereum"
+		"label": "Ethereum - ETH",
+		"value": "ETH"
 	},
 	{
-		"code": "LTC",
-		"name": "Litecoin"
+		"label": "Litecoin - LTC",
+		"value": "LTC"
 	},
 	{
-		"code": "2GIVE",
-		"name": "GiveCoin"
+		"label": "GiveCoin - 2GIVE",
+		"value": "2GIVE"
 	},
 	{
-		"code": "ACT",
-		"name": "Achain"
+		"label": "Achain - ACT",
+		"value": "ACT"
 	},
 	{
-		"code": "ADA",
-		"name": "Cardano"
+		"label": "Cardano - ADA",
+		"value": "ADA"
 	},
 	{
-		"code": "ADT",
-		"name": "adToken"
+		"label": "adToken - ADT",
+		"value": "ADT"
 	},
 	{
-		"code": "AGI",
-		"name": "SingularityNET"
+		"label": "SingularityNET - AGI",
+		"value": "AGI"
 	},
 	{
-		"code": "AID",
-		"name": "AidCoin"
+		"label": "AidCoin - AID",
+		"value": "AID"
 	},
 	{
-		"code": "NEO",
-		"name": "NEO"
+		"label": "NEO - NEO",
+		"value": "NEO"
 	}
 ]
