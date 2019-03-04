@@ -4,35 +4,35 @@ import { getCrypto } from '../../actions/cryptoActions'
 import coinTypes from '../../data/coinTypes.json'
 import currencies from '../../data/currencies.json'
 
-const FetchCrypto = ({ dispatch }) => {
+const FetchCrypto = ({ dispatch, cryptoCoin }) => {
   let symbol = 'BTC'
   let type = 'DIGITAL_CURRENCY_MONTHLY'
   let currency = 'USD'
-
-  let listOfCoins = coinTypes.map((coin, index) => {
-    return (
-      <option value={coin.code} key={index}>
-        {coin.name}
-      </option>
-    )
-  })
-  let listOfCurrencies = currencies.map((currency, index) => {
-    return (
-      <option value={currency.currencyCode} key={index}>
-        {currency.currencyName}
-      </option>
-    )
-  })
+	console.log(cryptoCoin)
+  // let listOfCoins = coinTypes.map((coin, index) => {
+  //   return (
+  //     <option value={coin.code} key={index}>
+  //       {coin.name}
+  //     </option>
+  //   )
+  // })
+  // let listOfCurrencies = currencies.map((currency, index) => {
+  //   return (
+  //     <option value={currency.currencyCode} key={index}>
+  //       {currency.currencyName}
+  //     </option>
+  //   )
+  // })
 
   return (
     <div>
       <form
         onSubmit={e => {
           e.preventDefault()
-          dispatch(getCrypto(symbol, type, currency))
+					dispatch(getCrypto(cryptoCoin.value, type, currency))
         }}
       >
-        <select
+        {/* <select
           onChange={e => {
             console.log(e.target.value)
             symbol = e.target.value
@@ -46,11 +46,15 @@ const FetchCrypto = ({ dispatch }) => {
           }}
         >
           {listOfCurrencies}
-        </select>
+        </select> */}
         <button type="submit">fetch prices</button>
       </form>
     </div>
   )
 }
 
-export default connect()(FetchCrypto)
+const mapStateToProps = state => ({
+	cryptoCoin: state.cryptoCoin
+})
+
+export default connect(mapStateToProps)(FetchCrypto)
