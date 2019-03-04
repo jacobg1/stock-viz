@@ -8,6 +8,7 @@ import crypto from './cryptoReducer'
 import cryptoLines from './cryptoLines'
 import stockSymbol from './stockSymbol'
 import cryptoCoin from './cryptoCoin'
+import listFilters from './listFilters'
 
 export default combineReducers({
   pieCharts,
@@ -18,5 +19,6 @@ export default combineReducers({
   crypto,
   cryptoLines,
   stockSymbol,
-  cryptoCoin
+  cryptoCoin,
+  listFilters
 })

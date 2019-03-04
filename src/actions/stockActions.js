@@ -81,3 +81,14 @@ export const setStockSymbol = (symbol, label) => ({
   symbol,
   label
 })
+
+export const ListFilters = {
+  SHOW_NYSE: 'SHOW_NYSE',
+  SHOW_NASDAQ: 'SHOW_NASDAQ'
+}
+
+// setting the filter
+export const setListFilter = filter => ({
+  type: 'SET_LIST_FILTER',
+  filter
+})
