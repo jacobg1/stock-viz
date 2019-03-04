@@ -10,6 +10,16 @@ export const customStyles = {
       borderColor: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
     }
   }),
+  dropdownIndicator: (base, state) => ({
+    ...base,
+    transition: 'all .2s ease',
+    color: state.selectProps.menuIsOpen ? '#95eaf1' : 'white',
+    '&:hover': {
+      color: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
+    }
+
+    // transform: state.isMenuOpen ? 'rotate(180deg)' : 'rotate(360deg)'
+  }),
   menu: base => ({
     ...base,
     borderRadius: 0,
@@ -27,16 +37,20 @@ export const customStyles = {
     ...provided,
     borderBottom: '1px dotted #95eaf1',
     color: state.isSelected ? '#023950' : 'rgb(239, 110, 141)',
-    background: state.isSelected ? '#95eaf1' : '#282c34',
+    background: state.isSelected ? '#a8a8ff' : '#282c34',
+    opacity: state.isSelected ? 0.75 : 1,
     padding: 15,
     '&:hover': {
-      color: 'white',
-      background: '#a8a8ff'
+      color: 'white'
+      // background: '#a8a8ff'
     },
     '&:focus': {
-      color: 'white',
-      background: '#a8a8ff'
+      color: 'white'
+      // background: '#a8a8ff'
     },
-    cursor: 'pointer'
+    cursor: 'pointer',
+    ':active': {
+      backgroundColor: '#a8a8ff'
+    }
   })
 }
