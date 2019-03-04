@@ -5,10 +5,11 @@ import { ListFilters } from '../../actions/stockActions'
 import Legend from './Legend'
 import PriceGraph from './PriceGraph'
 import LineFilter from '../../containers/stocks/LineFilter'
-import NYSESymbolList from './NYSESymbolList'
+import StockSymbolList from './StockSymbolList'
 import SymbolListFilter from './SymbolListFilter'
 import loadingSpinner from '../../images/loading.svg'
 import listOfStockSymbols from '../../data/stockSymbols.json'
+import NASDAQStockSymbols from '../../data/NASDAQSymbols.json'
 
 class Stocks extends Component {
   // componentDidMount() {
@@ -32,7 +33,10 @@ class Stocks extends Component {
           NASDAQ
         </SymbolListFilter>
         {listFilters === 'SHOW_NYSE' && (
-          <NYSESymbolList options={listOfStockSymbols} />
+          <StockSymbolList options={listOfStockSymbols} />
+        )}
+        {listFilters === 'SHOW_NASDAQ' && (
+          <StockSymbolList options={NASDAQStockSymbols} />
         )}
         {meta && !loading && (
           <div className="meta">
