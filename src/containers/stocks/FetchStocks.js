@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getPrices, setStockSymbol } from '../../actions/stockActions'
+import { getPrices } from '../../actions/stockActions'
 
 const FetchStocks = ({ dispatch, stockSymbol }) => {
   let type = 'TIME_SERIES_MONTHLY'

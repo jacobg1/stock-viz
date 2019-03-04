@@ -1,28 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { getCrypto } from '../../actions/cryptoActions'
-import coinTypes from '../../data/coinTypes.json'
-import currencies from '../../data/currencies.json'
+
 
 const FetchCrypto = ({ dispatch, cryptoCoin }) => {
-  let symbol = 'BTC'
+  // let symbol = 'BTC'
   let type = 'DIGITAL_CURRENCY_MONTHLY'
   let currency = 'USD'
-  console.log(cryptoCoin)
-  // let listOfCoins = coinTypes.map((coin, index) => {
-  //   return (
-  //     <option value={coin.code} key={index}>
-  //       {coin.name}
-  //     </option>
-  //   )
-  // })
-  // let listOfCurrencies = currencies.map((currency, index) => {
-  //   return (
-  //     <option value={currency.currencyCode} key={index}>
-  //       {currency.currencyName}
-  //     </option>
-  //   )
-  // })
+  
 
   return (
     <div>

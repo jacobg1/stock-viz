@@ -1,4 +1,3 @@
-import { StockLines } from '../actions/stockActions'
 const initialState = {
   type: {
     high: true,
