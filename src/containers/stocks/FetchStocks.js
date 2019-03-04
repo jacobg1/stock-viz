@@ -10,11 +10,11 @@ const FetchStocks = ({ dispatch, stockSymbol }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-          dispatch(getPrices(stockSymbol, type))
+          dispatch(getPrices(stockSymbol.value, type))
           // symbol.value = ''
         }}
       >
-        <select
+        {/* <select
           onChange={e => {
             type = e.target.value
           }}
@@ -26,7 +26,8 @@ const FetchStocks = ({ dispatch, stockSymbol }) => {
           value={stockSymbol}
           onChange={e => dispatch(setStockSymbol(e.target.value))}
           type="text"
-        />
+          placeholder="Search..."
+        /> */}
         <button type="submit">fetch prices</button>
       </form>
     </div>
