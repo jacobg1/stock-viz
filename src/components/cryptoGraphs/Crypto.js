@@ -9,7 +9,6 @@ import { CryptoLines } from '../../actions/cryptoActions'
 import CryptoList from './CryptoList'
 import loadingSpinner from '../../images/loading.svg'
 
-
 class Crypto extends Component {
   render() {
     const { loading, cryptoPrices, error, meta, cryptoLines } = this.props
@@ -22,7 +21,7 @@ class Crypto extends Component {
     // }
     return (
       <>
-				<CryptoList />
+        <CryptoList />
         {meta && !loading && (
           <div className="meta">
             {/* <h2>Coin: {meta['2. Digital Currency Code']}</h2>
@@ -30,16 +29,14 @@ class Crypto extends Component {
             <p>Last updated: {meta['6. Last Refreshed']}</p>
           </div>
         )}
-				{
-					error && (
-						<div className="error">Error : {error}</div>
-					)
-				}
-				{
-					loading && (
-						<img className="loading-spinner" alt="Loading..." src={loadingSpinner} />
-					)
-				}
+        {error && <div className="error">Error : {error}</div>}
+        {loading && (
+          <img
+            className="loading-spinner"
+            alt="Loading..."
+            src={loadingSpinner}
+          />
+        )}
         {cryptoPrices.length !== 0 && !loading && (
           <>
             <div className="line-filters">

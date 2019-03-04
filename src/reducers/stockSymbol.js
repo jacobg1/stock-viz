@@ -1,7 +1,7 @@
 const initialState = {
-	label: 'type to search or select from list', 
-	value: 0 
-	}
+  label: 'type to search or select from list',
+  value: 0
+}
 
 const stockSymbol = (state = initialState, action) => {
   switch (action.type) {

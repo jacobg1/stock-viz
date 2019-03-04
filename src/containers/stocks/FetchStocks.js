@@ -10,9 +10,9 @@ const FetchStocks = ({ dispatch, stockSymbol }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-					if (stockSymbol.value) {
-						dispatch(getPrices(stockSymbol.value, type))
-					}
+          if (stockSymbol.value) {
+            dispatch(getPrices(stockSymbol.value, type))
+          }
           // symbol.value = ''
         }}
       >

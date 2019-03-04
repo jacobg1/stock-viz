@@ -6,14 +6,13 @@ import Select from 'react-select'
 import { customStyles } from '../../data/customStyles'
 
 const CryptoList = ({ cryotoCoin, onChange }) => {
-  
   return (
     <div className="select-holder">
       <Select
         classNamePrefix="select-input"
-				defaultValue={cryotoCoin}
-        onChange={(opt) => onChange(opt)}
-				options={coinTypes}
+        defaultValue={cryotoCoin}
+        onChange={opt => onChange(opt)}
+        options={coinTypes}
         isSearchable
         styles={customStyles}
       />
@@ -32,10 +31,10 @@ const mapStateToProps = state => ({
   cryotoCoin: state.cryptoCoin
 })
 const mapDispatchToProps = dispatch => ({
-	onChange: opt => dispatch(setCryptoCoin(opt.value, opt.label))
+  onChange: opt => dispatch(setCryptoCoin(opt.value, opt.label))
 })
 
 export default connect(
-	mapStateToProps, 
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CryptoList)

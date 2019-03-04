@@ -6,13 +6,12 @@ import Select from 'react-select'
 import { customStyles } from '../../data/customStyles'
 
 const SymbolList = ({ stockSymbol, onChange }) => {
-
   return (
     <div className="select-holder">
       <Select
         classNamePrefix="select-input"
-				defaultValue={stockSymbol}
-        onChange={(opt) => onChange(opt)}
+        defaultValue={stockSymbol}
+        onChange={opt => onChange(opt)}
         options={listOfStockSymbols}
         isSearchable
         styles={customStyles}
@@ -32,10 +31,10 @@ const mapStateToProps = state => ({
   stockSymbol: state.stockSymbol
 })
 const mapDispatchToProps = dispatch => ({
-	onChange: opt => dispatch(setStockSymbol(opt.value, opt.label))
+  onChange: opt => dispatch(setStockSymbol(opt.value, opt.label))
 })
 
 export default connect(
-	mapStateToProps, 
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(SymbolList)

@@ -18,5 +18,5 @@ export default combineReducers({
   crypto,
   cryptoLines,
   stockSymbol,
-	cryptoCoin
+  cryptoCoin
 })

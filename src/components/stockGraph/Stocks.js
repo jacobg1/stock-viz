@@ -21,7 +21,7 @@ class Stocks extends Component {
     // }
     return (
       <>
-				<SymbolList />
+        <SymbolList />
         {meta && !loading && (
           <div className="meta">
             {/* <h2>Stock: {meta['2. Symbol']}</h2> */}
@@ -29,16 +29,14 @@ class Stocks extends Component {
             <p>Last updated: {meta['3. Last Refreshed']}</p>
           </div>
         )}
-				{
-					error && (
-						<div className="error">Error : {error}</div>
-					)
-				}
-				{
-					loading && (
-						<img className="loading-spinner" alt="Loading..." src={loadingSpinner} />
-					)
-				}
+        {error && <div className="error">Error : {error}</div>}
+        {loading && (
+          <img
+            className="loading-spinner"
+            alt="Loading..."
+            src={loadingSpinner}
+          />
+        )}
         {prices.length !== 0 && !loading && (
           <>
             <div className="line-filters">

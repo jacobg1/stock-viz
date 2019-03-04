@@ -77,7 +77,7 @@ export const CryptoLines = {
 
 // action type for setting that stock symbol that will be used in search
 export const setCryptoCoin = (coin, label) => ({
-	type: 'SET_CRYPTO_COIN',
-	coin,
-	label
+  type: 'SET_CRYPTO_COIN',
+  coin,
+  label
 })

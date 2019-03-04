@@ -8,7 +8,7 @@ const FetchCrypto = ({ dispatch, cryptoCoin }) => {
   let symbol = 'BTC'
   let type = 'DIGITAL_CURRENCY_MONTHLY'
   let currency = 'USD'
-	console.log(cryptoCoin)
+  console.log(cryptoCoin)
   // let listOfCoins = coinTypes.map((coin, index) => {
   //   return (
   //     <option value={coin.code} key={index}>
@@ -29,9 +29,9 @@ const FetchCrypto = ({ dispatch, cryptoCoin }) => {
       <form
         onSubmit={e => {
           e.preventDefault()
-					if (cryptoCoin.value) {
-						dispatch(getCrypto(cryptoCoin.value, type, currency))
-					}
+          if (cryptoCoin.value) {
+            dispatch(getCrypto(cryptoCoin.value, type, currency))
+          }
         }}
       >
         {/* <select
@@ -56,7 +56,7 @@ const FetchCrypto = ({ dispatch, cryptoCoin }) => {
 }
 
 const mapStateToProps = state => ({
-	cryptoCoin: state.cryptoCoin
+  cryptoCoin: state.cryptoCoin
 })
 
 export default connect(mapStateToProps)(FetchCrypto)
