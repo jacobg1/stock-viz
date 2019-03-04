@@ -7,20 +7,23 @@ import Legend from '../stockGraph/Legend'
 // import LineFilter from '../../containers/stocks/LineFilter'
 import { CryptoLines } from '../../actions/cryptoActions'
 import CryptoList from './CryptoList'
+import loadingSpinner from '../../images/loading.svg'
+
+
 class Crypto extends Component {
   render() {
     const { loading, cryptoPrices, error, meta, cryptoLines } = this.props
     console.log(cryptoLines)
-    if (error) {
-      return <div className="error">Error : {error}</div>
-    }
+    // if (error) {
+    //   return <div className="error">Error : {error}</div>
+    // }
     // if (loading) {
     //   return <h1>Loading...</h1>
     // }
     return (
       <>
 				<CryptoList />
-        {meta && (
+        {meta && !loading && (
           <div className="meta">
             {/* <h2>Coin: {meta['2. Digital Currency Code']}</h2>
             <p>Market: {meta['5. Market Name']}</p> */}
@@ -28,11 +31,16 @@ class Crypto extends Component {
           </div>
         )}
 				{
-					loading && (
-						<h1>Loading....</h1>
+					error && (
+						<div className="error">Error : {error}</div>
 					)
 				}
-        {cryptoPrices.length !== 0 && (
+				{
+					loading && (
+						<img className="loading-spinner" alt="Loading..." src={loadingSpinner} />
+					)
+				}
+        {cryptoPrices.length !== 0 && !loading && (
           <>
             <div className="line-filters">
               <Legend stocklines={cryptoLines} />

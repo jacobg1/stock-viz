@@ -4,6 +4,7 @@ import LineFilter from '../../containers/stocks/LineFilter'
 import { StockLines } from '../../actions/stockActions'
 import Legend from './Legend'
 import SymbolList from '../../components/stockGraph/SymbolList'
+import loadingSpinner from '../../images/loading.svg'
 
 class Stocks extends Component {
   // componentDidMount() {
@@ -12,9 +13,9 @@ class Stocks extends Component {
   render() {
     const { loading, prices, error, meta, stockLines } = this.props
     // console.log(prices)
-    if (error) {
-      return <div className="error">Error : {error}</div>
-    }
+    // if (error) {
+    //   return <div className="error">Error : {error}</div>
+    // }
     // if (loading) {
     //   return <h1>Loading...</h1>
     // }
@@ -29,8 +30,13 @@ class Stocks extends Component {
           </div>
         )}
 				{
+					error && (
+						<div className="error">Error : {error}</div>
+					)
+				}
+				{
 					loading && (
-						<h1>Loading....</h1>
+						<img className="loading-spinner" alt="Loading..." src={loadingSpinner} />
 					)
 				}
         {prices.length !== 0 && !loading && (
