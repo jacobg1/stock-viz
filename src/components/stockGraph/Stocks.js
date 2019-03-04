@@ -1,17 +1,21 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { StockLines } from '../../actions/stockActions'
+import { ListFilters } from '../../actions/stockActions'
+import Legend from './Legend'
 import PriceGraph from './PriceGraph'
 import LineFilter from '../../containers/stocks/LineFilter'
-import { StockLines } from '../../actions/stockActions'
-import Legend from './Legend'
-import SymbolList from '../../components/stockGraph/SymbolList'
+import NYSESymbolList from './NYSESymbolList'
+import SymbolListFilter from './SymbolListFilter'
 import loadingSpinner from '../../images/loading.svg'
+import listOfStockSymbols from '../../data/stockSymbols.json'
 
 class Stocks extends Component {
   // componentDidMount() {
   //   this.props.dispatch(getPrices())
   // }
   render() {
-    const { loading, prices, error, meta, stockLines } = this.props
+    const { loading, prices, error, meta, stockLines, listFilters } = this.props
     // console.log(prices)
     // if (error) {
     //   return <div className="error">Error : {error}</div>
@@ -21,7 +25,15 @@ class Stocks extends Component {
     // }
     return (
       <>
-        <SymbolList />
+        <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
+          New York Stock Exchange
+        </SymbolListFilter>
+        <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
+          NASDAQ
+        </SymbolListFilter>
+        {listFilters === 'SHOW_NYSE' && (
+          <NYSESymbolList options={listOfStockSymbols} />
+        )}
         {meta && !loading && (
           <div className="meta">
             {/* <h2>Stock: {meta['2. Symbol']}</h2> */}
@@ -58,4 +70,7 @@ class Stocks extends Component {
   }
 }
 
-export default Stocks
+const mapStateToProps = state => ({
+  listFilters: state.listFilters
+})
+export default connect(mapStateToProps)(Stocks)
