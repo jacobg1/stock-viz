@@ -38,10 +38,10 @@ const SymbolList = ({ dispatch, stockSymbol }) => {
       padding: 15,
       '&:hover': {
         color: 'white',
-        background: '#ef6e8d'
+        background: '#a8a8ff'
       },
       '&:focus': {
-        color: '#ff3c3c',
+        color: 'white',
         background: '#a8a8ff'
       },
       cursor: 'pointer'
@@ -52,12 +52,21 @@ const SymbolList = ({ dispatch, stockSymbol }) => {
     <div className="select-holder">
       <Select
         classNamePrefix="select-input"
-        defaultValue={stockSymbol}
-        onChange={opt => dispatch(setStockSymbol(opt.value))}
+        defaultValue={stockSymbol.value}
+        onChange={opt => dispatch(setStockSymbol(opt.value, opt.label))}
         options={listOfStockSymbols}
         isSearchable
         styles={customStyles}
+        placeholder="Type to start searching..."
       />
+      {/* {
+				Object.keys(stockSymbol).length !== 0 && (
+					<>
+					<span>Stock: {stockSymbol.label}</span>
+						<span>Symbol: {stockSymbol.value}</span>
+					</>
+				)
+			} */}
     </div>
   )
 }
