@@ -61,7 +61,7 @@ export const getCryptoFailure = error => ({
   payload: { error }
 })
 
-// setting which pice line to show on stock chart
+// setting which pice line to show on crypto chart
 export const setCryptoLines = filter => ({
   type: 'SET_CRYPTO_LINE',
   filter
@@ -74,3 +74,10 @@ export const CryptoLines = {
   LOW: 'low',
   CLOSE: 'close'
 }
+
+// action type for setting that stock symbol that will be used in search
+export const setCryptoCoin = (coin, label) => ({
+	type: 'SET_CRYPTO_COIN',
+	coin,
+	label
+})
