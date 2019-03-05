@@ -4,7 +4,7 @@ import * as d3 from 'd3'
 class StockLabels extends Component {
   render() {
     const { margin, h, w, allPriceData } = this.props
-    console.log(allPriceData)
+    // console.log(allPriceData)
     // scale x axis to fit data
     const x = d3
       .scaleLinear()
