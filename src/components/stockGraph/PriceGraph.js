@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import PriceDataLine from './PriceDataLine'
 import StockLabels from './StockLabels'
 import Tooltip from './Tooltip'
 
-class PriceGraph extends Component {
+class PriceGraph extends PureComponent {
   constructor() {
     super()
     this.state = {
@@ -17,13 +17,18 @@ class PriceGraph extends Component {
     this.clearHover = this.clearHover.bind(this)
   }
   setHover(e) {
-    this.setState({
-      value: e.target.getAttribute('data-value'),
-      date: e.target.getAttribute('data-date'),
-      positionX: e.pageX - 100,
-      positionY: e.pageY - 80,
-      color: e.target.getAttribute('data-color')
-    })
+    this.setState(
+      {
+        value: e.target.getAttribute('data-value'),
+        date: e.target.getAttribute('data-date'),
+        positionX: e.pageX - 100,
+        positionY: e.pageY - 80,
+        color: e.target.getAttribute('data-color')
+      },
+      () => {
+        console.log(this.state.value)
+      }
+    )
   }
   clearHover() {
     this.setState({
@@ -53,7 +58,7 @@ class PriceGraph extends Component {
   // }
   formatAllData() {
     const { prices, crypto } = this.props
-    console.log(crypto)
+    // console.log(crypto)
     const allPriceData = []
     Object.keys(prices).forEach((price, index) => {
       let timeStamp = new Date(price)
