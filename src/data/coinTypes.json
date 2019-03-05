@@ -1,21 +1,5 @@
 [
 	{
-		"label": "Bitcoin - BTC",
-		"value": "BTC"
-	},
-	{
-		"label": "Bitcoin-Cash - BCH",
-		"value": "BCH"
-	},
-	{
-		"label": "Ethereum - ETH",
-		"value": "ETH"
-	},
-	{
-		"label": "Litecoin - LTC",
-		"value": "LTC"
-	},
-	{
 		"label": "GiveCoin - 2GIVE",
 		"value": "2GIVE"
 	},
@@ -40,7 +24,83 @@
 		"value": "AID"
 	},
 	{
+		"label": "Aion - AION",
+		"value": "AION"
+	},
+	{
+		"label": "Aragon - ANT",
+		"value": "ANT"
+	},
+	{
+		"label": "Ark - ARK",
+		"value": "ARK"
+	},
+	{
+		"label": "ATBCoin - ATB",
+		"value": "ATB"
+	},
+	{
+		"label": "ATMChain - ATM",
+		"value": "ATM"
+	},
+	{
+		"label": "Auroracoin - AUR",
+		"value": "AUR"
+	},
+	{
+		"label": "Aventus - AVT",
+		"value": "AVT"
+	},
+	{
+		"label": "Basic-Attention-Token - BAT",
+		"value": "BAT"
+	},
+	{
+		"label": "Bitcoin-Diamond - BCD",
+		"value": "BCD"
+	},
+	{
+		"label": "Bitcoin-Cash - BCH",
+		"value": "BCH"
+	},
+	{
+		"label": "Bitcoin - BTC",
+		"value": "BTC"
+	},
+	{
+		"label": "Ethereum - ETH",
+		"value": "ETH"
+	},
+	{
+		"label": "IOTA - IOTA",
+		"value": "IOTA"
+	},
+	{
+		"label": "Litecoin - LTC",
+		"value": "LTC"
+	},
+	{
 		"label": "NEO - NEO",
 		"value": "NEO"
+	},
+	{
+		"label": "NEM - XEM",
+		"value": "XEM"
+	},
+	{
+		"label": "Stellar - XLM",
+		"value": "XLM"
+	},
+	{
+		"label": "Monero - IOTA",
+		"value": "XMR"
+	},
+	{
+		"label": "Ripple - XRP",
+		"value": "XRP"
+	},
+	{
+		"label": "Zcash - ZEC",
+		"value": "ZEC"
 	}
 ]
