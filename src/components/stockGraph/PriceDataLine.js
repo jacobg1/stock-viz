@@ -47,7 +47,7 @@ class PriceDataLine extends PureComponent {
       }
     }
     const hoverDots = allPriceData.map((price, i) =>
-      hover && cryptoCheck(i) ? (
+      hover ? (
         <circle
           onMouseMove={e => setHover(e)}
           key={i}
@@ -55,7 +55,7 @@ class PriceDataLine extends PureComponent {
           fill={stroke}
           cx={x(price.date)}
           cy={y(price[lineType])}
-          r={6}
+          r={8}
           data-date={price.date}
           data-value={price[lineType]}
           data-color={stroke}
