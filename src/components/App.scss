@@ -180,10 +180,10 @@
   circle {
     cursor: pointer;
     z-index: 9;
-    opacity: .6;
+    opacity: 0;
 
     &:hover {
-      opacity: 1;
+      opacity: .8;
     }
   }
 }
