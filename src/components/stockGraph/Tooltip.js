@@ -7,7 +7,7 @@ const formatDate = d => {
   return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()
 }
 const formatValue = n => {
-  return parseInt(n)
+  return parseFloat(n).toFixed(2)
 }
 const Tooltip = ({ value, date, positionX, positionY, color }) => {
   return (
