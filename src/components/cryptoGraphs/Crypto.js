@@ -21,14 +21,14 @@ class Crypto extends Component {
     // }
     return (
       <>
-        <CryptoList />
-        {meta && !loading && (
+        <div className="flex-holder">
           <div className="meta">
-            {/* <h2>Coin: {meta['2. Digital Currency Code']}</h2>
-            <p>Market: {meta['5. Market Name']}</p> */}
-            <p>Last updated: {meta['6. Last Refreshed']}</p>
+            {meta && !loading && (
+              <p>Last updated: {meta['6. Last Refreshed']}</p>
+            )}
           </div>
-        )}
+          <CryptoList />
+        </div>
         {error && <div className="error">Error : {error}</div>}
         {loading && (
           <img
