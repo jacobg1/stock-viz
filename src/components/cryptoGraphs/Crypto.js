@@ -3,11 +3,62 @@ import PriceGraph from '../stockGraph/PriceGraph'
 import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
 import Legend from '../stockGraph/Legend'
 
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+
 // import PriceGraph from './PriceGraph'
 // import LineFilter from '../../containers/stocks/LineFilter'
 import { CryptoLines } from '../../actions/cryptoActions'
 import CryptoList from './CryptoList'
 import loadingSpinner from '../../images/loading.svg'
+
+const stockHeader = css`
+  font-size: 99px;
+  color: #4d535e;
+  opacity: 0.3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  text-shadow: 0 1px 0 #e9e9ff;
+`
+const flex = css`
+  display: flex;
+  justify-content: space-around;
+  max-width: 1178px;
+  margin: 0 auto;
+  padding: 30px 0;
+`
+
+const metaText = css`
+  align-self: center;
+  p {
+    font-size: 14px;
+  }
+`
+const lineFilters = css`
+  max-width: 900px;
+  text-align: left;
+  margin: 0 auto;
+
+  label {
+    font-size: 13px;
+    padding-left: 20px;
+
+    &:first-of-type {
+      padding-left: 10px;
+    }
+  }
+`
+const spinner = css`
+  margin-top: 100px;
+`
+const fetchError = css`
+  max-width: 900px;
+  padding-top: 21%;
+  margin: 0 auto;
+`
 
 class Crypto extends Component {
   render() {
@@ -21,25 +72,19 @@ class Crypto extends Component {
     // }
     return (
       <>
-        <div className="flex-holder">
-          <div className="meta">
+        <div css={flex}>
+          <div css={metaText}>
             {meta && !loading && (
               <p>Last updated: {meta['6. Last Refreshed']}</p>
             )}
           </div>
           <CryptoList />
         </div>
-        {error && <div className="error">Error : {error}</div>}
-        {loading && (
-          <img
-            className="loading-spinner"
-            alt="Loading..."
-            src={loadingSpinner}
-          />
-        )}
+        {error && <div css={fetchError}>Error : {error}</div>}
+        {loading && <img css={spinner} alt="Loading..." src={loadingSpinner} />}
         {cryptoPrices.length !== 0 && !loading && (
           <>
-            <div className="line-filters">
+            <div css={lineFilters}>
               <Legend stocklines={cryptoLines} />
               <CryptoFilter filter={CryptoLines.HIGH}>high</CryptoFilter>
               <CryptoFilter filter={CryptoLines.LOW}>low</CryptoFilter>
@@ -52,6 +97,9 @@ class Crypto extends Component {
               prices={cryptoPrices}
             />
           </>
+        )}
+        {!loading && cryptoPrices.length === 0 && (
+          <h1 css={stockHeader}>CRYPTO</h1>
         )}
       </>
     )
