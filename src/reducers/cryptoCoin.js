@@ -1,5 +1,5 @@
 const initialState = {
-  label: 'type to search or select from list',
+  label: 'Select from list or type to search...',
   value: 0
 }
 
