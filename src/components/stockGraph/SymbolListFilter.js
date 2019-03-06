@@ -9,10 +9,10 @@ import { setListFilter } from '../../actions/stockActions'
 const SymbolListFilter = ({ children, onChange, active }) => {
   // console.log(checked)
   return (
-    <>
-      <label>{children}</label>
+    <div className="symbol-filter">
       <input onChange={onChange} checked={active} type="radio" />
-    </>
+      <label>{children}</label>
+    </div>
   )
 }
 const mapStateToProps = (state, ownProps) => ({
