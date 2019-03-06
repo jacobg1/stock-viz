@@ -26,25 +26,31 @@ class Stocks extends Component {
     // }
     return (
       <>
-        <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
-          New York Stock Exchange
-        </SymbolListFilter>
-        <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
-          NASDAQ
-        </SymbolListFilter>
-        {listFilters === 'SHOW_NYSE' && (
-          <StockSymbolList options={listOfStockSymbols} />
-        )}
-        {listFilters === 'SHOW_NASDAQ' && (
-          <StockSymbolList options={NASDAQStockSymbols} />
-        )}
-        {meta && !loading && (
+        <div className="flex-holder">
           <div className="meta">
-            {/* <h2>Stock: {meta['2. Symbol']}</h2> */}
-            {/* <p>{meta['1. Information']}</p> */}
-            <p>Last updated: {meta['3. Last Refreshed']}</p>
+            {meta && !loading && (
+              <p>Last updated: {meta['3. Last Refreshed']}</p>
+            )}
           </div>
-        )}
+
+          <div className="filter-holder">
+            {/* <div className="stock-filters"> */}
+            <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
+              New York Stock Exchange
+            </SymbolListFilter>
+            <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
+              NASDAQ
+            </SymbolListFilter>
+            {/* </div> */}
+            {listFilters === 'SHOW_NYSE' && (
+              <StockSymbolList options={listOfStockSymbols} />
+            )}
+            {listFilters === 'SHOW_NASDAQ' && (
+              <StockSymbolList options={NASDAQStockSymbols} />
+            )}
+          </div>
+        </div>
+
         {error && <div className="error">Error : {error}</div>}
         {loading && (
           <img
