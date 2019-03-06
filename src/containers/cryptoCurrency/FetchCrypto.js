@@ -2,12 +2,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getCrypto } from '../../actions/cryptoActions'
 
-
 const FetchCrypto = ({ dispatch, cryptoCoin }) => {
   // let symbol = 'BTC'
   let type = 'DIGITAL_CURRENCY_MONTHLY'
   let currency = 'USD'
-  
 
   return (
     <div>
