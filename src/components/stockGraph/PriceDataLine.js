@@ -1,7 +1,19 @@
+// eslint-disable-next-line no-unused-vars
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+
+const priceLine = css`
+  stroke-width: 3px;
+  fill: none;
+`
+
 class PriceDataLine extends PureComponent {
+  componentDidMount() {
+    d3.select('#hover').raise()
+  }
   render() {
     const {
       margin,
@@ -12,8 +24,8 @@ class PriceDataLine extends PureComponent {
       setHover,
       clearHover,
       allPriceData,
-      lineType,
-      crypto
+      lineType
+      // crypto
     } = this.props
 
     // scale x axis to fit data
@@ -39,13 +51,13 @@ class PriceDataLine extends PureComponent {
       .y(d => y(d[lineType]))
 
     // .curve(d3.curveCatmullRom.alpha(0.1))
-    const cryptoCheck = i => {
-      if (!crypto) {
-        return i % 2 === 0
-      } else {
-        return true
-      }
-    }
+    // const cryptoCheck = i => {
+    //   if (!crypto) {
+    //     return i % 2 === 0
+    //   } else {
+    //     return true
+    //   }
+    // }
     const hoverDots = allPriceData.map((price, i) =>
       hover ? (
         <circle
@@ -65,8 +77,8 @@ class PriceDataLine extends PureComponent {
 
     return (
       <>
-        {hoverDots}
-        <path className="path" stroke={stroke} d={line(allPriceData)} />
+        <g id="hover">{hoverDots}</g>
+        <path css={priceLine} stroke={stroke} d={line(allPriceData)} />
       </>
     )
   }
