@@ -1,7 +1,28 @@
+// eslint-disable-next-line no-unused-vars
 import React, { PureComponent } from 'react'
 import PriceDataLine from './PriceDataLine'
 import StockLabels from './StockLabels'
 import Tooltip from './Tooltip'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+
+const axis = css`
+  stroke: #d6d6d8;
+`
+const svgHolder = css`
+  svg {
+    margin: 0 auto;
+    max-width: 948px;
+  }
+  circle {
+    cursor: pointer;
+    z-index: 9;
+    opacity: 0;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`
 
 class PriceGraph extends PureComponent {
   constructor() {
@@ -92,7 +113,7 @@ class PriceGraph extends PureComponent {
     const { stockLines, crypto } = this.props,
       { date, value, positionX, positionY, color } = this.state
     return (
-      <div className="svg-holder">
+      <div css={svgHolder}>
         {this.state.value && (
           <Tooltip
             value={value}
@@ -104,8 +125,8 @@ class PriceGraph extends PureComponent {
         )}
         {this.props.prices.length !== 0 && (
           <svg height={height} width={width}>
-            <line className="axis" x1={margin} x2={w} y1={h} y2={h} />
-            <line className="axis" x1={margin} x2={margin} y1={margin} y2={h} />
+            <line css={axis} x1={margin} x2={w} y1={h} y2={h} />
+            <line css={axis} x1={margin} x2={margin} y1={margin} y2={h} />
 
             {stockLines.type.open && (
               <PriceDataLine
