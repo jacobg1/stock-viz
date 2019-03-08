@@ -1,6 +1,20 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
 import * as d3 from 'd3'
 
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+
+const axisLabels = css`
+  text {
+    fill: #a8a8ff;
+    font-size: 9px;
+    text-anchor: middle;
+  }
+  line {
+    stroke: #d6d6d8;
+  }
+`
 class StockLabels extends Component {
   render() {
     const { margin, h, w, allPriceData } = this.props
@@ -52,8 +66,8 @@ class StockLabels extends Component {
 
     return (
       <>
-        <g className="axis-labels">{yLabels}</g>
-        <g className="axis-labels">{xLabels}</g>
+        <g css={axisLabels}>{yLabels}</g>
+        <g css={axisLabels}>{xLabels}</g>
       </>
     )
   }
