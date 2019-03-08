@@ -1,6 +1,7 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import styled from '@emotion/styled'
+// import styled from '@emotion/styled'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
@@ -34,7 +35,6 @@ const flex = css`
   margin: 0 auto;
   padding: 30px 0;
 `
-
 const metaText = css`
   align-self: center;
   p {
@@ -45,11 +45,9 @@ const lineFilters = css`
   max-width: 900px;
   text-align: left;
   margin: 0 auto;
-
   label {
     font-size: 13px;
     padding-left: 20px;
-
     &:first-of-type {
       padding-left: 10px;
     }
@@ -62,6 +60,16 @@ const fetchError = css`
   max-width: 900px;
   padding-top: 21%;
   margin: 0 auto;
+`
+const stockFilter = css`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  padding-top: 7px;
+`
+const loadingHolder = css`
+  width: 100%;
+  height: 100%;
 `
 class Stocks extends Component {
   // componentDidMount() {
@@ -85,14 +93,13 @@ class Stocks extends Component {
             )}
           </div>
 
-          <div className="filter-holder">
-            <div className="stock-filter">
-              <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
-                New York Stock Exchange
-              </SymbolListFilter>
-
+          <div>
+            <div css={stockFilter}>
               <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
                 NASDAQ
+              </SymbolListFilter>
+              <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
+                NYSE
               </SymbolListFilter>
             </div>
             {listFilters === 'SHOW_NYSE' && (
@@ -105,7 +112,12 @@ class Stocks extends Component {
         </div>
 
         {error && <div css={fetchError}>Error : {error}</div>}
-        {loading && <img css={spinner} alt="Loading..." src={loadingSpinner} />}
+        {loading && (
+          <div css={loadingHolder}>
+            <img css={spinner} alt="Loading..." src={loadingSpinner} />
+          </div>
+        )}
+
         {prices.length !== 0 && !loading && (
           <>
             <div css={lineFilters}>
