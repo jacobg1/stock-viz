@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
 import PriceGraph from '../stockGraph/PriceGraph'
 import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
