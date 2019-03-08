@@ -43,10 +43,6 @@
   fill: none;
 }
 
-.path {
-  stroke-width: 3px;
-  fill: none;
-}
 
 .axis {
   stroke: #d6d6d8;
@@ -170,25 +166,25 @@
 //   }
 // }
 
-.svg-holder {
-  // max-width: 900px;
-  // margin: 0 auto;
-  // position: relative;
-  svg {
-    margin: 0 auto;
-    max-width: 948px;
-  }
+// .svg-holder {
+//   // max-width: 900px;
+//   // margin: 0 auto;
+//   // position: relative;
+//   svg {
+//     margin: 0 auto;
+//     max-width: 948px;
+//   }
 
-  circle {
-    cursor: pointer;
-    z-index: 9;
-    opacity: 0;
+//   circle {
+//     cursor: pointer;
+//     z-index: 9;
+//     opacity: 0;
 
-    &:hover {
-      opacity: .8;
-    }
-  }
-}
+//     &:hover {
+//       opacity: .8;
+//     }
+//   }
+// }
 
 // .error {
 //   max-width: 900px;
