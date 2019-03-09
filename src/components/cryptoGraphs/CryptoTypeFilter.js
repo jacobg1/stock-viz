@@ -8,10 +8,45 @@ import { connect } from 'react-redux'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-const CryptoTypeFilter = ({ children }) => {
-	return (
-	<button>{children}</button>
-	)
+const button = css`
+  border: none;
+  width: 50%;
+  line-height: 15px;
+  background-color: #95eaf1;
+  border: 1px solid #95eaf1;
+  color: #2c323b;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  letter-spacing: 0.5px;
+  &:first-of-type {
+    margin-right: 5px;
+  }
+  &:hover {
+    background-color: #2c323b;
+    border: 1px solid #b1b3fc;
+    color: white;
+  }
+  &:focus {
+    border-color: #ef6e8d;
+    outline: none;
+  }
+  &.active {
+    background-color: #2c323b;
+    border: 1px solid #95eaf1;
+    color: white;
+    &:hover {
+      border-color: #ef6e8d;
+    }
+  }
+`
+const CryptoTypeFilter = ({ children, active }) => {
+  return <button css={button}>{children}</button>
 }
 
-export default CryptoTypeFilter
+const mapStateToProps = (state, ownProps) => ({
+  active: state.type === ownProps.type
+})
+
+export default connect(mapStateToProps)(CryptoTypeFilter)
