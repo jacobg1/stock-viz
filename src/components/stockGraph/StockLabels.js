@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
 
 /** @jsx jsx */
@@ -15,7 +15,7 @@ const axisLabels = css`
     stroke: #d6d6d8;
   }
 `
-class StockLabels extends Component {
+class StockLabels extends PureComponent {
   render() {
     const { margin, h, w, allPriceData } = this.props
     // console.log(allPriceData)
