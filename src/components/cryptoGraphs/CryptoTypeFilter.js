@@ -44,25 +44,21 @@ const button = css`
 `
 const CryptoTypeFilter = ({ children, active, onClick }) => {
   return (
-		<button 
-			css={button}
-			onClick={onClick} 
-			className={active ? 'active' : ''}
-		>
-			{children}
-		</button>
-	)
+    <button css={button} onClick={onClick} className={active ? 'active' : ''}>
+      {children}
+    </button>
+  )
 }
 
 const mapStateToProps = (state, ownProps) => ({
-	active: ownProps.timePeriod === state.cryptoType 
+  active: ownProps.timePeriod === state.cryptoType
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	onClick: () => dispatch(setCryptoType(ownProps.timePeriod))
+  onClick: () => dispatch(setCryptoType(ownProps.timePeriod))
 })
 
 export default connect(
-	mapStateToProps,
-	mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(CryptoTypeFilter)
