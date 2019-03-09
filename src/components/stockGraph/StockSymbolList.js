@@ -11,7 +11,7 @@ import { customStyles } from '../../styles/customStyles'
 
 const selectHolder = css`
   width: 100%;
-	input {
+  input {
     color: #ef6e8d !important;
   }
 `
