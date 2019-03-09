@@ -1,17 +1,43 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import './App.scss'
-import AddPieChart from '../containers/pieCharts/AddPieChart'
-import VisiblePieChartList from '../containers/pieCharts/VisiblePieChartList'
-import FilterCharts from '../containers/FilterCharts'
-import { ChartFilters } from '../actions'
 import PropTypes from 'prop-types'
-import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
-import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
-import FetchStocks from '../containers/stocks/FetchStocks'
+import { connect } from 'react-redux'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+import './App.scss'
+import { breakpoints } from '../styles/breakpoints'
+
+import { ChartFilters } from '../actions'
+
 import StocksContainer from '../containers/stocks/StocksContainer'
-import FetchCrypto from '../containers/cryptoCurrency/FetchCrypto'
+import FilterCharts from '../containers/FilterCharts'
 import CryptoContainer from '../containers/cryptoCurrency/CryptoContainer'
+// import AddPieChart from '../containers/pieCharts/AddPieChart'
+// import VisiblePieChartList from '../containers/pieCharts/VisiblePieChartList'
+
+// import AddLineGraph from '../containers/lineGraphs/AddLineGraph'
+// import VisibleLineGraphList from '../containers/lineGraphs/VisibleLineGraphList'
+// import FetchStocks from '../containers/stocks/FetchStocks'
+// import FetchCrypto from '../containers/cryptoCurrency/FetchCrypto'
+
+const chartFilters = css`
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 90%;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 15px 0;
+  @media ${breakpoints.laptop} {
+    flex-direction: column;
+    position: absolute;
+    left: 10%;
+    width: 200px;
+  }
+  ${'' /* padding-left: 104px;
+  margin-top: 36px; */}
+`
 
 /*
 	component for showing charts and filters for switching between charts
@@ -23,19 +49,22 @@ class Charts extends Component {
     return (
       <div className="App">
         <div className="charts">
-          <FilterCharts filter={ChartFilters.SHOW_PIE_CHARTS}>
+          {/* <FilterCharts filter={ChartFilters.SHOW_PIE_CHARTS}>
             Pie Charts
           </FilterCharts>
           <FilterCharts filter={ChartFilters.SHOW_LINE_GRAPHS}>
             Line Graphs
-          </FilterCharts>
-          <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
-            Stock Prices
-          </FilterCharts>
-          <FilterCharts filter={ChartFilters.SHOW_CRYPTO_PRICES}>
-            CryptoCurrency
-          </FilterCharts>
-          {chartsToShow === 'SHOW_PIE_CHARTS' && (
+          </FilterCharts> */}
+          <div css={chartFilters}>
+            <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
+              Stock Prices
+            </FilterCharts>
+            <FilterCharts filter={ChartFilters.SHOW_CRYPTO_PRICES}>
+              CryptoCurrency
+            </FilterCharts>
+          </div>
+
+          {/* {chartsToShow === 'SHOW_PIE_CHARTS' && (
             <>
               <AddPieChart />
               <VisiblePieChartList />
@@ -46,16 +75,16 @@ class Charts extends Component {
               <AddLineGraph />
               <VisibleLineGraphList />
             </>
-          )}
+          )} */}
           {chartsToShow === 'SHOW_STOCK_PRICES' && (
             <>
-              <FetchStocks />
+              {/* <FetchStocks /> */}
               <StocksContainer />
             </>
           )}
           {chartsToShow === 'SHOW_CRYPTO_PRICES' && (
             <>
-              <FetchCrypto />
+              {/* <FetchCrypto /> */}
               <CryptoContainer />
             </>
           )}
