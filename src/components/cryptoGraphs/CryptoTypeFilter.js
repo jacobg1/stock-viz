@@ -4,7 +4,8 @@ import React from 'react'
 // import SymbolListFilter from '../../components/stockGraph/SymbolListFilter'
 import { connect } from 'react-redux'
 
-// import { setListFilter } from '../../actions/stockActions'
+import { setCryptoType } from '../../actions/cryptoActions'
+
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
@@ -41,12 +42,27 @@ const button = css`
     }
   }
 `
-const CryptoTypeFilter = ({ children, active }) => {
-  return <button css={button}>{children}</button>
+const CryptoTypeFilter = ({ children, active, onClick }) => {
+  return (
+		<button 
+			css={button}
+			onClick={onClick} 
+			className={active ? 'active' : ''}
+		>
+			{children}
+		</button>
+	)
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  active: state.type === ownProps.type
+	active: ownProps.timePeriod === state.cryptoType 
 })
 
-export default connect(mapStateToProps)(CryptoTypeFilter)
+const mapDispatchToProps = (dispatch, ownProps) => ({
+	onClick: () => dispatch(setCryptoType(ownProps.timePeriod))
+})
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(CryptoTypeFilter)
