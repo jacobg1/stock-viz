@@ -1,12 +1,21 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { connect } from 'react-redux'
-import { setStockSymbol } from '../../actions/stockActions'
+
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+
 import Select from 'react-select'
-import { customStyles } from '../../data/customStyles'
+import { setStockSymbol } from '../../actions/stockActions'
+import { customStyles } from '../../styles/customStyles'
+
+const selectHolder = css`
+  width: 100%;
+`
 
 const StockSymbolList = ({ stockSymbol, onChange, options }) => {
   return (
-    <div className="select-holder">
+    <div css={selectHolder}>
       <Select
         cacheOptions
         classNamePrefix="select-input"
