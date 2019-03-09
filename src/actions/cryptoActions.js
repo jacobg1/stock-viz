@@ -81,3 +81,15 @@ export const setCryptoCoin = (coin, label) => ({
   coin,
   label
 })
+
+// object to hold crypto types, monthly / daily
+export const TypeFilters = {
+  MONTHLY: 'MONTHLY',
+  DAILY: 'DAILY'
+}
+
+// setting crypto type monthly / daily
+export const setCryptoType = timePeriod => ({
+  type: 'SET_CRYPTO_TYPE',
+  timePeriod
+})
