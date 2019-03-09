@@ -7,11 +7,12 @@ import { connect } from 'react-redux'
 import { setListFilter } from '../../actions/stockActions'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
+import { breakpoints } from '../../styles/breakpoints'
 
 const button = css`
   border: none;
   width: 50%;
-  line-height: 15px;
+  line-height: 25px;
   background-color: #95eaf1;
   border: 1px solid #95eaf1;
   color: #2c323b;
@@ -20,6 +21,9 @@ const button = css`
   cursor: pointer;
   transition: all 0.4s ease-in-out;
   letter-spacing: 0.5px;
+  @media ${breakpoints.mobile} {
+    line-height: 15px;
+  }
   &:first-of-type {
     margin-right: 5px;
   }
