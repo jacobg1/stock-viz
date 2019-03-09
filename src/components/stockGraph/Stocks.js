@@ -8,6 +8,8 @@ import { jsx, css } from '@emotion/core'
 
 import { StockLines } from '../../actions/stockActions'
 import { ListFilters } from '../../actions/stockActions'
+import { getPrices } from '../../actions/stockActions'
+
 import Legend from './Legend'
 import PriceGraph from './PriceGraph'
 import LineFilter from '../../containers/stocks/LineFilter'
@@ -65,18 +67,55 @@ const stockFilter = css`
   display: flex;
   justify-content: space-between;
   padding-bottom: 10px;
-  padding-top: 7px;
 `
 const loadingHolder = css`
   width: 100%;
   height: 100%;
+`
+const buttonFlex = css`
+  display: flex;
+`
+const margin = css`
+  margin-left: 5px;
+`
+const button = css`
+  background-color: #a2edf2;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  padding: 0;
+  color: #2c323b;
+  padding: 0 12px;
+  cursor: pointer;
+  border: 1px solid #a2edf2;
+  display: inline-block;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    background-color: #2c323b;
+    border-color: #b1b3fc;
+    color: white;
+  }
+  &:focus {
+    border-color: #ef6e8d;
+    outline: none;
+  }
 `
 class Stocks extends Component {
   // componentDidMount() {
   //   this.props.dispatch(getPrices())
   // }
   render() {
-    const { loading, prices, error, meta, stockLines, listFilters } = this.props
+    const {
+      loading,
+      prices,
+      error,
+      meta,
+      stockLines,
+      listFilters,
+      stockSymbol,
+      dispatch
+    } = this.props
     // console.log(prices)
     // if (error) {
     //   return <div className="error">Error : {error}</div>
@@ -84,31 +123,42 @@ class Stocks extends Component {
     // if (loading) {
     //   return <h1>Loading...</h1>
     // }
+    console.log(stockSymbol)
     return (
       <>
         <div css={flex}>
-          <div css={metaText}>
-            {meta && !loading && (
-              <p>Last updated: {meta['3. Last Refreshed']}</p>
-            )}
-          </div>
-
-          <div>
-            <div css={stockFilter}>
-              <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
-                NASDAQ
-              </SymbolListFilter>
-              <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
-                NYSE
-              </SymbolListFilter>
+          <div css={buttonFlex}>
+            <button
+              onClick={() => {
+                if (stockSymbol.value) {
+                  dispatch(getPrices(stockSymbol.value, 'TIME_SERIES_DAILY'))
+                }
+                // symbol.value = ''
+              }}
+              css={button}
+            >
+              search
+            </button>
+            <div css={margin}>
+              <div css={stockFilter}>
+                <SymbolListFilter filter={ListFilters.SHOW_NASDAQ}>
+                  NASDAQ
+                </SymbolListFilter>
+                <SymbolListFilter filter={ListFilters.SHOW_NYSE}>
+                  NYSE
+                </SymbolListFilter>
+              </div>
+              {listFilters === 'SHOW_NYSE' && (
+                <StockSymbolList options={listOfStockSymbols} />
+              )}
+              {listFilters === 'SHOW_NASDAQ' && (
+                <StockSymbolList options={NASDAQStockSymbols} />
+              )}
             </div>
-            {listFilters === 'SHOW_NYSE' && (
-              <StockSymbolList options={listOfStockSymbols} />
-            )}
-            {listFilters === 'SHOW_NASDAQ' && (
-              <StockSymbolList options={NASDAQStockSymbols} />
-            )}
           </div>
+        </div>
+        <div css={metaText}>
+          {meta && !loading && <p>Last updated: {meta['3. Last Refreshed']}</p>}
         </div>
 
         {error && <div css={fetchError}>Error : {error}</div>}
@@ -141,6 +191,13 @@ class Stocks extends Component {
 }
 
 const mapStateToProps = state => ({
-  listFilters: state.listFilters
+  listFilters: state.listFilters,
+  stockSymbol: state.stockSymbol
 })
-export default connect(mapStateToProps)(Stocks)
+// const mapDispatchToProps = dispatch => ({
+// 	getPrices: symbol => dispatch(getPrices(symbol, 'TIME_SERIES_MONTHLY'))
+// })
+export default connect(
+  mapStateToProps
+  // mapDispatchToProps
+)(Stocks)
