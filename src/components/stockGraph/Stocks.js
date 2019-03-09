@@ -131,7 +131,7 @@ class Stocks extends Component {
             <button
               onClick={() => {
                 if (stockSymbol.value) {
-                  dispatch(getPrices(stockSymbol.value, 'TIME_SERIES_DAILY'))
+                  dispatch(getPrices(stockSymbol.value, 'TIME_SERIES_MONTHLY'))
                 }
                 // symbol.value = ''
               }}
