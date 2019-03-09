@@ -5,15 +5,18 @@ import { connect } from 'react-redux'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-import { getCrypto } from '../../actions/cryptoActions'
-import { CryptoLines } from '../../actions/cryptoActions'
+import {
+  getCrypto,
+  CryptoLines,
+  TypeFilters
+} from '../../actions/cryptoActions'
 
 import PriceGraph from '../stockGraph/PriceGraph'
 import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
 import Legend from '../stockGraph/Legend'
 import CryptoList from './CryptoList'
 import loadingSpinner from '../../images/loading.svg'
-
+import CryptoTypeFilter from './CryptoTypeFilter'
 
 const stockHeader = css`
   font-size: 99px;
@@ -95,6 +98,11 @@ const button = css`
 const margin = css`
   margin-left: 5px;
 `
+const cryptoFilter = css`
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+`
 
 class Crypto extends Component {
   render() {
@@ -135,6 +143,14 @@ class Crypto extends Component {
               search
             </button>
             <div css={margin}>
+              <div css={cryptoFilter}>
+                <CryptoTypeFilter type={TypeFilters.MONTHLY}>
+                  MONTHLY
+                </CryptoTypeFilter>
+                <CryptoTypeFilter type={TypeFilters.DAILY}>
+                  DAILY
+                </CryptoTypeFilter>
+              </div>
               <CryptoList />
             </div>
           </div>
