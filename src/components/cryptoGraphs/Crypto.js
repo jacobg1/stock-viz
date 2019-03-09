@@ -35,7 +35,11 @@ const flex = css`
   justify-content: space-around;
   max-width: 1178px;
   margin: 0 auto;
-  padding: 30px 0;
+
+  @media ${breakpoints.laptop} {
+    padding-top: 30px;
+  }
+  ${'' /* padding: 30px 0; */}
 `
 
 const metaText = css`
