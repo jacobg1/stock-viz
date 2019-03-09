@@ -11,6 +11,9 @@ import { customStyles } from '../../styles/customStyles'
 
 const selectHolder = css`
   width: 100%;
+	input {
+    color: #ef6e8d !important;
+  }
 `
 
 const StockSymbolList = ({ stockSymbol, onChange, options }) => {
