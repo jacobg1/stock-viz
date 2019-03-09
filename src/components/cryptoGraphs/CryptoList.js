@@ -7,7 +7,7 @@ import { customStyles } from '../../data/customStyles'
 
 const CryptoList = ({ cryotoCoin, onChange }) => {
   return (
-    <div className="select-holder crypto-select">
+    <div className="select-holder">
       <Select
         classNamePrefix="select-input"
         defaultValue={cryotoCoin}
