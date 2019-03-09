@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
+import { breakpoints } from '../../styles/breakpoints'
 
 import {
   getCrypto,
@@ -71,6 +72,13 @@ const loadingHolder = css`
 `
 const buttonFlex = css`
   display: flex;
+  flex-direction: column-reverse;
+  width: 85%;
+  max-width: 440px;
+  @media ${breakpoints.mobile} {
+    flex-direction: row;
+    justify-content: center;
+  }
 `
 const button = css`
   background-color: #a2edf2;
@@ -85,6 +93,10 @@ const button = css`
   border: 1px solid #a2edf2;
   display: inline-block;
   transition: all 0.4s ease-in-out;
+  line-height: 25px;
+  @media ${breakpoints.mobile} {
+    line-height: 100%;
+  }
   &:hover {
     background-color: #2c323b;
     border-color: #b1b3fc;
@@ -96,7 +108,14 @@ const button = css`
   }
 `
 const margin = css`
-  margin-left: 5px;
+  margin-left: 0;
+  margin-bottom: 10px;
+
+  @media ${breakpoints.mobile} {
+    margin-left: 5px;
+    margin-bottom: 0;
+    width: 100%;
+  }
 `
 const cryptoFilter = css`
   display: flex;
