@@ -1,13 +1,25 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { connect } from 'react-redux'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import { setCryptoCoin } from '../../actions/cryptoActions'
-import coinTypes from '../../data/coinTypes.json'
 import Select from 'react-select'
 import { customStyles } from '../../styles/customStyles'
+import coinTypes from '../../data/coinTypes.json'
+
+// import { breakpoints } from '../../styles/breakpoints'
+
+const selectHolder = css`
+  width: 100%;
+	input {
+    color: #ef6e8d !important;
+  }
+`
 
 const CryptoList = ({ cryotoCoin, onChange }) => {
   return (
-    <div className="select-holder">
+    <div css={selectHolder}>
       <Select
         classNamePrefix="select-input"
         defaultValue={cryotoCoin}
