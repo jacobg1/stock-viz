@@ -111,19 +111,6 @@
   }
 }
 
-// .meta {
-//   align-self: center;
-
-//   h2 {
-//     font-size: 24px;
-//     margin: 35px 0 10px;
-//   }
-
-//   p {
-//     font-size: 14px;
-//     // margin: 5px;
-//   }
-// }
 
 .hover-holder {
   position: absolute;
@@ -131,6 +118,7 @@
   background-color: #ef6e8d;
   border-radius: 8px;
   border: 1px solid white;
+	z-index: 999;
 
   span {
     font-size: 13px;
@@ -142,74 +130,6 @@
       padding-bottom: 4px;
     }
   }
-}
-
-// .line-filters {
-//   // float: left;
-//   // padding-left: 9.5%;
-//   // &:after {
-//   // 	content: "";
-//   // 	display: table;
-//   // 	clear: both;
-//   // }
-//   max-width: 900px;
-//   text-align: left;
-//   margin: 0 auto;
-
-//   label {
-//     font-size: 13px;
-//     padding-left: 20px;
-
-//     &:first-of-type {
-//       padding-left: 10px;
-//     }
-//   }
-// }
-
-// .svg-holder {
-//   // max-width: 900px;
-//   // margin: 0 auto;
-//   // position: relative;
-//   svg {
-//     margin: 0 auto;
-//     max-width: 948px;
-//   }
-
-//   circle {
-//     cursor: pointer;
-//     z-index: 9;
-//     opacity: 0;
-
-//     &:hover {
-//       opacity: .8;
-//     }
-//   }
-// }
-
-// .error {
-//   max-width: 900px;
-//   padding-top: 21%;
-//   margin: 0 auto;
-// }
-
-.select-holder {
-  width: 350px;
-  // margin: 30px auto;
-  // text-align: left;
-  input {
-    color: #ef6e8d !important;
-  }
-
-  // span {
-  //   // padding-bottom: 10px;
-  //   display: block;
-  //   text-align: left;
-
-  //   &:first-of-type {
-  //     margin-top: 15px;
-  //     padding-bottom: 5px;
-  //   }
-  // }
 }
 
 .select-input__single-value {
@@ -269,19 +189,4 @@
 
 }
 
-// .loading-spinner {
-//   margin-top: 100px;
-// }
-
-// .flex-holder {
-//   display: flex;
-//   justify-content: space-around;
-//   max-width: 1178px;
-//   margin: 0 auto;
-//   padding: 30px 0;
-// }
-
-.crypto-select {
-  padding-top: 20px;
-}
 
