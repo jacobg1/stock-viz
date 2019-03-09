@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { setCryptoCoin } from '../../actions/cryptoActions'
 import coinTypes from '../../data/coinTypes.json'
 import Select from 'react-select'
-import { customStyles } from '../../data/customStyles'
+import { customStyles } from '../../styles/customStyles'
 
 const CryptoList = ({ cryotoCoin, onChange }) => {
   return (
