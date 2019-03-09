@@ -12,7 +12,7 @@ import coinTypes from '../../data/coinTypes.json'
 
 const selectHolder = css`
   width: 100%;
-	input {
+  input {
     color: #ef6e8d !important;
   }
 `
