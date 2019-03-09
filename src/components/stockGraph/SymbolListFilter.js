@@ -9,7 +9,6 @@ import { setListFilter } from '../../actions/stockActions'
 import { jsx, css } from '@emotion/core'
 
 const button = css`
-  background-color: red;
   border: none;
   width: 50%;
   line-height: 15px;
