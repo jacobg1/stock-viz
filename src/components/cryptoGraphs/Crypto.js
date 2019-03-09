@@ -1,19 +1,19 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
-import PriceGraph from '../stockGraph/PriceGraph'
-import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
-import Legend from '../stockGraph/Legend'
 import { connect } from 'react-redux'
-import { getCrypto } from '../../actions/cryptoActions'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
-// import PriceGraph from './PriceGraph'
-// import LineFilter from '../../containers/stocks/LineFilter'
+import { getCrypto } from '../../actions/cryptoActions'
 import { CryptoLines } from '../../actions/cryptoActions'
+
+import PriceGraph from '../stockGraph/PriceGraph'
+import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
+import Legend from '../stockGraph/Legend'
 import CryptoList from './CryptoList'
 import loadingSpinner from '../../images/loading.svg'
+
 
 const stockHeader = css`
   font-size: 99px;
