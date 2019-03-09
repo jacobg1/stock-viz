@@ -113,7 +113,7 @@ class Crypto extends Component {
       meta,
       cryptoLines,
       cryptoCoin,
-			cryptoType,
+      cryptoType,
       dispatch
     } = this.props
     console.log(cryptoLines)
@@ -148,7 +148,7 @@ class Crypto extends Component {
                 <CryptoTypeFilter timePeriod={TypeFilters.MONTHLY}>
                   MONTHLY
                 </CryptoTypeFilter>
-								<CryptoTypeFilter timePeriod={TypeFilters.DAILY}>
+                <CryptoTypeFilter timePeriod={TypeFilters.DAILY}>
                   DAILY
                 </CryptoTypeFilter>
               </div>
@@ -193,6 +193,6 @@ class Crypto extends Component {
 }
 const mapStateToProps = state => ({
   cryptoCoin: state.cryptoCoin,
-	cryptoType: state.cryptoType
+  cryptoType: state.cryptoType
 })
 export default connect(mapStateToProps)(Crypto)
