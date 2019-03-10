@@ -12,7 +12,7 @@ import { breakpoints } from '../../styles/breakpoints'
 const button = css`
   border: none;
   width: 50%;
-  line-height: 25px;
+  line-height: 23px;
   background-color: #95eaf1;
   border: 1px solid #95eaf1;
   color: #2c323b;
