@@ -29,14 +29,19 @@ const chartFilters = css`
   max-width: 540px;
   margin: 0 auto;
   padding: 15px 0;
-  @media ${breakpoints.laptop} {
+  ${'' /* @media ${breakpoints.laptop} {
     flex-direction: column;
     position: absolute;
     left: 10%;
     width: 200px;
-  }
+  } */}
   ${'' /* padding-left: 104px;
   margin-top: 36px; */}
+`
+const title = css`
+  color: #ffffff;
+  font-size: 35px;
+  margin-bottom: 10px;
 `
 
 /*
@@ -48,6 +53,7 @@ class Charts extends Component {
     // console.log(chartsToShow)
     return (
       <div className="App">
+        <h1 css={title}>Data Lines</h1>
         <div className="charts">
           {/* <FilterCharts filter={ChartFilters.SHOW_PIE_CHARTS}>
             Pie Charts
