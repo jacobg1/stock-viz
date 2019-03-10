@@ -20,15 +20,19 @@ import loadingSpinner from '../../images/loading.svg'
 import CryptoTypeFilter from './CryptoTypeFilter'
 
 const stockHeader = css`
-  font-size: 99px;
+  font-size: 72px;
   color: #4d535e;
   opacity: 0.3;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   text-shadow: 0 1px 0 #e9e9ff;
+  @media ${breakpoints.mobile} {
+    font-size: 99px;
+    top: 50%;
+  }
 `
 const flex = css`
   display: flex;
@@ -37,7 +41,7 @@ const flex = css`
   margin: 0 auto;
 
   @media ${breakpoints.laptop} {
-    padding-top: 30px;
+    ${'' /* padding-top: 30px; */}
   }
   ${'' /* padding: 30px 0; */}
 `

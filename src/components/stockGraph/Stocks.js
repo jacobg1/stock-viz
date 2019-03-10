@@ -21,15 +21,19 @@ import listOfStockSymbols from '../../data/stockSymbols.json'
 import NASDAQStockSymbols from '../../data/NASDAQSymbols.json'
 
 const stockHeader = css`
-  font-size: 99px;
+  font-size: 72px;
   color: #4d535e;
   opacity: 0.3;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
   text-shadow: 0 1px 0 #e9e9ff;
+  @media ${breakpoints.mobile} {
+    font-size: 99px;
+    top: 50%;
+  }
 `
 const flex = css`
   display: flex;
@@ -37,9 +41,9 @@ const flex = css`
   max-width: 1178px;
   margin: 0 auto;
 
-  @media ${breakpoints.laptop} {
+  ${'' /* @media ${breakpoints.laptop} {
     padding-top: 30px;
-  }
+  } */}
   ${'' /* padding: 30px 0; */}
 `
 const metaText = css`
