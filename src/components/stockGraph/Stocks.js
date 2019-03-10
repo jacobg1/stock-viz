@@ -125,9 +125,39 @@ const button = css`
   }
 `
 class Stocks extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      width: 1000,
+      height: 600
+    }
+    this.updateGraphSize = this.updateGraphSize.bind(this)
+  }
   // componentDidMount() {
   //   this.props.dispatch(getPrices())
   // }
+  updateGraphSize() {
+    const windowWidth = window.innerWidth,
+      newWidth = window.innerWidth - 35,
+      newHeight = Math.round(newWidth / 1.67)
+    if (windowWidth >= 970) {
+      this.setState({ width: 1000, height: 600 })
+    } else if (windowWidth < 970 && windowWidth > 500) {
+      this.setState({ width: newWidth, height: newHeight })
+    } else if (windowWidth <= 500) {
+      this.setState({
+        width: 430,
+        height: 375
+      })
+    }
+  }
+  componentDidMount() {
+    this.updateGraphSize()
+    window.addEventListener('resize', this.updateGraphSize, false)
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGraphSize, false)
+  }
   render() {
     const {
       loading,
@@ -139,6 +169,8 @@ class Stocks extends Component {
       stockSymbol,
       dispatch
     } = this.props
+
+    const { height, width } = this.state
     // console.log(prices)
     // if (error) {
     //   return <div className="error">Error : {error}</div>
@@ -146,7 +178,6 @@ class Stocks extends Component {
     // if (loading) {
     //   return <h1>Loading...</h1>
     // }
-    console.log(stockSymbol)
     return (
       <>
         <div css={flex}>
@@ -201,6 +232,8 @@ class Stocks extends Component {
               <LineFilter filter={StockLines.CLOSE}>close</LineFilter>
             </div>
             <PriceGraph
+              height={height}
+              width={width}
               stockLines={stockLines}
               prices={prices}
               crypto={false}

@@ -128,6 +128,36 @@ const cryptoFilter = css`
 `
 
 class Crypto extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      width: 1000,
+      height: 600
+    }
+    this.updateGraphSize = this.updateGraphSize.bind(this)
+  }
+  updateGraphSize() {
+    const windowWidth = window.innerWidth,
+      newWidth = window.innerWidth - 35,
+      newHeight = Math.round(newWidth / 1.67)
+    if (windowWidth >= 970) {
+      this.setState({ width: 1000, height: 600 })
+    } else if (windowWidth < 970 && windowWidth > 500) {
+      this.setState({ width: newWidth, height: newHeight })
+    } else if (windowWidth <= 500) {
+      this.setState({
+        width: 430,
+        height: 375
+      })
+    }
+  }
+  componentDidMount() {
+    this.updateGraphSize()
+    window.addEventListener('resize', this.updateGraphSize, false)
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.updateGraphSize, false)
+  }
   render() {
     const {
       loading,
@@ -139,7 +169,8 @@ class Crypto extends Component {
       cryptoType,
       dispatch
     } = this.props
-    console.log(cryptoLines)
+
+    const { height, width } = this.state
     // if (error) {
     //   return <div className="error">Error : {error}</div>
     // }
@@ -201,6 +232,8 @@ class Crypto extends Component {
               <CryptoFilter filter={CryptoLines.CLOSE}>close</CryptoFilter>
             </div>
             <PriceGraph
+              height={height}
+              width={width}
               crypto={true}
               stockLines={cryptoLines}
               prices={cryptoPrices}
