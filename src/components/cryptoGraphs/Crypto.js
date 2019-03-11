@@ -56,15 +56,6 @@ const lineFilters = css`
   max-width: 900px;
   text-align: left;
   margin: 0 auto;
-
-  label {
-    font-size: 13px;
-    padding-left: 20px;
-
-    &:first-of-type {
-      padding-left: 10px;
-    }
-  }
 `
 const spinner = css`
   margin-top: 100px;
