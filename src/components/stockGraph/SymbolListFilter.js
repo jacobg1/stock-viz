@@ -1,13 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-// import PropTypes from 'prop-types'
-// import SymbolListFilter from '../../components/stockGraph/SymbolListFilter'
 import { connect } from 'react-redux'
-
-import { setListFilter } from '../../actions/stockActions'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import { breakpoints } from '../../styles/breakpoints'
+import { setListFilter } from '../../actions/stockActions'
 
 const button = css`
   border: none;
@@ -48,13 +45,13 @@ const button = css`
 
 // buttons for filtering between charts
 const SymbolListFilter = ({ children, onClick, active }) => {
-  // console.log(checked)
   return (
     <button css={button} onClick={onClick} className={active ? 'active' : ''}>
       {children}
     </button>
   )
 }
+
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.listFilters
 })

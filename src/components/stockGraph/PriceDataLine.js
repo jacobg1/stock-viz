@@ -25,7 +25,6 @@ class PriceDataLine extends PureComponent {
       clearHover,
       allPriceData,
       lineType
-      // crypto
     } = this.props
 
     // scale x axis to fit data
@@ -50,14 +49,6 @@ class PriceDataLine extends PureComponent {
       .x(d => x(d.date))
       .y(d => y(d[lineType]))
 
-    // .curve(d3.curveCatmullRom.alpha(0.1))
-    // const cryptoCheck = i => {
-    //   if (!crypto) {
-    //     return i % 2 === 0
-    //   } else {
-    //     return true
-    //   }
-    // }
     const hoverDots = allPriceData.map((price, i) =>
       hover ? (
         <circle

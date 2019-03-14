@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import PropTypes from 'prop-types'
 /** @jsx jsx */
@@ -23,7 +24,6 @@ const hoverHolder = css`
 
 const formatDate = d => {
   let date = new Date(d)
-  // console.log(date.getFullYear())
   return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()
 }
 const formatValue = n => {

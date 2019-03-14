@@ -17,21 +17,6 @@ const FetchCrypto = ({ dispatch, cryptoCoin }) => {
           }
         }}
       >
-        {/* <select
-          onChange={e => {
-            console.log(e.target.value)
-            symbol = e.target.value
-          }}
-        >
-          {listOfCoins}
-        </select>
-        <select
-          onChange={e => {
-            currency = e.target.value
-          }}
-        >
-          {listOfCurrencies}
-        </select> */}
         <button type="submit">fetch prices</button>
       </form>
     </div>

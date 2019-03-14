@@ -39,11 +39,6 @@ const flex = css`
   justify-content: space-around;
   max-width: 1178px;
   margin: 0 auto;
-
-  @media ${breakpoints.laptop} {
-    ${'' /* padding-top: 30px; */}
-  }
-  ${'' /* padding: 30px 0; */}
 `
 
 const metaText = css`
@@ -139,7 +134,6 @@ class Crypto extends Component {
     if (windowWidth >= 970) {
       this.setState({ width: 1000, height: 600 })
     } else if (windowWidth < 970 && windowWidth > 500) {
-      // do stuff
       const newHeight = Math.round(newWidth / 1.3)
       this.setState({ width: window.innerWidth - 35, height: newHeight })
     } else {
@@ -169,12 +163,7 @@ class Crypto extends Component {
     } = this.props
 
     const { height, width } = this.state
-    // if (error) {
-    //   return <div className="error">Error : {error}</div>
-    // }
-    // if (loading) {
-    //   return <h1>Loading...</h1>
-    // }
+
     return (
       <>
         <div css={flex}>

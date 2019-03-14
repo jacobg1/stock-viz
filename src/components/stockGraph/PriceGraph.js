@@ -1,10 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { PureComponent } from 'react'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
 import PriceDataLine from './PriceDataLine'
 import StockLabels from './StockLabels'
 import Tooltip from './Tooltip'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
 
 const axis = css`
   stroke: #d6d6d8;

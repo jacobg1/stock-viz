@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { breakpoints } from '../../styles/breakpoints'
 
 const txtColor = '#ffffff'
 const beforeColor = '#ffffff'

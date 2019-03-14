@@ -1,11 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { connect } from 'react-redux'
-
+import Select from 'react-select'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-
-import Select from 'react-select'
 import { setStockSymbol } from '../../actions/stockActions'
 import { customStyles } from '../../styles/customStyles'
 
@@ -28,14 +26,6 @@ const StockSymbolList = ({ stockSymbol, onChange, options }) => {
         isSearchable
         styles={customStyles}
       />
-      {/* {
-				Object.keys(stockSymbol).length !== 0 && (
-					<>
-					<span>Stock: {stockSymbol.label}</span>
-						<span>Symbol: {stockSymbol.value}</span>
-					</>
-				)
-			} */}
     </div>
   )
 }

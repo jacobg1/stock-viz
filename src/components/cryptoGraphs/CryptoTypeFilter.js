@@ -1,11 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
-// import PropTypes from 'prop-types'
-// import SymbolListFilter from '../../components/stockGraph/SymbolListFilter'
 import { connect } from 'react-redux'
-
 import { setCryptoType } from '../../actions/cryptoActions'
-
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import { breakpoints } from '../../styles/breakpoints'

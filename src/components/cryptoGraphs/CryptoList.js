@@ -1,14 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { connect } from 'react-redux'
+import Select from 'react-select'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import { setCryptoCoin } from '../../actions/cryptoActions'
-import Select from 'react-select'
 import { customStyles } from '../../styles/customStyles'
 import coinTypes from '../../data/coinTypes.json'
-
-// import { breakpoints } from '../../styles/breakpoints'
 
 const selectHolder = css`
   width: 100%;
@@ -28,14 +26,6 @@ const CryptoList = ({ cryotoCoin, onChange }) => {
         isSearchable
         styles={customStyles}
       />
-      {/* {
-				Object.keys(stockSymbol).length !== 0 && (
-					<>
-					<span>Stock: {stockSymbol.label}</span>
-						<span>Symbol: {stockSymbol.value}</span>
-					</>
-				)
-			} */}
     </div>
   )
 }

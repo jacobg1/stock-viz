@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
-
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 
@@ -18,7 +17,7 @@ const axisLabels = css`
 class StockLabels extends PureComponent {
   render() {
     const { margin, h, w, allPriceData } = this.props
-    // console.log(allPriceData)
+
     // scale x axis to fit data
     const x = d3
       .scaleLinear()

@@ -131,23 +131,8 @@ class Stocks extends Component {
     }
     this.updateGraphSize = this.updateGraphSize.bind(this)
   }
-  // componentDidMount() {
-  //   this.props.dispatch(getPrices())
-  // }
+
   updateGraphSize() {
-    // const windowWidth = window.innerWidth,
-    //   newWidth = window.innerWidth - 35,
-    //   newHeight = Math.round(newWidth / 1.67)
-    // if (windowWidth >= 970) {
-    //   this.setState({ width: 1000, height: 600 })
-    // } else if (windowWidth < 970 && windowWidth > 500) {
-    //   this.setState({ width: newWidth, height: newHeight })
-    // } else if (windowWidth <= 500) {
-    //   this.setState({
-    //     width: 430,
-    //     height: 375
-    //   })
-    // }
     const windowWidth = window.innerWidth,
       newWidth = window.innerWidth - 35
 
@@ -184,13 +169,7 @@ class Stocks extends Component {
     } = this.props
 
     const { height, width } = this.state
-    // console.log(prices)
-    // if (error) {
-    //   return <div className="error">Error : {error}</div>
-    // }
-    // if (loading) {
-    //   return <h1>Loading...</h1>
-    // }
+
     return (
       <>
         <div css={flex}>
@@ -200,7 +179,6 @@ class Stocks extends Component {
                 if (stockSymbol.value) {
                   dispatch(getPrices(stockSymbol.value, 'TIME_SERIES_MONTHLY'))
                 }
-                // symbol.value = ''
               }}
               css={button}
             >
@@ -263,10 +241,5 @@ const mapStateToProps = state => ({
   listFilters: state.listFilters,
   stockSymbol: state.stockSymbol
 })
-// const mapDispatchToProps = dispatch => ({
-// 	getPrices: symbol => dispatch(getPrices(symbol, 'TIME_SERIES_MONTHLY'))
-// })
-export default connect(
-  mapStateToProps
-  // mapDispatchToProps
-)(Stocks)
+
+export default connect(mapStateToProps)(Stocks)
