@@ -135,14 +135,29 @@ class Stocks extends Component {
   //   this.props.dispatch(getPrices())
   // }
   updateGraphSize() {
+    // const windowWidth = window.innerWidth,
+    //   newWidth = window.innerWidth - 35,
+    //   newHeight = Math.round(newWidth / 1.67)
+    // if (windowWidth >= 970) {
+    //   this.setState({ width: 1000, height: 600 })
+    // } else if (windowWidth < 970 && windowWidth > 500) {
+    //   this.setState({ width: newWidth, height: newHeight })
+    // } else if (windowWidth <= 500) {
+    //   this.setState({
+    //     width: 430,
+    //     height: 375
+    //   })
+    // }
     const windowWidth = window.innerWidth,
-      newWidth = window.innerWidth - 35,
-      newHeight = Math.round(newWidth / 1.67)
+      newWidth = window.innerWidth - 35
+
     if (windowWidth >= 970) {
       this.setState({ width: 1000, height: 600 })
     } else if (windowWidth < 970 && windowWidth > 500) {
-      this.setState({ width: newWidth, height: newHeight })
-    } else if (windowWidth <= 500) {
+      // do stuff
+      const newHeight = Math.round(newWidth / 1.3)
+      this.setState({ width: window.innerWidth - 35, height: newHeight })
+    } else {
       this.setState({
         width: 430,
         height: 375
