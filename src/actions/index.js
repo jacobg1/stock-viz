@@ -1,19 +1,3 @@
-// adding a pie chart
-let nextPieChartId = 0
-export const addPieChart = (data, title, labels, isPercent) => ({
-  type: 'ADD_PIE_CHART',
-  id: nextPieChartId++,
-  data,
-  title,
-  labels,
-  isPercent
-})
-
-// toggling between percent and number
-export const togglePercent = id => ({
-  type: 'TOGGLE_PERCENT',
-  id
-})
 
 // setting the filter
 export const setChartFilter = filter => ({
@@ -29,11 +13,4 @@ export const ChartFilters = {
   SHOW_CRYPTO_PRICES: 'SHOW_CRYPTO_PRICES'
 }
 
-// adding line graphs
-let nextLineGraphId = 0
-export const addLineGraph = (data, title) => ({
-  type: 'ADD_LINE_GRAPH',
-  id: nextLineGraphId++,
-  data,
-  title
-})
+
