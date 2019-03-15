@@ -11,6 +11,6 @@ deploy:
   provider: surge
   skip_cleanup: true
   domain: stock-lines.surge.sh
-  project: ./build/
+  project: /Users/jacobgreenwald/Documents/data-playground/build
 on:
   branch: master
