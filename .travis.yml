@@ -4,12 +4,13 @@ node_js:
 cache:
   directories:
   - node_modules
+script:
+  - npm test
 deploy:
-  - npm run deploy
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN 
+  github-token: $GITHUB_TOKEN  
   keep-history: true
- 
-
- 
+  local_dir: build
+  on:
+    branch: gh-pages
