@@ -1,15 +1,17 @@
 language: node_js
 node_js:
   - "stable"
-before_script:
-  - npm install  
+cache:
+  directories:
+  - node_modules
 script:
   - npm test
   - npm run build
+
 deploy:
-  provider: surge
-  project: ./build/static/
-  domain: stock-lines.surge.sh
+  provider: pages
   skip_cleanup: true
-on:
-  branch: master
+  github_token: 430f425649e257fccd60423c12753f9d699833ae
+  local_dir: build
+  on:
+    branch: master

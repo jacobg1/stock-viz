@@ -2,6 +2,7 @@
   "name": "data-playground",
   "version": "0.1.0",
   "private": true,
+	"homepage": "https://jacobg1.github.io/data-playground/",
   "dependencies": {
     "@emotion/core": "^10.0.7",
     "@emotion/styled": "^10.0.7",
