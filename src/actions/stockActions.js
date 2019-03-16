@@ -3,7 +3,7 @@
 */
 
 export function getPrices(symbol, type) {
-  const key = process.env.REACT_APP_API_KEY || 'demo',
+  const key = process.env.REACT_APP_API_KEY,
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
   return dispatch => {
     dispatch(getPricesBegin())
