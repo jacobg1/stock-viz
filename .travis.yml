@@ -1,7 +1,7 @@
 dist: trusty
 language: node_js
 node_js:
-  - "stable"
+  - "0.12"
 before_script:
   - npm install  
 script:
@@ -11,6 +11,4 @@ deploy:
   provider: surge
   project: ./build/
   domain: stock-lines.surge.sh
-  skip_cleanup: true
-on:
-  branch: master
+  
