@@ -6,11 +6,12 @@ cache:
   - node_modules
 script:
   - npm test
-  - npm run build
-after_success:
-  - npm run deploy
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: master
+after_success:
+  - npm run deploy
