@@ -1,14 +1,11 @@
 dist: trusty
 language: node_js
 node_js:
-  - "0.12"
+  - "stable"
 before_script:
   - npm install  
 script:
   - npm test
   - npm run build
-deploy:
-  provider: surge
-  project: ./build/
-  domain: stock-lines.surge.sh
-  
+after_success: 
+  - surge --project ./build --domain stock-lines.surge.sh  
