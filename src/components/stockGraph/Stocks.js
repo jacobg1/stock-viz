@@ -179,7 +179,7 @@ class Stocks extends Component {
           <div css={buttonFlex}>
             <button
               onClick={() => {
-                if (stockSymbol.value) {
+                if (!error && stockSymbol.value) {
                   dispatch(getPrices(stockSymbol.value, 'TIME_SERIES_MONTHLY'))
                 }
               }}

@@ -173,7 +173,7 @@ class Crypto extends Component {
           <div css={buttonFlex}>
             <button
               onClick={() => {
-                if (cryptoCoin.value) {
+                if (!error && cryptoCoin.value) {
                   dispatch(
                     getCrypto(
                       cryptoCoin.value,
