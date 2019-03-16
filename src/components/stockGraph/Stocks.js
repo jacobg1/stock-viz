@@ -150,8 +150,11 @@ class Stocks extends Component {
     }
   }
   componentDidMount() {
-    this.updateGraphSize()
-    window.addEventListener('resize', this.updateGraphSize, false)
+		const { error } = this.props
+		if(!error) {
+			this.updateGraphSize()
+			window.addEventListener('resize', this.updateGraphSize, false)
+		}
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateGraphSize, false)
