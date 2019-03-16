@@ -1,7 +1,45 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Bold'), local('Roboto-Bold'), url("https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url("https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url("https://fonts.gstatic.com/s/opensans/v15/mem5YaGs126MiZpBA-UN7rgOUuhpKKSTjw.woff2") format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 .App {
   text-align: center;
   background-color: #282c34;
   display: block;
+
+  h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+  }
+
+  button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+
 }
 
 .charts {
@@ -42,7 +80,6 @@
   stroke: #d6d6d8;
   fill: none;
 }
-
 
 .axis {
   stroke: #d6d6d8;
@@ -111,14 +148,13 @@
   }
 }
 
-
 .hover-holder {
   position: absolute;
   padding: 13px;
   background-color: #ef6e8d;
   border-radius: 8px;
   border: 1px solid white;
-	z-index: 999;
+  z-index: 999;
 
   span {
     font-size: 13px;
@@ -136,6 +172,8 @@
   color: #ef6e8d !important;
   // font-weight: bold;
   background-color: #282c34;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
 }
 
 .select-input__control {
@@ -152,8 +190,9 @@
     display: none;
   }
 
-  &__control {
-    cursor: pointer !important;
+  &__option {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
   }
 
   &__control--is-focused {
@@ -188,5 +227,3 @@
   }
 
 }
-
-

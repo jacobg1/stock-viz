@@ -19,7 +19,7 @@ const button = css`
   transition: all 0.4s ease-in-out;
   letter-spacing: 0.5px;
   @media ${breakpoints.mobile} {
-    line-height: 15px;
+    line-height: 20px;
   }
   &:first-of-type {
     margin-right: 5px;

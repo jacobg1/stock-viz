@@ -21,8 +21,9 @@ const chartFilters = css`
 `
 const title = css`
   color: #ffffff;
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 10px;
+  padding-top: 10px;
 `
 
 /*
