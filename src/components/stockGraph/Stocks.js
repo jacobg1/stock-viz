@@ -203,17 +203,17 @@ class Stocks extends Component {
           </div>
         </div>
         <div css={metaText}>
-          {meta && !loading && <p>Last updated: {meta['3. Last Refreshed']}</p>}
+          {!error && meta && !loading && <p>Last updated: {meta['3. Last Refreshed']}</p>}
         </div>
 
-        {error && <div css={fetchError}>Error : {meta}</div>}
+        {error && <div css={fetchError}>Error : {error}</div>}
         {loading && (
           <div css={loadingHolder}>
             <img css={spinner} alt="Loading..." src={loadingSpinner} />
           </div>
         )}
 
-        {prices.length !== 0 && !loading && (
+				{!error && prices.length !== 0 && !loading && (
           <>
             <div css={lineFilters}>
               <Legend stocklines={stockLines} />
@@ -231,7 +231,7 @@ class Stocks extends Component {
             />
           </>
         )}
-        {!loading && prices.length === 0 && <h1 css={stockHeader}>STOCKS</h1>}
+				{!error && !loading && prices.length === 0 && <h1 css={stockHeader}>STOCKS</h1>}
       </>
     )
   }

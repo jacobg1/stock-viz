@@ -144,8 +144,11 @@ class Crypto extends Component {
     }
   }
   componentDidMount() {
-    this.updateGraphSize()
-    window.addEventListener('resize', this.updateGraphSize, false)
+		const { error } = this.props
+		if(!error) {
+			this.updateGraphSize()
+			window.addEventListener('resize', this.updateGraphSize, false)
+		}
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateGraphSize, false)
@@ -198,10 +201,10 @@ class Crypto extends Component {
           </div>
         </div>
         <div css={metaText}>
-          {meta && !loading && <p>Last updated: {meta['6. Last Refreshed']}</p>}
+          {meta && !loading && !error && <p>Last updated: {meta['6. Last Refreshed']}</p>}
         </div>
 
-        {error && <div css={fetchError}>Error : {meta}</div>}
+        {error && <div css={fetchError}>Error : {error}</div>}
 
         {loading && (
           <div css={loadingHolder}>
@@ -209,7 +212,7 @@ class Crypto extends Component {
           </div>
         )}
 
-        {cryptoPrices.length !== 0 && !loading && (
+				{!error && cryptoPrices.length !== 0 && !loading && (
           <>
             <div css={lineFilters}>
               <Legend stocklines={cryptoLines} />
@@ -227,7 +230,7 @@ class Crypto extends Component {
             />
           </>
         )}
-        {!loading && cryptoPrices.length === 0 && (
+        {!error && !loading && cryptoPrices.length === 0 && (
           <h1 css={stockHeader}>CRYPTO</h1>
         )}
       </>
