@@ -1,17 +1,11 @@
 language: node_js
+language: node_js
 node_js:
-  - "stable"
-cache:
-  directories:
-  - node_modules
-script:
-  - npm test
-  - npm run build
+  - "node"
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN
-  local_dir: public
-  on:
-    branch: master
+after_success:
+  - git config --global user.name "jacobg1"
+  - git config --global user.email "jeg4t@virginia.edu"
+  - git remote rm origin
+  - git remote add origin https://jacobg1:${GITHUB_TOKEN}@github.com/jacobg1/data-playground.git
+  - npm run deploy
