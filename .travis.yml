@@ -5,8 +5,8 @@ cache:
   directories:
   - node_modules
 script:
-  - npm test
-  - npm run build
+  - npm run deploy
+
 deploy:
   provider: pages
   skip-cleanup: true
@@ -14,5 +14,5 @@ deploy:
   keep-history: true
   on:
     branch: master
-after_success:
-  - npm run deploy
+
+ 
