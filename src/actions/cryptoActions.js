@@ -3,7 +3,8 @@
 */
 
 export function getCrypto(symbol, type, market) {
-  const key = process.env.REACT_APP_API_KEY || 'demo',
+	// eslint-disable-next-line no-undef
+	const key = process.env.REACT_APP_API_KEY || $REACT_APP_API_KEY,
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&market=${market}&apikey=${key}`
   return dispatch => {
     dispatch(getCryptoBegin())
