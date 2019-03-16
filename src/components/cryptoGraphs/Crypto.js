@@ -144,11 +144,11 @@ class Crypto extends Component {
     }
   }
   componentDidMount() {
-		const { error } = this.props
-		if(!error) {
-			this.updateGraphSize()
-			window.addEventListener('resize', this.updateGraphSize, false)
-		}
+    const { error } = this.props
+    if (!error) {
+      this.updateGraphSize()
+      window.addEventListener('resize', this.updateGraphSize, false)
+    }
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateGraphSize, false)
@@ -166,6 +166,14 @@ class Crypto extends Component {
     } = this.props
 
     const { height, width } = this.state
+
+    if (loading) {
+      return (
+        <div css={loadingHolder}>
+          <img css={spinner} alt="Loading..." src={loadingSpinner} />
+        </div>
+      )
+    }
 
     return (
       <>
@@ -200,19 +208,14 @@ class Crypto extends Component {
             </div>
           </div>
         </div>
+
         <div css={metaText}>
-          {meta && !loading && !error && <p>Last updated: {meta['6. Last Refreshed']}</p>}
+          {!error && meta && <p>Last updated: {meta['6. Last Refreshed']}</p>}
         </div>
 
         {error && <div css={fetchError}>Error : {error}</div>}
 
-        {loading && (
-          <div css={loadingHolder}>
-            <img css={spinner} alt="Loading..." src={loadingSpinner} />
-          </div>
-        )}
-
-				{!error && cryptoPrices.length !== 0 && !loading && (
+        {!error && cryptoPrices.length !== 0 && (
           <>
             <div css={lineFilters}>
               <Legend stocklines={cryptoLines} />
@@ -230,7 +233,7 @@ class Crypto extends Component {
             />
           </>
         )}
-        {!error && !loading && cryptoPrices.length === 0 && (
+        {!error && cryptoPrices.length === 0 && (
           <h1 css={stockHeader}>CRYPTO</h1>
         )}
       </>

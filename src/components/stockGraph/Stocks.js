@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import styled from '@emotion/styled'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
@@ -40,11 +39,6 @@ const flex = css`
   justify-content: space-around;
   max-width: 1178px;
   margin: 0 auto;
-
-  ${'' /* @media ${breakpoints.laptop} {
-    padding-top: 30px;
-  } */}
-  ${'' /* padding: 30px 0; */}
 `
 const metaText = css`
   align-self: center;
@@ -137,11 +131,16 @@ class Stocks extends Component {
       newWidth = window.innerWidth - 35
 
     if (windowWidth >= 970) {
-      this.setState({ width: 1000, height: 600 })
+      this.setState({
+        width: 1000,
+        height: 600
+      })
     } else if (windowWidth < 970 && windowWidth > 500) {
-      // do stuff
       const newHeight = Math.round(newWidth / 1.3)
-      this.setState({ width: window.innerWidth - 35, height: newHeight })
+      this.setState({
+        width: window.innerWidth - 35,
+        height: newHeight
+      })
     } else {
       this.setState({
         width: 430,
@@ -150,11 +149,11 @@ class Stocks extends Component {
     }
   }
   componentDidMount() {
-		const { error } = this.props
-		if(!error) {
-			this.updateGraphSize()
-			window.addEventListener('resize', this.updateGraphSize, false)
-		}
+    const { error } = this.props
+    if (!error) {
+      this.updateGraphSize()
+      window.addEventListener('resize', this.updateGraphSize, false)
+    }
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateGraphSize, false)
@@ -172,6 +171,14 @@ class Stocks extends Component {
     } = this.props
 
     const { height, width } = this.state
+
+    if (loading) {
+      return (
+        <div css={loadingHolder}>
+          <img css={spinner} alt="Loading..." src={loadingSpinner} />
+        </div>
+      )
+    }
 
     return (
       <>
@@ -205,18 +212,14 @@ class Stocks extends Component {
             </div>
           </div>
         </div>
+
         <div css={metaText}>
-          {!error && meta && !loading && <p>Last updated: {meta['3. Last Refreshed']}</p>}
+          {!error && meta && <p>Last updated: {meta['3. Last Refreshed']}</p>}
         </div>
 
         {error && <div css={fetchError}>Error : {error}</div>}
-        {loading && (
-          <div css={loadingHolder}>
-            <img css={spinner} alt="Loading..." src={loadingSpinner} />
-          </div>
-        )}
 
-				{!error && prices.length !== 0 && !loading && (
+        {!error && prices.length !== 0 && (
           <>
             <div css={lineFilters}>
               <Legend stocklines={stockLines} />
@@ -234,7 +237,8 @@ class Stocks extends Component {
             />
           </>
         )}
-				{!error && !loading && prices.length === 0 && <h1 css={stockHeader}>STOCKS</h1>}
+
+        {!error && prices.length === 0 && <h1 css={stockHeader}>STOCKS</h1>}
       </>
     )
   }
