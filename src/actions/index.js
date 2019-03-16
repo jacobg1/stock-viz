@@ -1,4 +1,3 @@
-
 // setting the filter
 export const setChartFilter = filter => ({
   type: 'SET_CHART_FILTER',
@@ -12,5 +11,3 @@ export const ChartFilters = {
   SHOW_STOCK_PRICES: 'SHOW_STOCK_PRICES',
   SHOW_CRYPTO_PRICES: 'SHOW_CRYPTO_PRICES'
 }
-
-
