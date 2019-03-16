@@ -33,7 +33,7 @@ class Charts extends Component {
     const { chartsToShow } = this.props
     return (
       <div className="App">
-        <h1 css={title}>DataPlayground</h1>
+        <h1 css={title}>Data Playground</h1>
         <div className="charts">
           <div css={chartFilters}>
             <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
