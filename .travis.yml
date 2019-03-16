@@ -1,16 +1,15 @@
 language: node_js
 node_js:
   - "stable"
-cache:
-  directories:
-    - node_modules
+before_script:
+  - npm install  
 script:
   - npm test
   - npm run build
 deploy:
   provider: surge
-  skip_cleanup: true
+  project: ./build/
   domain: stock-lines.surge.sh
-  project: /Users/jacobgreenwald/Documents/data-playground/build
+  skip_cleanup: true
 on:
   branch: master
