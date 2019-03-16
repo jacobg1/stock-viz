@@ -206,7 +206,7 @@ class Stocks extends Component {
           {meta && !loading && <p>Last updated: {meta['3. Last Refreshed']}</p>}
         </div>
 
-        {error && <div css={fetchError}>Error : {error}</div>}
+        {error && <div css={fetchError}>Error : {meta}</div>}
         {loading && (
           <div css={loadingHolder}>
             <img css={spinner} alt="Loading..." src={loadingSpinner} />

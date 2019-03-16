@@ -201,7 +201,7 @@ class Crypto extends Component {
           {meta && !loading && <p>Last updated: {meta['6. Last Refreshed']}</p>}
         </div>
 
-        {error && <div css={fetchError}>Error : {error}</div>}
+        {error && <div css={fetchError}>Error : {meta}</div>}
 
         {loading && (
           <div css={loadingHolder}>
