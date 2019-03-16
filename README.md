@@ -5,4 +5,4 @@ Visualization of historic stock and crypto prices
 
 Built with React, Redux and D3
 
-Deployed app: http://stock-lines.surge.sh
+Deployed app: [https://jacob-greenwald.com/data-playground/](https://jacob-greenwald.com/data-playground/)
