@@ -8,4 +8,4 @@ script:
   - npm test
   - npm run build
 after_success: 
-  - surge --project ./build --domain stock-lines.surge.sh  
+  - surge --project ./build/ --domain stock-lines.surge.sh  
