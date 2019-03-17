@@ -1,7 +1,7 @@
 # data-playground
 
 [![Build Status](https://travis-ci.org/jacobg1/data-playground.svg?branch=master)](https://travis-ci.org/jacobg1/data-playground.svg?branch=master)
-[![Dependencies Status](https://david-dm.org/jacobg1/data-playground.svg)](https://david-dm.org/jacobg1/data-playground.svg)
+[![dependencies Status](https://david-dm.org/jacobg1/data-playground/status.svg)](https://david-dm.org/jacobg1/data-playground)
 
 Visualization of historic stock and crypto prices
 
