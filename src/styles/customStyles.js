@@ -6,6 +6,7 @@ export const customStyles = {
     boxSizing: 'border-box',
     borderColor: state.isFocused ? '#95eaf1' : 'white',
     boxShadow: state.isFocused ? null : null,
+    cursor: 'pointer',
     '&:hover': {
       borderColor: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
     }
