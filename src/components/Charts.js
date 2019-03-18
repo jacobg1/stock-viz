@@ -29,35 +29,32 @@ const title = css`
 /*
 	component for showing charts and filters for switching between charts
 */
-class Charts extends Component {
-  render() {
-    const { chartsToShow } = this.props
-    return (
-      <div className="App">
-        <h1 css={title}>Data Playground</h1>
-        <div className="charts">
-          <div css={chartFilters}>
-            <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
-              Stock Prices
-            </FilterCharts>
-            <FilterCharts filter={ChartFilters.SHOW_CRYPTO_PRICES}>
-              CryptoCurrency
-            </FilterCharts>
-          </div>
-          {chartsToShow === 'SHOW_STOCK_PRICES' && (
-            <>
-              <StocksContainer />
-            </>
-          )}
-          {chartsToShow === 'SHOW_CRYPTO_PRICES' && (
-            <>
-              <CryptoContainer />
-            </>
-          )}
+const Charts = ({ chartsToShow }) => {
+  return (
+    <div className="App">
+      <h1 css={title}>Data Playground</h1>
+      <div className="charts">
+        <div css={chartFilters}>
+          <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>
+            Stock Prices
+          </FilterCharts>
+          <FilterCharts filter={ChartFilters.SHOW_CRYPTO_PRICES}>
+            CryptoCurrency
+          </FilterCharts>
         </div>
+        {chartsToShow === 'SHOW_STOCK_PRICES' && (
+          <>
+            <StocksContainer />
+          </>
+        )}
+        {chartsToShow === 'SHOW_CRYPTO_PRICES' && (
+          <>
+            <CryptoContainer />
+          </>
+        )}
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 const mapStateToProps = state => ({
