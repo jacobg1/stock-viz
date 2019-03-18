@@ -71,7 +71,6 @@ const filterBoxes = css`
 `
 // buttons for filtering between charts
 const CryptoLineFilter = ({ children, onChange, checked }) => {
-  // console.log(checked)
   return (
     <div css={filterBoxes}>
       <label>
