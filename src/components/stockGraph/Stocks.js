@@ -5,9 +5,7 @@ import React, { Component } from 'react'
 import { jsx, css } from '@emotion/core'
 import { breakpoints } from '../../styles/breakpoints'
 
-import { StockLines } from '../../actions/stockActions'
-import { ListFilters } from '../../actions/stockActions'
-import { getPrices } from '../../actions/stockActions'
+import { StockLines, ListFilters, getPrices } from '../../actions/stockActions'
 
 import Legend from './Legend'
 import PriceGraph from './PriceGraph'
