@@ -1,5 +1,6 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 // buttons for filtering between charts
 const Legend = ({ stocklines }) => {
@@ -36,3 +37,7 @@ const Legend = ({ stocklines }) => {
 }
 
 export default Legend
+
+Legend.propTypes = {
+  stocklines: PropTypes.object.isRequired
+}
