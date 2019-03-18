@@ -244,9 +244,4 @@ class Stocks extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  listFilters: state.listFilters,
-  stockSymbol: state.stockSymbol
-})
-
-export default connect(mapStateToProps)(Stocks)
+export default Stocks

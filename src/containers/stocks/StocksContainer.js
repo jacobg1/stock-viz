@@ -6,7 +6,9 @@ const mapStateToProps = state => ({
   loading: state.stocks.loading,
   error: state.stocks.error,
   meta: state.stocks.meta,
-  stockLines: state.stockLines
+  stockLines: state.stockLines,
+  listFilters: state.listFilters,
+  stockSymbol: state.stockSymbol
 })
 
 export default connect(mapStateToProps)(Stocks)
