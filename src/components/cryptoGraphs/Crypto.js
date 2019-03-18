@@ -1,6 +1,5 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
@@ -240,8 +239,10 @@ class Crypto extends Component {
     )
   }
 }
-const mapStateToProps = state => ({
-  cryptoCoin: state.cryptoCoin,
-  cryptoType: state.cryptoType
-})
-export default connect(mapStateToProps)(Crypto)
+
+export default Crypto
+// const mapStateToProps = state => ({
+//   cryptoCoin: state.cryptoCoin,
+//   cryptoType: state.cryptoType
+// })
+// export default connect(mapStateToProps)(Crypto)

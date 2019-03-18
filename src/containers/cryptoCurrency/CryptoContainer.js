@@ -6,7 +6,9 @@ const mapStateToProps = state => ({
   loading: state.crypto.loading,
   error: state.crypto.error,
   meta: state.crypto.meta,
-  cryptoLines: state.cryptoLines
+  cryptoLines: state.cryptoLines,
+  cryptoCoin: state.cryptoCoin,
+  cryptoType: state.cryptoType
 })
 
 export default connect(mapStateToProps)(Crypto)
