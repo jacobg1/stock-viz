@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { jsx, css } from '@emotion/core'
 import { breakpoints } from '../../styles/breakpoints'
 import { setListFilter } from '../../actions/stockActions'
+import { setFilterLoadingState } from '../../actions'
 
 const button = css`
   border: none;
@@ -55,9 +56,15 @@ const SymbolListFilter = ({ children, onClick, active }) => {
 const mapStateToProps = (state, ownProps) => ({
   active: ownProps.filter === state.listFilters
 })
-
+function dispatchAndChangeLoadingState(dispatch, filter) {
+  dispatch(setListFilter(filter))
+  dispatch(setFilterLoadingState())
+  setTimeout(() => {
+    dispatch(setFilterLoadingState())
+  }, 500)
+}
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(setListFilter(ownProps.filter))
+  onClick: () => dispatchAndChangeLoadingState(dispatch, ownProps.filter)
 })
 
 export default connect(
