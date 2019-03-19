@@ -14,7 +14,7 @@ const selectHolder = css`
   }
 `
 
-const StockSymbolList = ({ stockSymbol, onChange, options }) => {
+const StockSymbolList = ({ stockSymbol, onChange, options, loading }) => {
   return (
     <div css={selectHolder}>
       <Select
@@ -26,12 +26,14 @@ const StockSymbolList = ({ stockSymbol, onChange, options }) => {
         isSearchable
         styles={customStyles}
         ignoreAccents={false}
+        isLoading={loading}
       />
     </div>
   )
 }
 const mapStateToProps = state => ({
-  stockSymbol: state.stockSymbol
+  stockSymbol: state.stockSymbol,
+  loading: state.filterLoadingState
 })
 const mapDispatchToProps = dispatch => ({
   onChange: opt => dispatch(setStockSymbol(opt.value, opt.label))
