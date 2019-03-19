@@ -8,6 +8,7 @@ import stockSymbol from './stockSymbol'
 import cryptoCoin from './cryptoCoin'
 import listFilters from './listFilters'
 import cryptoType from './cryptoType'
+import filterLoadingState from './filterLoadingState'
 
 export default combineReducers({
   chartFilters,
@@ -18,5 +19,6 @@ export default combineReducers({
   stockSymbol,
   cryptoCoin,
   listFilters,
-  cryptoType
+  cryptoType,
+  filterLoadingState
 })
