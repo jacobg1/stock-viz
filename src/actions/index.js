@@ -11,3 +11,12 @@ export const ChartFilters = {
   SHOW_STOCK_PRICES: 'SHOW_STOCK_PRICES',
   SHOW_CRYPTO_PRICES: 'SHOW_CRYPTO_PRICES'
 }
+
+/* 
+	simulate loading on select options to give 
+	users feedback that the list has changed 
+*/
+
+export const setFilterLoadingState = () => ({
+  type: 'SET_FILTER_LOADING_STATE'
+})
