@@ -25,6 +25,7 @@ const StockSymbolList = ({ stockSymbol, onChange, options }) => {
         options={options}
         isSearchable
         styles={customStyles}
+        ignoreAccents={false}
       />
     </div>
   )
