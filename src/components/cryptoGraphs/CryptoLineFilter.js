@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import PropTypes from 'prop-types'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 
 const txtColor = '#ffffff'
 const beforeColor = '#ffffff'

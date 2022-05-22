@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-unused-vars
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 import './App.scss'
 import { ChartFilters } from '../actions'
 import StocksContainer from '../containers/stocks/StocksContainer'
@@ -19,12 +18,6 @@ const chartFilters = css`
   margin: 0 auto;
   padding: 15px 0;
 `
-const title = css`
-  color: #ffffff;
-  font-size: 30px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-`
 
 /*
 	component for showing charts and filters for switching between charts
@@ -32,7 +25,6 @@ const title = css`
 const Charts = ({ chartsToShow }) => {
   return (
     <div className="App">
-      <h1 css={title}>Data Playground</h1>
       <div className="charts">
         <div css={chartFilters}>
           <FilterCharts filter={ChartFilters.SHOW_STOCK_PRICES}>

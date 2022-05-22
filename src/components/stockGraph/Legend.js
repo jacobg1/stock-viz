@@ -1,11 +1,10 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import PropTypes from 'prop-types'
 
 // buttons for filtering between charts
 const Legend = ({ stocklines }) => {
   const { type } = stocklines
-  // console.log(type)
+
   return (
     <div className="legend">
       {type.high && (

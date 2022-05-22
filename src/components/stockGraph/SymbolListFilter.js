@@ -1,8 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react'
 import { connect } from 'react-redux'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 import { breakpoints } from '../../styles/breakpoints'
 import { setListFilter } from '../../actions/stockActions'
 import { setFilterLoadingState } from '../../actions'

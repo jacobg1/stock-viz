@@ -1,9 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 import React, { PureComponent } from 'react'
 import * as d3 from 'd3'
-
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react'
 
 const priceLine = css`
   stroke-width: 3px;
