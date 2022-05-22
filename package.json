@@ -1,8 +1,8 @@
 {
-  "name": "data-playground",
+  "name": "stock-viz",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jacobg1.github.io/data-playground/",
+  "homepage": "https://jacobg1.github.io/stock-viz",
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "d3": "^5.9.2",
