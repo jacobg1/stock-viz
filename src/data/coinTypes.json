@@ -1,27 +1,7 @@
 [
 	{
-		"label": "GiveCoin - 2GIVE",
-		"value": "2GIVE"
-	},
-	{
-		"label": "Achain - ACT",
-		"value": "ACT"
-	},
-	{
 		"label": "Cardano - ADA",
 		"value": "ADA"
-	},
-	{
-		"label": "adToken - ADT",
-		"value": "ADT"
-	},
-	{
-		"label": "SingularityNET - AGI",
-		"value": "AGI"
-	},
-	{
-		"label": "AidCoin - AID",
-		"value": "AID"
 	},
 	{
 		"label": "Aion - AION",
@@ -32,33 +12,10 @@
 		"value": "ANT"
 	},
 	{
-		"label": "Ark - ARK",
-		"value": "ARK"
-	},
-	{
-		"label": "ATBCoin - ATB",
-		"value": "ATB"
-	},
-	{
-		"label": "ATMChain - ATM",
-		"value": "ATM"
-	},
-	{
-		"label": "Auroracoin - AUR",
-		"value": "AUR"
-	},
-	{
-		"label": "Aventus - AVT",
-		"value": "AVT"
-	},
-	{
 		"label": "Basic-Attention-Token - BAT",
 		"value": "BAT"
 	},
-	{
-		"label": "Bitcoin-Diamond - BCD",
-		"value": "BCD"
-	},
+
 	{
 		"label": "Bitcoin-Cash - BCH",
 		"value": "BCH"
@@ -88,6 +45,10 @@
 		"value": "XEM"
 	},
 	{
+		"label": "Polygon - MATIC",
+		"value": "MATIC"
+	},
+	{
 		"label": "Stellar - XLM",
 		"value": "XLM"
 	},
@@ -98,6 +59,10 @@
 	{
 		"label": "Ripple - XRP",
 		"value": "XRP"
+	},
+	{
+		"label": "Solana - SOL",
+		"value": "SOL"
 	},
 	{
 		"label": "Zcash - ZEC",
