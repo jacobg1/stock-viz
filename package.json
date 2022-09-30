@@ -5,7 +5,7 @@
   "homepage": "https://jacobg1.github.io/stock-viz",
   "dependencies": {
     "@emotion/core": "^10.0.10",
-    "d3": "^5.9.2",
+    "d3": "^7.6.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^7.0.3",
