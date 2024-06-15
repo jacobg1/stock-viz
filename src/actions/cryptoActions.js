@@ -11,7 +11,6 @@ export function getCrypto(symbol, type, market) {
       .then(handleFetchErrors)
       .then(response => response.json())
       .then(json => {
-        // console.log(json)
         if (!json[Object.keys(json)[1]]) {
           dispatch(getCryptoFailure(json[Object.keys(json)[0]]))
         }
@@ -29,7 +28,6 @@ export function getCrypto(symbol, type, market) {
 
 // function to handle http errors
 function handleFetchErrors(response) {
-  // console.log(response)
   if (!response.ok) {
     throw Error(response.statusText)
   }

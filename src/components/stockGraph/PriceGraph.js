@@ -58,22 +58,22 @@ class PriceGraph extends PureComponent {
   }
 
   formatAllData() {
-    const { prices, crypto } = this.props,
+    const { prices } = this.props,
       allPriceData = []
 
-    Object.keys(prices).forEach((price, index) => {
-      const timeStamp = new Date(price),
-        open = Object.keys(prices[price])[0],
-        high = Object.keys(prices[price])[crypto ? 2 : 1],
-        low = Object.keys(prices[price])[crypto ? 4 : 2],
-        close = Object.keys(prices[price])[crypto ? 6 : 3]
+    Object.keys(prices).forEach(date => {
+      const timeStamp = new Date(date),
+        open = Object.keys(prices[date])[0],
+        high = Object.keys(prices[date])[1],
+        low = Object.keys(prices[date])[2],
+        close = Object.keys(prices[date])[3]
 
       allPriceData.push({
         date: timeStamp,
-        open: Number(prices[price][open]),
-        high: Number(prices[price][high]),
-        low: Number(prices[price][low]),
-        close: Number(prices[price][close])
+        open: Number(prices[date][open]),
+        high: Number(prices[date][high]),
+        low: Number(prices[date][low]),
+        close: Number(prices[date][close])
       })
     })
     return allPriceData
