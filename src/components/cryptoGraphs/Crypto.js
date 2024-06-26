@@ -6,7 +6,7 @@ import { breakpoints } from '../../styles/breakpoints'
 import {
   getCrypto,
   CryptoLines,
-  TypeFilters
+  TypeFilters,
 } from '../../actions/cryptoActions'
 
 import PriceGraph from '../stockGraph/PriceGraph'
@@ -115,12 +115,24 @@ const cryptoFilter = css`
   padding-bottom: 10px;
 `
 
+const LAST_UPDATED_DATE_KEY = '6. Last Refreshed'
+
+function formatLastUpdatedDate(date) {
+  if (!date || typeof date !== 'string') return
+
+  const dateWithoutSeconds = date.slice(0, date.lastIndexOf(' '))
+
+  const formatDate = new Date(dateWithoutSeconds)
+
+  return formatDate.toDateString()
+}
+
 class Crypto extends Component {
-  constructor(props) {
+  constructor() {
     super()
     this.state = {
       width: 1000,
-      height: 600
+      height: 600,
     }
     this.updateGraphSize = this.updateGraphSize.bind(this)
   }
@@ -136,7 +148,7 @@ class Crypto extends Component {
     } else {
       this.setState({
         width: 430,
-        height: 375
+        height: 375,
       })
     }
   }
@@ -159,7 +171,7 @@ class Crypto extends Component {
       cryptoLines,
       cryptoCoin,
       cryptoType,
-      dispatch
+      dispatch,
     } = this.props
 
     const { height, width } = this.state
@@ -183,8 +195,8 @@ class Crypto extends Component {
                     getCrypto(
                       cryptoCoin.value,
                       `DIGITAL_CURRENCY_${cryptoType}`,
-                      'USD'
-                    )
+                      'USD',
+                    ),
                   )
                 }
               }}
@@ -207,7 +219,11 @@ class Crypto extends Component {
         </div>
 
         <div css={metaText}>
-          {!error && meta && <p>Last updated: {meta['6. Last Refreshed']}</p>}
+          {!error && meta && (
+            <p>
+              Last updated: {formatLastUpdatedDate(meta[LAST_UPDATED_DATE_KEY])}
+            </p>
+          )}
         </div>
 
         {error && <div css={fetchError}>Error : {error}</div>}
