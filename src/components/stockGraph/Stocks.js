@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { breakpoints } from '../../styles/breakpoints'
-
+import Image from 'next/image'
 import { StockLines, ListFilters, getPrices } from '../../actions/stockActions'
 
 import Legend from './Legend'
@@ -158,7 +158,13 @@ class Stocks extends Component {
     if (loading) {
       return (
         <div css={loadingHolder}>
-          <img css={spinner} alt="Loading..." src={loadingSpinner.src} />
+          <Image
+            width={200}
+            height={200}
+            css={spinner}
+            alt="Loading..."
+            src={loadingSpinner.src}
+          />
         </div>
       )
     }

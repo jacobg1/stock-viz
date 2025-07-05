@@ -53,7 +53,7 @@ const SymbolListFilter = ({ children, onClick, active }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.filter === state.listFilters
+  active: ownProps.filter === state.listFilters,
 })
 function dispatchAndChangeLoadingState(dispatch, filter) {
   dispatch(setListFilter(filter))
@@ -63,10 +63,7 @@ function dispatchAndChangeLoadingState(dispatch, filter) {
   }, 500)
 }
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatchAndChangeLoadingState(dispatch, ownProps.filter)
+  onClick: () => dispatchAndChangeLoadingState(dispatch, ownProps.filter),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SymbolListFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(SymbolListFilter)

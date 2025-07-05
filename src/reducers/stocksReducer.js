@@ -1,13 +1,13 @@
 import {
   GET_PRICES_BEGIN,
   GET_PRICES_SUCCESS,
-  GET_PRICES_FAILURE
+  GET_PRICES_FAILURE,
 } from '../actions/stockActions'
 
 const initialState = {
   prices: [],
   loading: false,
-  error: null
+  error: null,
 }
 
 function stocksReducer(state = initialState, action) {
@@ -16,14 +16,14 @@ function stocksReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       }
     case GET_PRICES_SUCCESS:
       return {
         ...state,
         loading: false,
         prices: action.payload.prices,
-        meta: action.payload.meta
+        meta: action.payload.meta,
       }
     case GET_PRICES_FAILURE:
       return {
@@ -31,7 +31,7 @@ function stocksReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
         prices: [],
-        meta: []
+        meta: [],
       }
     default:
       return state

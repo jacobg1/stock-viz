@@ -20,5 +20,5 @@ export default combineReducers({
   cryptoCoin,
   listFilters,
   cryptoType,
-  filterLoadingState
+  filterLoadingState,
 })

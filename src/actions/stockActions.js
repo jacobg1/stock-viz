@@ -5,12 +5,12 @@
 export function getPrices(symbol, type) {
   const key = process.env.REACT_APP_API_KEY,
     url = `https://www.alphavantage.co/query?function=${type}&symbol=${symbol}&apikey=${key}`
-  return dispatch => {
+  return (dispatch) => {
     dispatch(getPricesBegin())
     return fetch(url)
       .then(handleFetchErrors)
-      .then(response => response.json())
-      .then(json => {
+      .then((response) => response.json())
+      .then((json) => {
         // console.log(json)
         if (!json[Object.keys(json)[1]]) {
           dispatch(getPricesFailure(json[Object.keys(json)[0]]))
@@ -18,12 +18,12 @@ export function getPrices(symbol, type) {
         dispatch(
           getPricesSuccess(
             json[Object.keys(json)[1]],
-            json[Object.keys(json)[0]]
-          )
+            json[Object.keys(json)[0]],
+          ),
         )
         return json
       })
-      .catch(error => dispatch(getPricesFailure(error)))
+      .catch((error) => dispatch(getPricesFailure(error)))
   }
 }
 
@@ -48,23 +48,23 @@ export const GET_PRICES_SUCCESS = 'GET_PRICES_SUCCESS'
 export const GET_PRICES_FAILURE = 'GET_PRICES_FAILURE'
 
 export const getPricesBegin = () => ({
-  type: GET_PRICES_BEGIN
+  type: GET_PRICES_BEGIN,
 })
 
 export const getPricesSuccess = (prices, meta) => ({
   type: GET_PRICES_SUCCESS,
-  payload: { prices, meta }
+  payload: { prices, meta },
 })
 
-export const getPricesFailure = error => ({
+export const getPricesFailure = (error) => ({
   type: GET_PRICES_FAILURE,
-  payload: { error }
+  payload: { error },
 })
 
 // setting which pice line to show on stock chart
-export const setStockLines = filter => ({
+export const setStockLines = (filter) => ({
   type: 'SET_PRICE_LINE',
-  filter
+  filter,
 })
 
 // action types for filtering between stock price lines
@@ -72,23 +72,23 @@ export const StockLines = {
   OPEN: 'open',
   HIGH: 'high',
   LOW: 'low',
-  CLOSE: 'close'
+  CLOSE: 'close',
 }
 
 // action type for setting that stock symbol that will be used in search
 export const setStockSymbol = (symbol, label) => ({
   type: 'SET_STOCK_SYMBOL',
   symbol,
-  label
+  label,
 })
 
 export const ListFilters = {
   SHOW_NYSE: 'SHOW_NYSE',
-  SHOW_NASDAQ: 'SHOW_NASDAQ'
+  SHOW_NASDAQ: 'SHOW_NASDAQ',
 }
 
 // setting the filter
-export const setListFilter = filter => ({
+export const setListFilter = (filter) => ({
   type: 'SET_LIST_FILTER',
-  filter
+  filter,
 })

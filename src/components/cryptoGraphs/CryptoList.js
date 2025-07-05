@@ -20,7 +20,7 @@ const CryptoList = ({ cryotoCoin, onChange }) => {
       <Select
         classNamePrefix="select-input"
         defaultValue={cryotoCoin}
-        onChange={opt => onChange(opt)}
+        onChange={(opt) => onChange(opt)}
         options={coinTypes}
         isSearchable
         styles={customStyles}
@@ -28,14 +28,11 @@ const CryptoList = ({ cryotoCoin, onChange }) => {
     </div>
   )
 }
-const mapStateToProps = state => ({
-  cryotoCoin: state.cryptoCoin
+const mapStateToProps = (state) => ({
+  cryotoCoin: state.cryptoCoin,
 })
-const mapDispatchToProps = dispatch => ({
-  onChange: opt => dispatch(setCryptoCoin(opt.value, opt.label))
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (opt) => dispatch(setCryptoCoin(opt.value, opt.label)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CryptoList)
+export default connect(mapStateToProps, mapDispatchToProps)(CryptoList)

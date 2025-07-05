@@ -21,11 +21,11 @@ const hoverHolder = css`
   }
 `
 
-const formatDate = d => {
+const formatDate = (d) => {
   let date = new Date(d)
   return date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear()
 }
-const formatValue = n => {
+const formatValue = (n) => {
   return parseFloat(n).toFixed(2)
 }
 const Tooltip = ({ value, date, positionX, positionY, color }) => {
@@ -46,5 +46,5 @@ Tooltip.propTypes = {
   value: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   positionX: PropTypes.number.isRequired,
-  positionY: PropTypes.number.isRequired
+  positionY: PropTypes.number.isRequired,
 }

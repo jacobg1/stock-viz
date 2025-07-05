@@ -3,8 +3,8 @@ const initialState = {
     high: true,
     low: false,
     open: false,
-    close: false
-  }
+    close: false,
+  },
 }
 const cryptoLines = (state = initialState, action) => {
   // console.log(action)
@@ -15,8 +15,8 @@ const cryptoLines = (state = initialState, action) => {
         ...state,
         type: {
           ...state.type,
-          [action.filter]: !state.type[action.filter]
-        }
+          [action.filter]: !state.type[action.filter],
+        },
       }
     default:
       return state

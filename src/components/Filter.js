@@ -100,5 +100,5 @@ export default Filter
 Filter.propTypes = {
   children: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
 }

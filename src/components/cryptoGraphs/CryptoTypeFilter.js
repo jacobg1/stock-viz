@@ -50,14 +50,11 @@ const CryptoTypeFilter = ({ children, active, onClick }) => {
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  active: ownProps.timePeriod === state.cryptoType
+  active: ownProps.timePeriod === state.cryptoType,
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  onClick: () => dispatch(setCryptoType(ownProps.timePeriod))
+  onClick: () => dispatch(setCryptoType(ownProps.timePeriod)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CryptoTypeFilter)
+export default connect(mapStateToProps, mapDispatchToProps)(CryptoTypeFilter)

@@ -1,6 +1,6 @@
 const initialState = {
   label: 'Select from list or type to search...',
-  value: 0
+  value: 0,
 }
 
 const stockSymbol = (state = initialState, action) => {
@@ -8,7 +8,7 @@ const stockSymbol = (state = initialState, action) => {
     case 'SET_STOCK_SYMBOL':
       return {
         label: action.label,
-        value: action.symbol
+        value: action.symbol,
       }
     default:
       return state

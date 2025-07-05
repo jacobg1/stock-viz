@@ -22,13 +22,13 @@ class PriceDataLine extends PureComponent {
       setHover,
       clearHover,
       allPriceData,
-      lineType
+      lineType,
     } = this.props
 
     // scale x axis to fit data
     const x = d3
       .scaleTime()
-      .domain(d3.extent(allPriceData, d => d.date))
+      .domain(d3.extent(allPriceData, (d) => d.date))
       .range([margin, w])
 
     // scale y axis to fit data
@@ -36,7 +36,7 @@ class PriceDataLine extends PureComponent {
       .scaleLinear()
       .domain([
         0,
-        d3.max(allPriceData, d => Math.max(d.low, d.open, d.high, d.close))
+        d3.max(allPriceData, (d) => Math.max(d.low, d.open, d.high, d.close)),
       ])
       .range([h, margin])
 
@@ -44,13 +44,13 @@ class PriceDataLine extends PureComponent {
     // that connects the data points
     const line = d3
       .line()
-      .x(d => x(d.date))
-      .y(d => y(d[lineType]))
+      .x((d) => x(d.date))
+      .y((d) => y(d[lineType]))
 
     const hoverDots = allPriceData.map((price, i) =>
       hover ? (
         <circle
-          onMouseMove={e => setHover(e)}
+          onMouseMove={(e) => setHover(e)}
           key={i}
           onMouseLeave={() => clearHover()}
           fill={stroke}
@@ -61,7 +61,7 @@ class PriceDataLine extends PureComponent {
           data-value={price[lineType]}
           data-color={stroke}
         />
-      ) : null
+      ) : null,
     )
 
     return (

@@ -20,7 +20,7 @@ const StockSymbolList = ({ stockSymbol, onChange, options, loading }) => {
         cacheOptions
         classNamePrefix="select-input"
         defaultValue={stockSymbol}
-        onChange={opt => onChange(opt)}
+        onChange={(opt) => onChange(opt)}
         options={options}
         isSearchable
         styles={customStyles}
@@ -30,15 +30,12 @@ const StockSymbolList = ({ stockSymbol, onChange, options, loading }) => {
     </div>
   )
 }
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   stockSymbol: state.stockSymbol,
-  loading: state.filterLoadingState
+  loading: state.filterLoadingState,
 })
-const mapDispatchToProps = dispatch => ({
-  onChange: opt => dispatch(setStockSymbol(opt.value, opt.label))
+const mapDispatchToProps = (dispatch) => ({
+  onChange: (opt) => dispatch(setStockSymbol(opt.value, opt.label)),
 })
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(StockSymbolList)
+export default connect(mapStateToProps, mapDispatchToProps)(StockSymbolList)

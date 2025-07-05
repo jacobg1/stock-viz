@@ -49,8 +49,8 @@ const Charts = ({ chartsToShow }) => {
   )
 }
 
-const mapStateToProps = state => ({
-  chartsToShow: state.chartFilters
+const mapStateToProps = (state) => ({
+  chartsToShow: state.chartFilters,
 })
 
 const ChartsContainer = connect(mapStateToProps)(Charts)
@@ -58,5 +58,5 @@ const ChartsContainer = connect(mapStateToProps)(Charts)
 export default ChartsContainer
 
 Charts.propTypes = {
-  chartsToShow: PropTypes.string.isRequired
+  chartsToShow: PropTypes.string.isRequired,
 }

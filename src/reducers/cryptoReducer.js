@@ -1,13 +1,13 @@
 import {
   GET_CRYPTO_BEGIN,
   GET_CRYPTO_SUCCESS,
-  GET_CRYPTO_FAILURE
+  GET_CRYPTO_FAILURE,
 } from '../actions/cryptoActions'
 
 const initialState = {
   prices: [],
   loading: false,
-  error: null
+  error: null,
 }
 
 function stocksReducer(state = initialState, action) {
@@ -16,14 +16,14 @@ function stocksReducer(state = initialState, action) {
       return {
         ...state,
         loading: true,
-        error: null
+        error: null,
       }
     case GET_CRYPTO_SUCCESS:
       return {
         ...state,
         loading: false,
         prices: action.payload.crypto,
-        meta: action.payload.meta
+        meta: action.payload.meta,
       }
     case GET_CRYPTO_FAILURE:
       return {
@@ -31,7 +31,7 @@ function stocksReducer(state = initialState, action) {
         loading: false,
         error: action.payload.error,
         prices: [],
-        meta: []
+        meta: [],
       }
     default:
       return state

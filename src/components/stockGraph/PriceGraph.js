@@ -33,7 +33,7 @@ class PriceGraph extends PureComponent {
       positionY: '',
       color: '',
       width: 1000,
-      height: 600
+      height: 600,
     }
     this.setHover = this.setHover.bind(this)
     this.clearHover = this.clearHover.bind(this)
@@ -44,7 +44,7 @@ class PriceGraph extends PureComponent {
       date: e.target.getAttribute('data-date'),
       positionX: e.pageX - 100,
       positionY: e.pageY - 80,
-      color: e.target.getAttribute('data-color')
+      color: e.target.getAttribute('data-color'),
     })
   }
   clearHover() {
@@ -53,7 +53,7 @@ class PriceGraph extends PureComponent {
       value: '',
       positionX: '',
       positionY: '',
-      color: ''
+      color: '',
     })
   }
 
@@ -61,7 +61,7 @@ class PriceGraph extends PureComponent {
     const { prices } = this.props,
       allPriceData = []
 
-    Object.keys(prices).forEach(date => {
+    Object.keys(prices).forEach((date) => {
       const timeStamp = new Date(date),
         open = Object.keys(prices[date])[0],
         high = Object.keys(prices[date])[1],
@@ -73,7 +73,7 @@ class PriceGraph extends PureComponent {
         open: Number(prices[date][open]),
         high: Number(prices[date][high]),
         low: Number(prices[date][low]),
-        close: Number(prices[date][close])
+        close: Number(prices[date][close]),
       })
     })
     return allPriceData

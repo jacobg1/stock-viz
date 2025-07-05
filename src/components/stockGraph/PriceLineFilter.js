@@ -88,5 +88,5 @@ export default PriceLineFilter
 PriceLineFilter.propTypes = {
   children: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired
+  checked: PropTypes.bool.isRequired,
 }

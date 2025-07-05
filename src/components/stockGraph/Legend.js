@@ -38,5 +38,5 @@ const Legend = ({ stocklines }) => {
 export default Legend
 
 Legend.propTypes = {
-  stocklines: PropTypes.object.isRequired
+  stocklines: PropTypes.object.isRequired,
 }

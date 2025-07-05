@@ -1,6 +1,6 @@
 const initialState = {
   label: 'Select from list or type to search...',
-  value: 0
+  value: 0,
 }
 
 const cryptoCoin = (state = initialState, action) => {
@@ -8,7 +8,7 @@ const cryptoCoin = (state = initialState, action) => {
     case 'SET_CRYPTO_COIN':
       return {
         label: action.label,
-        value: action.coin
+        value: action.coin,
       }
     default:
       return state

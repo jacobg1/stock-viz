@@ -8,31 +8,31 @@ export const customStyles = {
     boxShadow: state.isFocused ? null : null,
     cursor: 'pointer',
     '&:hover': {
-      borderColor: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
-    }
+      borderColor: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff',
+    },
   }),
   dropdownIndicator: (base, state) => ({
     ...base,
     transition: 'all .2s ease',
     color: state.selectProps.menuIsOpen ? '#95eaf1' : 'white',
     '&:hover': {
-      color: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff'
-    }
+      color: state.isFocused ? 'rgb(239, 110, 141)' : '#a8a8ff',
+    },
 
     // transform: state.isMenuOpen ? 'rotate(180deg)' : 'rotate(360deg)'
   }),
-  menu: base => ({
+  menu: (base) => ({
     ...base,
     borderRadius: 0,
     hyphens: 'auto',
     marginTop: 0,
     textAlign: 'center',
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
   }),
-  menuList: base => ({
+  menuList: (base) => ({
     ...base,
     padding: 0,
-    background: '#282c34'
+    background: '#282c34',
   }),
   option: (provided, state) => ({
     ...provided,
@@ -42,16 +42,16 @@ export const customStyles = {
     opacity: state.isSelected ? 0.75 : 1,
     padding: 15,
     '&:hover': {
-      color: 'white'
+      color: 'white',
       // background: '#a8a8ff'
     },
     '&:focus': {
-      color: 'white'
+      color: 'white',
       // background: '#a8a8ff'
     },
     cursor: 'pointer',
     ':active': {
-      backgroundColor: '#a8a8ff'
-    }
-  })
+      backgroundColor: '#a8a8ff',
+    },
+  }),
 }

@@ -20,7 +20,7 @@ class StockLabels extends PureComponent {
     // scale x axis to fit data
     const x = d3
       .scaleLinear()
-      .domain(d3.extent(allPriceData, d => d.date))
+      .domain(d3.extent(allPriceData, (d) => d.date))
       .range([margin, w])
 
     // scale y axis to fit data
@@ -28,7 +28,7 @@ class StockLabels extends PureComponent {
       .scaleLinear()
       .domain([
         0,
-        d3.max(allPriceData, d => Math.max(d.open, d.high, d.low, d.close))
+        d3.max(allPriceData, (d) => Math.max(d.open, d.high, d.low, d.close)),
       ])
       .range([h, margin])
 
@@ -49,9 +49,9 @@ class StockLabels extends PureComponent {
             transform="translate(-3,2)"
           />
         </g>
-      ) : null
+      ) : null,
     )
-    const formatXLabels = x => new Date(x).getFullYear()
+    const formatXLabels = (x) => new Date(x).getFullYear()
     // create x axis labels and tick marks
     const xLabels = x.ticks(10).map((d, i) =>
       x(d) > margin && x(d) < w ? (
@@ -59,7 +59,7 @@ class StockLabels extends PureComponent {
           <text>{formatXLabels(d)}</text>
           <line x1="0" x2="0" y1="0" y2="5" transform="translate(0, -20)" />
         </g>
-      ) : null
+      ) : null,
     )
 
     return (

@@ -5,5 +5,5 @@ export const breakpoints = {
   specialHeader: `(min-width: 700px)`,
   tablet: `(min-width: 768px)`,
   laptop: `(min-width: 1124px)`,
-  desktop: `(min-width: 1440px)`
+  desktop: `(min-width: 1440px)`,
 }
