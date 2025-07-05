@@ -13,7 +13,7 @@ import PriceGraph from '../stockGraph/PriceGraph'
 import CryptoFilter from '../../containers/cryptoCurrency/CryptoFilter'
 import Legend from '../stockGraph/Legend'
 import CryptoList from './CryptoList'
-import loadingSpinner from '../../images/loading.svg'
+import loadingSpinner from '../../../public/loading.svg'
 import CryptoTypeFilter from './CryptoTypeFilter'
 
 const stockHeader = css`
@@ -130,10 +130,7 @@ function formatLastUpdatedDate(date) {
 class Crypto extends Component {
   constructor() {
     super()
-    this.state = {
-      width: 1000,
-      height: 600,
-    }
+    this.state = { width: 1000, height: 600 }
     this.updateGraphSize = this.updateGraphSize.bind(this)
   }
   updateGraphSize() {
@@ -146,10 +143,7 @@ class Crypto extends Component {
       const newHeight = Math.round(newWidth / 1.3)
       this.setState({ width: window.innerWidth - 35, height: newHeight })
     } else {
-      this.setState({
-        width: 430,
-        height: 375,
-      })
+      this.setState({ width: 430, height: 375 })
     }
   }
   componentDidMount() {
@@ -179,7 +173,7 @@ class Crypto extends Component {
     if (loading) {
       return (
         <div css={loadingHolder}>
-          <img css={spinner} alt="Loading..." src={loadingSpinner} />
+          <img css={spinner} alt="Loading..." src={loadingSpinner.src} />
         </div>
       )
     }

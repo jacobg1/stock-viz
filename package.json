@@ -6,19 +6,19 @@
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "d3": "^7.9.0",
+    "next": "^15.3.5",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-redux": "^9.2.0",
-    "react-select": "^5.10.1",
+    "react-select": "^5.8.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "build-localhost": "PUBLIC_URL=/ react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+		"dev": "next dev --turbopack",
+    "start": "npx serve@latest ./build",
+    "build": "next build",
+		"export": "next export",
     "format": "prettier --write \"**/*.js\"",
     "deploy": "npm run build && gh-pages -d build"
   },
@@ -32,15 +32,8 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/plugin-transform-private-property-in-object": "^7.27.1",
     "gh-pages": "^6.3.0",
     "prettier": "^3.6.2",
-    "react-scripts": "^5.0.1",
     "sass": "^1.89.2"
-  },
-  "overrides": {
-    "postcss": "^8.4.38",
-    "nth-check": "^2.1.1",
-		"tough-cookie": "4.1.4"
   }
 }

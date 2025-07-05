@@ -10,7 +10,7 @@ import PriceGraph from './PriceGraph'
 import LineFilter from '../../containers/stocks/LineFilter'
 import StockSymbolList from './StockSymbolList'
 import SymbolListFilter from './SymbolListFilter'
-import loadingSpinner from '../../images/loading.svg'
+import loadingSpinner from '../../../public/loading.svg'
 import listOfStockSymbols from '../../data/stockSymbols.json'
 import NASDAQStockSymbols from '../../data/NASDAQSymbols.json'
 
@@ -114,10 +114,7 @@ const button = css`
 class Stocks extends Component {
   constructor() {
     super()
-    this.state = {
-      width: 1000,
-      height: 600
-    }
+    this.state = { width: 1000, height: 600 }
     this.updateGraphSize = this.updateGraphSize.bind(this)
   }
 
@@ -126,21 +123,12 @@ class Stocks extends Component {
       newWidth = window.innerWidth - 35
 
     if (windowWidth >= 970) {
-      this.setState({
-        width: 1000,
-        height: 600
-      })
+      this.setState({ width: 1000, height: 600 })
     } else if (windowWidth < 970 && windowWidth > 500) {
       const newHeight = Math.round(newWidth / 1.3)
-      this.setState({
-        width: window.innerWidth - 35,
-        height: newHeight
-      })
+      this.setState({ width: window.innerWidth - 35, height: newHeight })
     } else {
-      this.setState({
-        width: 430,
-        height: 375
-      })
+      this.setState({ width: 430, height: 375 })
     }
   }
   componentDidMount() {
@@ -162,7 +150,7 @@ class Stocks extends Component {
       stockLines,
       listFilters,
       stockSymbol,
-      dispatch
+      dispatch,
     } = this.props
 
     const { height, width } = this.state
@@ -170,7 +158,7 @@ class Stocks extends Component {
     if (loading) {
       return (
         <div css={loadingHolder}>
-          <img css={spinner} alt="Loading..." src={loadingSpinner} />
+          <img css={spinner} alt="Loading..." src={loadingSpinner.src} />
         </div>
       )
     }

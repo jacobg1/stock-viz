@@ -2,6 +2,6 @@
 
 Visualization of historic stock and crypto prices
 
-Built with React, Redux and D3
+Built with React, Redux and D3 and NextJS
 
 Deployed app: [https://jacobg1.github.io/stock-viz/](https://jacobg1.github.io/stock-viz/)
