@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
