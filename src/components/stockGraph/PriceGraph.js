@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import { PureComponent } from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import PriceDataLine from './PriceDataLine'

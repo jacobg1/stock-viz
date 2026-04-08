@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react'
 import { breakpoints } from '../../styles/breakpoints'
